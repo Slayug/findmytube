@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.1
+    container_name: fy-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - data_elasticsearch:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - fy
+volumes:
+  data_elasticsearch:
+    driver: local
+networks:
+  fy:
+    driver: bridge
