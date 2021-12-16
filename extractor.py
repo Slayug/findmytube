@@ -1,15 +1,18 @@
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api.formatters import JSONFormatter
 
+import json
+import sys
+
+if (len(sys.argv) < 2):
+    sys.exit("Need videoID argument")
+
+
 formatter = JSONFormatter()
 
 
-video_id='SCq06W2CuI8'
+video_id=sys.argv[1]
 transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
-
-print("Languages found: ")
-print(transcript_list._manually_created_transcripts)
-print(transcript_list._generated_transcripts)
 
 languages={}
 
@@ -24,5 +27,4 @@ for key in transcript_list._generated_transcripts:
         language = transcript_list._generated_transcripts[key]
         languages[key] = formatter.format_transcript(language.fetch())
         
-
-print(languages)
+print(json.dumps(languages))

@@ -57,6 +57,10 @@
   },
   "dependencies": {
     "@elastic/elasticsearch": "^7.15.0",
-    "sitka": "^1.0.5"
+    "fp-ts": "^2.11.5",
+    "scrape-youtube": "^2.1.13",
+    "sitka": "^1.0.5",
+    "winston": "^3.3.3",
+    "yt-channel-info": "^2.2.0"
   }
 }
