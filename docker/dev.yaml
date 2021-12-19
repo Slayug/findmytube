@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  es01:
+  elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.16.1
     container_name: fy-elasticsearch
     environment:
