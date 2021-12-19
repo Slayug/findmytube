@@ -43,6 +43,7 @@ languages={}
 def format_language(result, _languages, key):
     _languages[key] = {
         "fullText": functools.reduce(lambda a, b: f"{a} {b['text']}", result, ""),
+        #TODO format transcript returns String, must return a JSON array
         "translations": formatter.format_transcript(result)
     }
 
