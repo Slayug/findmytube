@@ -8,10 +8,10 @@
 * Docker & Docker-compose
 
 
-Une fois les requirements installés : `./dev/setup.mjs`
+Une fois les requirements installés : `./dev/setup.sh`
 
 # Chaque jour
-`./dev/startup.mjs`
+`./dev/startup.sh`
 
 
 Project template from: https://github.com/chriswells0/node-typescript-template
