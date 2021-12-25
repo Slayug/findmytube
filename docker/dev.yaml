@@ -13,6 +13,13 @@ services:
       - 9300:9300
     networks:
       - fy
+  redis:
+    image: redis:6.2.6-alpine
+    container_name: fy-redis
+    ports:
+      - 6379:6379
+    networks:
+      - fy
 volumes:
   data_elasticsearch:
     driver: local

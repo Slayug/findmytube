@@ -1,0 +1,17 @@
+{
+  "apps": [
+    {
+      "name": "worker",
+      "script": "./src/worker.ts",
+      "instances": "-1",
+      "exec_mode": "cluster",
+      "watch": ["./src"]
+    },
+    {
+      "name": "producer",
+      "script": "./src/producer.ts",
+      "instances": "1",
+      "watch": ["./src"]
+    }
+  ]
+}
