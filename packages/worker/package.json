@@ -1,0 +1,15 @@
+{
+  "name": "@fy/worker",
+  "version": "1.0.0",
+  "dependencies": {
+    "@fy/core": "^1.0.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "pm2 start pm2.json"
+  },
+  "devDependencies": {
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
+  }
+}

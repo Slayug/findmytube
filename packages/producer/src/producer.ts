@@ -1,22 +1,20 @@
 
 import { Queue } from "bullmq";
-import { QueueName } from "./config";
-import { VideoJobData } from "./VideoJob";
-import YoutubeHelper from "./youtube-helper"
+import Config from "@fy/core/Config";
+import VideoJobData from "@fy/core/VideoJobData";
+import YoutubeHelper from "@fy/core/YoutubeHelper";
 
-const queue = new Queue<VideoJobData>(QueueName, {
+const queue = new Queue<VideoJobData>(Config.queueName, {
     connection: {
-        host: "localhost",
-        port: 6379
+        host: Config.redisHost,
+        port: Config.redisPort
     }
 });
 
 console.log('HelloWorl');
 
 const channelIdList = [
-    'Àgauche',
-    "mediapart",
-    'DanyCaligula'
+    'cliquecanal',
 ].forEach((channelId) => {
     YoutubeHelper.loadChannelVideos(channelId)
         .then((videos) => {

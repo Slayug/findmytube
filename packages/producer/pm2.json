@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "producer",
+      "script": "./src/producer.ts",
+      "instances": "1",
+      "watch": ["./src"]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const ytch = require("yt-channel-info");
+const ytch = require('yt-channel-info');
 import { youtube } from 'scrape-youtube';
 import { SearchOptions } from 'scrape-youtube/lib/interface';
 /**
@@ -19,7 +19,7 @@ interface Video {
     premiere: boolean;
     publishedText: string;
     title: string;
-    type: "video";
+    type: 'video';
     videoId: string;
     videoThumbnails: Image[] | null;
     viewCount: number;
@@ -31,7 +31,7 @@ class YoutubeHelper {
 
     static async loadChannelVideos(
         channelId: string,
-        sortBy?: "newest" | "oldest" | "popular"
+        sortBy?: 'newest' | 'oldest' | 'popular'
     ): Promise<{ items: Video[] }> {
         return ytch.getChannelVideos(channelId, sortBy);
     }

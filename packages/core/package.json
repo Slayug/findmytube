@@ -1,0 +1,13 @@
+{
+  "name": "@fy/core",
+  "version": "1.0.0",
+  "dependencies": {
+    "scrape-youtube": "^2.1.13",
+    "yt-channel-info": "^2.2.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
+  }
+}
