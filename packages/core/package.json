@@ -1,6 +1,11 @@
 {
   "name": "@fy/core",
   "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "tsc index.ts"
+  },
   "dependencies": {
     "scrape-youtube": "^2.1.13",
     "yt-channel-info": "^2.2.0"

@@ -1,8 +1,8 @@
 import { Worker, Job } from 'bullmq';
-import Config from '@fy/core/Config';
+import { Config, VideoJobData } from '@fy/core';
+
 
 import { execSync } from 'child_process';
-import VideoJobData from '@fy/core/src/VideoJobData';
 
 const worker = new Worker<VideoJobData, number>(
   Config.queueName, async (job: Job<VideoJobData>) => {
@@ -28,7 +28,7 @@ const worker = new Worker<VideoJobData, number>(
     return 0;
   }, {
   connection: {
-    host: "localhost",
+    host: 'localhost',
     port: 6379
   }
 });

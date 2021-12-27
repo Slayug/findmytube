@@ -1,8 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
+import Config from '@fy/core/Config';
+
 import './App.css';
 
 function App() {
+  console.log(Config)
   return (
     <div className="App">
       <header className="App-header">

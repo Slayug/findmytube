@@ -1,8 +1,7 @@
 
-import { Queue } from "bullmq";
-import Config from "@fy/core/Config";
-import VideoJobData from "@fy/core/VideoJobData";
-import YoutubeHelper from "@fy/core/YoutubeHelper";
+import { Queue } from 'bullmq';
+
+import { Config, VideoJobData, YoutubeHelper } from '@fy/core';
 
 const queue = new Queue<VideoJobData>(Config.queueName, {
     connection: {
@@ -11,10 +10,9 @@ const queue = new Queue<VideoJobData>(Config.queueName, {
     }
 });
 
-console.log('HelloWorl');
 
-const channelIdList = [
-    'cliquecanal',
+[
+    'thinkerview',
 ].forEach((channelId) => {
     YoutubeHelper.loadChannelVideos(channelId)
         .then((videos) => {
