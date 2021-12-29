@@ -4,7 +4,6 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "tsc index.ts"
   },
   "dependencies": {
     "scrape-youtube": "^2.1.13",

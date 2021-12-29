@@ -23,13 +23,14 @@ const worker = new Worker<VideoJobData, number>(
 
     } catch (e) {
       console.error('something bad happened for ' + job.data.videoId);
+      throw e;
     }
 
     return 0;
   }, {
   connection: {
-    host: 'localhost',
-    port: 6379
+    host: Config.redisHost,
+    port: Config.redisPort 
   }
 });
 
