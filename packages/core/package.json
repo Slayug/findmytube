@@ -5,7 +5,8 @@
   "module": "./dist/index.esm.js",
   "private": true,
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "dev": "rollup -c --watch"
   },
   "dependencies": {},
   "license": "MIT",
