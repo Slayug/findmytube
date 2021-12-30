@@ -1399,11 +1399,6 @@
     tslib "2.3.1"
     uuid "8.3.2"
 
-"@nestjs/elasticsearch@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/elasticsearch/-/elasticsearch-8.0.0.tgz#e25a4cb4af59a1b75525618a4a1e9b068f46d5f9"
-  integrity sha512-Yr0DldZA2pZGAF77R7CDClbXJd6cKctI5zgFc/6vFARjaHhRwETyeTES/nRiQLCZ+hfWmpRyvu1YX3reNMqW6A==
-
 "@nestjs/platform-express@^8.0.0":
   version "8.2.4"
   resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-8.2.4.tgz#076ecda6e35c9f328302e1a5384e754b7c977f1a"
@@ -1906,10 +1901,18 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@*", "@types/jest@27.0.3", "@types/jest@^27.0.1":
+"@types/jest@*", "@types/jest@^27.0.1":
   version "27.0.3"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-27.0.3.tgz#0cf9dfe9009e467f70a342f0f94ead19842a783a"
   integrity sha512-cmmwv9t7gBYt7hNKH5Spu7Kuu/DotGa+Ff+JGRKZ4db5eh8PnKS4LuebJ3YLUoyOyIHraTGyULn23YtEAm0VSg==
+  dependencies:
+    jest-diff "^27.0.0"
+    pretty-format "^27.0.0"
+
+"@types/jest@27.0.2":
+  version "27.0.2"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-27.0.2.tgz#ac383c4d4aaddd29bbf2b916d8d105c304a5fcd7"
+  integrity sha512-4dRxkS/AFX0c5XW6IPMNOydLn2tEhNhJV7DnYK+0bjoJZ+QTmfucBlihX7aoEsh/ocYtkLC73UbnBXBXIxsULA==
   dependencies:
     jest-diff "^27.0.0"
     pretty-format "^27.0.0"

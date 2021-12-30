@@ -1,7 +1,8 @@
 
 import { Queue } from 'bullmq';
 
-import { Config, VideoJobData, YoutubeHelper } from '@fy/core';
+import { Config, VideoJobData } from '@fy/core';
+import YoutubeHelper from './YoutubeHelper';
 
 const queue = new Queue<VideoJobData>(Config.queueName, {
     connection: {

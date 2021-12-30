@@ -7,10 +7,7 @@
   "scripts": {
     "build": "rollup -c"
   },
-  "dependencies": {
-    "scrape-youtube": "^2.1.13",
-    "yt-channel-info": "^2.2.0"
-  },
+  "dependencies": {},
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.0",
