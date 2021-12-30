@@ -1,4 +1,4 @@
-import Config from '@fy/core/Config';
+//import Config from '@fy/core/Config';
 import { Injectable } from '@nestjs/common';
 import { ElasticsearchService } from '@nestjs/elasticsearch';
 
@@ -14,7 +14,7 @@ export class VideoService {
     // from https://github.com/elastic/elasticsearch-js/blob/3cfc31902e9adafadcea3f9eff6dbb2a81349bb5/docs/examples/proxy/api/search.js#L56
     try {
       const response = await this.elasticsearchService.search({
-        index: Config.sonarIndex,
+        index: "",
         body: {
           query: {
             query_string: {

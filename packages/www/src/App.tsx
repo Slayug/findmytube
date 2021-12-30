@@ -1,11 +1,10 @@
-import React from 'react';
 import logo from './logo.svg';
-import Config from '@fy/core/Config';
+import { Config } from '@fy/core';
 
 import './App.css';
 
 function App() {
-  console.log(Config)
+  console.log(Config.redisHost)
   return (
     <div className="App">
       <header className="App-header">
