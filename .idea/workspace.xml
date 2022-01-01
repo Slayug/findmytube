@@ -4,15 +4,13 @@
     <list default="true" id="b2624bda-f35e-4cc0-99c3-1a344e87f850" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/www/craco.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/www/public/env/Config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/www/src/Config.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/www/src/styles/antd.customize.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/www/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/App.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/www/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/styles/antd.customize.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/styles/antd.customize.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +84,7 @@
       <workItem from="1640553743050" duration="1939000" />
       <workItem from="1640594659603" duration="5000" />
       <workItem from="1640882541451" duration="4828000" />
-      <workItem from="1641051284501" duration="11188000" />
+      <workItem from="1641051284501" duration="13048000" />
     </task>
     <servers />
   </component>
