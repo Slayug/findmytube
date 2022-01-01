@@ -14,5 +14,7 @@ Une fois les requirements installés : `./dev/setup.sh`
 `./dev/startup.sh`
 
 
+# Démarrer un service précis
+`lerna run --scope @fy/(api|www|producer|worker) dev --stream`
 
 Project template from: https://github.com/chriswells0/node-typescript-template
