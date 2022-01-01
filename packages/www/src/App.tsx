@@ -1,28 +1,22 @@
 import logo from './logo.svg';
-import { Config } from '@fy/core';
+import {Config} from '@fy/core';
 
-import './App.css';
+import {Space} from 'antd';
+import Search from 'antd/es/input/Search';
 
 function App() {
-  console.log(Config.redisHost)
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    function onSearch() {
+
+    }
+
+    return (
+        <div className="App">
+            <Space direction="vertical">
+                <Search placeholder="input search text" onSearch={onSearch} style={{width: 200}}/>
+            </Space>
+        </div>
+    );
 }
 
 export default App;

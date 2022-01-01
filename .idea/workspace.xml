@@ -4,24 +4,16 @@
     <list default="true" id="b2624bda-f35e-4cc0-99c3-1a344e87f850" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fy.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dev/setup.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/src/Config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/Config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/src/Video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/Video.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/producer/src/YoutubeHelper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/src/YoutubeHelper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/producer/src/producer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/src/producer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/worker/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/worker/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/worker/src/worker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/worker/src/worker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/www/craco.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/www/public/env/Config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/www/src/Config.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/www/src/styles/antd.customize.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +50,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/api/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/www" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -74,6 +66,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/www" />
+      <recent name="$PROJECT_DIR$/packages/www/public" />
+      <recent name="$PROJECT_DIR$/packages/www/src" />
       <recent name="$PROJECT_DIR$/packages/api/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -91,7 +86,7 @@
       <workItem from="1640553743050" duration="1939000" />
       <workItem from="1640594659603" duration="5000" />
       <workItem from="1640882541451" duration="4828000" />
-      <workItem from="1641051284501" duration="10090000" />
+      <workItem from="1641051284501" duration="11188000" />
     </task>
     <servers />
   </component>
