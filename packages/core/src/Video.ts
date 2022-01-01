@@ -1,18 +1,18 @@
 
-export default interface VideoJobData {
-    videoId: string
+export interface VideoJob {
+    video: Video
 }
-
 
 /**
  * An Image which represents all banners and thumbnails
  */
-interface Image {
+export interface Image {
     url: string;
     height: number;
     width: number;
 }
-interface Video {
+
+export interface Video {
     author: string;
     authorId: string;
     durationText: string;

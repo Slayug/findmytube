@@ -4,11 +4,12 @@ import { AppService } from './app.service';
 import { ElasticsearchModule } from '@nestjs/elasticsearch';
 import { VideoController } from './video/video.controller';
 import { VideoService } from './video/video.service';
+import { Config } from '@fy/core';
 
 @Module({
   imports: [
     ElasticsearchModule.register({
-      node: 'http://localhost:9200',
+      node: `http://${Config.elasticHost}:${Config.elasticPort}`,
     }),
   ],
   controllers: [AppController, VideoController],

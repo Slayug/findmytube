@@ -4,6 +4,7 @@
   "main": "./dist/worker.js",
   "private": true,
   "dependencies": {
+    "@elastic/elasticsearch": "^7.16.0",
     "@fy/core": "^1.0.0",
     "bullmq": "^1.59.4"
   },

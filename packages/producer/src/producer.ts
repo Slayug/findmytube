@@ -1,10 +1,9 @@
+import {Queue} from 'bullmq';
 
-import { Queue } from 'bullmq';
-
-import { Config, VideoJobData } from '@fy/core';
+import {Config, VideoJob} from '@fy/core';
 import YoutubeHelper from './YoutubeHelper';
 
-const queue = new Queue<VideoJobData>(Config.queueName, {
+const queue = new Queue<VideoJob>(Config.queueName, {
     connection: {
         host: Config.redisHost,
         port: Config.redisPort
@@ -13,7 +12,7 @@ const queue = new Queue<VideoJobData>(Config.queueName, {
 
 
 [
-    'thinkerview',
+    'LEBONSENS',
 ].forEach((channelId) => {
     YoutubeHelper.loadChannelVideos(channelId)
         .then((videos) => {
@@ -21,12 +20,13 @@ const queue = new Queue<VideoJobData>(Config.queueName, {
                 videos.items.forEach((video) => {
                     console.log(`Send job for ${video.videoId}`);
                     // post to queue
-                    queue.add('video', { videoId: video.videoId })
+                    queue.add('video', {video})
                 })
             } else {
                 console.log('Cannot get videos for ' + channelId);
             }
-        }).catch((e) => {
+        })
+        .catch((e) => {
             console.error('Cannot get video for ', channelId);
             console.error(e);
         })
