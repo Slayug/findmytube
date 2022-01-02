@@ -2,6 +2,8 @@ const QueueName = process.env.QUEUE_NAME ?? 'videos';
 const ExtractorFileName = 'extractor.py';
 
 const Config = {
+    apiHost: 'localhost',
+    apiPort: 8080,
     elasticHost: 'localhost',
     elasticPort: 9200,
     sonarIndex: 'videos',

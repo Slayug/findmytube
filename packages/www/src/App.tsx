@@ -1,13 +1,9 @@
-import logo from './logo.svg';
-import {Config} from '@fy/core';
-
 import Logo from './assets/icon.png';
 
 import {
     BrowserRouter as Router,
     Routes,
     Route,
-    Link
 } from 'react-router-dom';
 import {Content, Footer, Header} from 'antd/es/layout/layout';
 import {Layout} from 'antd';
@@ -19,7 +15,7 @@ function App() {
         <div className="App">
             <Router>
                 <Layout>
-                    <Header style={{color: 'white'}}><img style={{height: '40px'}} src={Logo}/> <span
+                    <Header style={{color: 'white'}}><img alt="FY logo" style={{height: '40px'}} src={Logo}/> <span
                         style={{fontWeight: 'bold'}}>FY</span></Header>
                     <Content>
                         <Routes>

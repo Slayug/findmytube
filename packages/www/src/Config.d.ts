@@ -1,3 +1,3 @@
-declare const Config: {
+declare const FrontConfig: {
   apiBaseUrl: string;
 };

@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2624bda-f35e-4cc0-99c3-1a344e87f850" name="Changes" comment="">
+    <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/www/src/hooks/useSearchVideo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/Config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/Config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/www/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/public/env/Config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/public/env/Config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/public/logo512.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/www/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/styles/antd.customize.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/styles/antd.customize.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/Config.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/Config.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +27,7 @@
     <option name="done" value="true" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/packages/api" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -33,12 +38,12 @@
     </file-type-list>
   </component>
   <component name="MacroExpansionManager">
-    <option name="directoryName" value="c949vzj9" />
+    <option name="directoryName" value="onblzgex" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectId" id="22q8P7M5BIcHX3XheKDuKHbDEBO" />
+  <component name="ProjectId" id="239Eq1kRMKMQ3wa8xeYt0nm9CSF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -48,51 +53,27 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/www" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/core/node_modules/typescript/lib" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/packages/www" />
-      <recent name="$PROJECT_DIR$/packages/www/public" />
-      <recent name="$PROJECT_DIR$/packages/www/src" />
-      <recent name="$PROJECT_DIR$/packages/api/src" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/packages/producer/src" />
-    </key>
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/api/node_modules/typescript/lib" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b2624bda-f35e-4cc0-99c3-1a344e87f850" name="Changes" comment="" />
-      <created>1640553730488</created>
+      <changelist id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="" />
+      <created>1641138090510</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1640553730488</updated>
-      <workItem from="1640553743050" duration="1939000" />
-      <workItem from="1640594659603" duration="5000" />
-      <workItem from="1640882541451" duration="4828000" />
-      <workItem from="1641051284501" duration="13048000" />
+      <updated>1641138090510</updated>
+      <workItem from="1641138092145" duration="3543000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

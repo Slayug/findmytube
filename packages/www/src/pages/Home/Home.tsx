@@ -2,11 +2,14 @@ import Search from 'antd/es/input/Search';
 import {Col, Row, Space} from 'antd';
 
 import styles from './Home.module.scss';
+import useSearchVideo from "../../hooks/useSearchVideo";
 
 export default function Home() {
 
-    function onSearch() {
+    const { searchVideo } = useSearchVideo();
 
+    function onSearch(value: string) {
+        searchVideo(value);
     }
 
     return <Row className={styles.home}>

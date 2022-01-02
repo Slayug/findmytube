@@ -1,7 +1,9 @@
 
 
-- [ ] ajouter lerna pour du monorepo ?
-- [ ] ajouter une api pour forward les résultats de elastic search
-- [ ] ajouter un front pour search
+- [x] ajouter lerna pour du monorepo ?
+- [x] ajouter une api pour forward les résultats de elastic search
+- [x] ajouter un front pour search
 - [ ] ajouter une liste de mots clef à rechercher régulièrement et scrap les résultats
 - [ ] Configuer winston pour les logs
+- [x] Gestion du CORS pour l'api et le front
+- [ ] Gestion du CORS en prod, que autoriser le front
