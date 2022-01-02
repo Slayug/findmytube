@@ -45,7 +45,7 @@ export default function Home() {
                     {isLoading && <Spin/>}
                     {searchVideoResult &&
                     searchVideoResult.hits.map((videoResult) => {
-                        return <VideoRow video={videoResult._source.video}/>
+                        return <VideoRow key={videoResult._id} video={videoResult._source.video}/>
                     })
                     }
                 </Col>

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ElasticsearchService } from '@nestjs/elasticsearch';
-import {SearchVideoResult} from "@fy/core/src/Video";
+import { SearchVideoResult } from '@fy/core/src/Video';
 
 @Injectable()
 export class VideoService {
