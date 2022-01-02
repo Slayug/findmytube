@@ -27,3 +27,22 @@ export interface Video {
     viewCount: number;
     viewCountText: string;
 }
+
+export interface SearchVideoResult {
+    tool: number;
+    timed_out: boolean;
+    _shards: {
+        total: number;
+        successful: number;
+        skipped: number;
+        failed: number;
+    };
+    hits: {
+        _index: "transcript",
+        _id: string,
+        _score: number,
+        _source: {
+            video: Video
+        }
+    }[]
+}
