@@ -1,6 +1,6 @@
 import {Queue} from 'bullmq';
 
-import {Config, VideoJob} from '@fy/core';
+import {Config, Video, VideoJob} from '@fy/core';
 import YoutubeHelper from './YoutubeHelper';
 
 const queue = new Queue<VideoJob>(Config.queueName, {
@@ -10,6 +10,14 @@ const queue = new Queue<VideoJob>(Config.queueName, {
     }
 });
 
+
+function wait(time: number, data: {items: Video[]}): Promise<{items: Video[]}> {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(data);
+        }, time)
+    });
+}
 
 [
     'Officialjvcom',
@@ -21,15 +29,32 @@ const queue = new Queue<VideoJob>(Config.queueName, {
     'DanyCaligula',
     'fosdemtalks',
     'LArchiPelle',
-    'UCH_caRzafPJgO4LEA_CLdWA',
     'MardiNoirPTLF',
     'SAEZLepouvoirdesmots',
     'LeChatQuiVole',
     'KangooVan',
     'UCyW65baBYNme1_81TrK8UOw',
+    'franceinfo',
+    'reinhardalexandre255',
+    'DanyRazBestOf',
+    'TF1',
+    'JsuispascontentTV',
+    'Aufhebung',
+    'MonsieurPhi',
+    'maxbird',
+    'Transculture',
+    'TroncheEnBiais-Zetetique',
+    'PlaceauPeuple',
+    'HeurekaFinanceEco'
 ].forEach((channelId) => {
-    YoutubeHelper.loadChannelVideos(channelId)
+    YoutubeHelper.loadAllChannelVideos(channelId)
         .then((videos) => {
+            console.log(`FOUND ${videos.items.length} for ${channelId}`);
+            return videos
+        })
+        .then((data) => wait(12000, data))
+        .then((videos) => {
+            console.log(`Posting to queue ${channelId} - length: ${videos.items.length}`)
             if (videos.items) {
                 videos.items.forEach((video) => {
                     console.log(`Send job for ${video.videoId}`);

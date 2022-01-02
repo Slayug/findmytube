@@ -5,16 +5,8 @@
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/src/Video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/Video.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/producer/src/YoutubeHelper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/src/YoutubeHelper.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/producer/src/producer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/src/producer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/worker/src/worker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/worker/src/worker.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/hooks/useSearchVideo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/hooks/useSearchVideo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +59,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641138090510</updated>
-      <workItem from="1641138092145" duration="15444000" />
+      <workItem from="1641138092145" duration="18867000" />
     </task>
     <servers />
   </component>
