@@ -1,4 +1,4 @@
-import {Col, Row, Spin} from 'antd';
+import {Alert, Col, Row, Spin} from 'antd';
 
 import styles from './Home.module.scss';
 import useSearchVideo from "../../hooks/useSearchVideo";
@@ -15,9 +15,8 @@ export default function Home() {
     const {
         refetch: search,
         data: searchVideoResult,
-        isSuccess,
         isLoading,
-        isError,
+        isError
     } = useQuery<SearchVideoResult>(`search`, () => searchVideo(searchContent), {
         retry: false,
         enabled: false
@@ -37,12 +36,13 @@ export default function Home() {
         <Col span={24}>
             <Row justify="center">
                 <Col span={6}>
-                    <Search placeholder="input search text" onSearch={onSearch} style={{width: '100%'}}/>
+                    <Search size="large" placeholder="input search text" onSearch={onSearch} style={{width: '100%'}}/>
                 </Col>
             </Row>
             <Row justify="center">
                 <Col span={10}>
                     {isLoading && <Spin/>}
+                    {isError && <Alert message="Impossible de récupérer votre recherche" type="warning" />}
                     {
                         searchVideoResult &&
                         searchVideoResult.hits.map((videoResult) => {

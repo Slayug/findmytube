@@ -4,14 +4,7 @@
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/VideoRow/VideoRow.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/producer/src/producer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/src/producer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/VideoRow/VideoRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/VideoRow/VideoRow.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/styles/antd.customize.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/styles/antd.customize.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641138090510</updated>
-      <workItem from="1641138092145" duration="7839000" />
+      <workItem from="1641138092145" duration="8239000" />
     </task>
     <servers />
   </component>
