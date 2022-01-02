@@ -12,7 +12,13 @@ const queue = new Queue<VideoJob>(Config.queueName, {
 
 
 [
-    'LEBONSENS',
+    'thinkerview',
+    'JLMelenchon',
+    'DAVYMourier07',
+    'LeParisien',
+    'euronewsfr',
+    'FRANCE24',
+    'Europe1'
 ].forEach((channelId) => {
     YoutubeHelper.loadChannelVideos(channelId)
         .then((videos) => {

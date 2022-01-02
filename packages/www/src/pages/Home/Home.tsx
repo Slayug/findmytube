@@ -41,12 +41,15 @@ export default function Home() {
                 </Col>
             </Row>
             <Row justify="center">
-                <Col span={6}>
+                <Col span={10}>
                     {isLoading && <Spin/>}
-                    {searchVideoResult &&
-                    searchVideoResult.hits.map((videoResult) => {
-                        return <VideoRow key={videoResult._id} video={videoResult._source.video}/>
-                    })
+                    {
+                        searchVideoResult &&
+                        searchVideoResult.hits.map((videoResult) => {
+                            return <div key={videoResult._id} className={styles.videoRowWrap}>
+                                <VideoRow video={videoResult._source.video}/>
+                            </div>
+                        })
                     }
                 </Col>
             </Row>

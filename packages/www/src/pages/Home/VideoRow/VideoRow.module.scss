@@ -1,0 +1,18 @@
+
+.videoRow {
+  &:hover {
+    cursor: pointer;
+    background-color: #DDDDDD;
+  }
+
+  .description {
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 5px;
+
+    .title {
+      font-family: "Roboto","Arial",sans-serif;
+      font-size: 1.3rem;
+    }
+  }
+}
