@@ -5,7 +5,7 @@ import {VideoCameraOutlined} from "@ant-design/icons";
 export default function VideoRow({video}: { video: Video }) {
 
 
-    function thumbnail() {
+    function getThumbnail() {
         const thumbnail = video.videoThumbnails.find(({width}) => width === 336);
         return thumbnail ? <img src={thumbnail.url} alt="Thumbnail"/> : <VideoCameraOutlined/>;
     }
@@ -14,7 +14,7 @@ export default function VideoRow({video}: { video: Video }) {
         <Row>
 
             <Col span={10}>
-                {thumbnail()}
+                {getThumbnail()}
             </Col>
 
             <Col span={14}>
