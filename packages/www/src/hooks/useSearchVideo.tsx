@@ -8,10 +8,11 @@ axios.defaults.baseURL = `http://${Config.apiHost}:${Config.apiPort}`;
 const VIDEO_ENDPOINT = '/videos';
 export default function useSearchVideo() {
 
-    function searchVideo(content: string): Promise<SearchVideoResult> {
+    function searchVideo(content: string, page = 0): Promise<SearchVideoResult> {
         return axios.get(VIDEO_ENDPOINT, {
             params: {
-                q: content
+                q: content,
+                page
             }
         }).then((r) => r.data)
     }

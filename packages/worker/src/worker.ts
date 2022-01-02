@@ -14,17 +14,15 @@ const worker = new Worker<VideoJob, number>(
         try {
             console.log(` > Processing ${job.data.video.videoId}`);
 
-            const result = execSync('python ' +
+            execSync('python ' +
                 [Config.extractorFileName,
                     job.data.video.videoId,
                     Config.elasticHost,
                     Config.elasticPort.toString()
                 ].join(' ')
             );
-            console.log(result);
-            console.log('===========================');
-            console.log('');
-
+            console.log(' ==========================');
+            console.log(` > ${job.data.video.videoId} done.`);
         } catch (e) {
             console.error('something bad happened for ' + job.data.video.videoId);
             throw e;

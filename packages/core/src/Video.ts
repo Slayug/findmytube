@@ -31,12 +31,17 @@ export interface Video {
 export interface SearchVideoResult {
     tool: number;
     timed_out: boolean;
+    page: number,
+    took: number,
     _shards: {
         total: number;
         successful: number;
         skipped: number;
         failed: number;
     };
+    total: {
+        value: number
+    }
     hits: {
         _index: "transcript",
         _id: string,

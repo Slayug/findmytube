@@ -12,13 +12,21 @@ const queue = new Queue<VideoJob>(Config.queueName, {
 
 
 [
-    'thinkerview',
-    'JLMelenchon',
-    'DAVYMourier07',
-    'LeParisien',
-    'euronewsfr',
-    'FRANCE24',
-    'Europe1'
+    'Officialjvcom',
+    'GouvHD',
+    'AntoineGoya',
+    'MaitreLomepal',
+    'DamDamLive',
+    'StupeflipOfficiel',
+    'DanyCaligula',
+    'fosdemtalks',
+    'LArchiPelle',
+    'UCH_caRzafPJgO4LEA_CLdWA',
+    'MardiNoirPTLF',
+    'SAEZLepouvoirdesmots',
+    'LeChatQuiVole',
+    'KangooVan',
+    'UCyW65baBYNme1_81TrK8UOw',
 ].forEach((channelId) => {
     YoutubeHelper.loadChannelVideos(channelId)
         .then((videos) => {
