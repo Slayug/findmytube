@@ -5,6 +5,7 @@
 - [x] ajouter un front pour search
 - [x] Gestion du CORS pour l'api et le front
 - [x] Bien afficher les videos dans la liste
+- [x] Gérer la pagination sur la front
 - [ ] Append la recherche dans l'url
 - [ ] Afficher une page Video quand on clique sur une vidéo
 - [ ] Afficher les temps où la recherche se trouve dans la vidéo
@@ -14,5 +15,4 @@
 - [ ] ajouter une liste de mots clef/tendance à rechercher régulièrement et scrap les résultats
 - [ ] Configuer winston pour les logs
 - [ ] Gestion du CORS en prod, que autoriser le front
-- [ ] Gérer la pagination sur la front
 - [ ] Implémenter le PIT quand on fait un search sur ElasticSearch https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#search-after
