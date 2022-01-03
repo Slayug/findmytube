@@ -4,9 +4,19 @@
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/www/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPage.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/Video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/Video.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/producer/src/YoutubeHelper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/src/YoutubeHelper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/producer/src/producer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/src/producer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/hooks/useSearchVideo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/hooks/useApiVideo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/VideoRow/VideoRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/VideoRow/VideoRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,13 +53,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/www/vlife" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/www" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/api/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/core/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/www" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -59,7 +74,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641138090510</updated>
-      <workItem from="1641138092145" duration="18867000" />
+      <workItem from="1641138092145" duration="19500000" />
+      <workItem from="1641199533870" duration="602000" />
+      <workItem from="1641234807231" duration="6471000" />
     </task>
     <servers />
   </component>

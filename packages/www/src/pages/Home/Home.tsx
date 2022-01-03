@@ -1,7 +1,9 @@
 import {Alert, Button, Col, Row, Spin} from 'antd';
 
+import {useNavigate} from "react-router-dom";
+
 import styles from './Home.module.scss';
-import useSearchVideo from "../../hooks/useSearchVideo";
+import useApiVideo from "../../hooks/useApiVideo";
 import {useEffect, useState} from "react";
 import {useInfiniteQuery} from "react-query";
 import Search from "antd/es/input/Search";
@@ -11,85 +13,90 @@ import {InView} from "react-intersection-observer";
 
 export default function Home() {
 
-    const [inLoadMore, setInLoadMore] = useState(false);
-    const [searchContent, setSearchContent] = useState<string>("");
+  const [inLoadMore, setInLoadMore] = useState(false);
+  const [searchContent, setSearchContent] = useState<string>("");
 
-    const {searchVideo} = useSearchVideo();
+  const {searchVideo} = useApiVideo();
 
-    const {
-        refetch: search,
-        fetchNextPage,
-        data: searchVideoResult,
-        isLoading,
-        isError,
-    } = useInfiniteQuery<SearchVideoResult>(
-        `search-${searchContent}`,
-        ({pageParam}) => searchVideo(searchContent, pageParam), {
-            retry: false,
-            enabled: false,
-            getPreviousPageParam: firstPage => firstPage ? firstPage.page - 1 : false,
-            getNextPageParam: nextPage => nextPage ? nextPage.page + 1 : false
-        });
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        if (searchContent) {
-            search()
-        }
-    }, [searchContent, search])
+  const {
+    refetch: search,
+    fetchNextPage,
+    data: searchVideoResult,
+    isLoading,
+    isError,
+  } = useInfiniteQuery<SearchVideoResult>(
+    `search-${searchContent}`,
+    ({pageParam}) => searchVideo(searchContent, pageParam), {
+      retry: false,
+      enabled: false,
+      getPreviousPageParam: firstPage => firstPage ? firstPage.page - 1 : false,
+      getNextPageParam: nextPage => nextPage ? nextPage.page + 1 : false
+    });
 
-    useEffect(() => {
-        if (inLoadMore) {
-            setTimeout(() => {
-                if (inLoadMore) {
-                    fetchNextPage();
-                }
-            }, 900);
-        }
-    }, [inLoadMore, fetchNextPage])
-
-    function onSearch(value: string) {
-        setSearchContent(value)
+  useEffect(() => {
+    if (searchContent) {
+      search()
     }
+  }, [searchContent, search])
 
-    return <Row className={styles.home}>
-        <Col span={24}>
-            <Row justify="center">
-                <Col span={6}>
-                    <Search size="large" placeholder="input search text" onSearch={onSearch} style={{width: '100%'}}/>
-                </Col>
-            </Row>
-            <Row justify="center">
-                <Col span={10}>
-                    {isLoading && <Spin/>}
-                    {isError && <Alert message="Impossible de récupérer votre recherche" type="warning"/>}
-                    {searchVideoResult && searchVideoResult.pages.length > 0 &&
+  useEffect(() => {
+    if (inLoadMore) {
+      setTimeout(() => {
+        if (inLoadMore) {
+          fetchNextPage();
+        }
+      }, 900);
+    }
+  }, [inLoadMore, fetchNextPage])
+
+  function onSearch(value: string) {
+    setSearchContent(value)
+  }
+
+  return <Row className={styles.home}>
+    <Col span={24}>
+      <Row justify="center">
+        <Col span={6}>
+          <Search size="large" placeholder="input search text" onSearch={onSearch} style={{width: '100%'}}/>
+        </Col>
+      </Row>
+      <Row justify="center">
+        <Col span={10}>
+          {isLoading && <Spin/>}
+          {isError && <Alert message="Impossible de récupérer votre recherche" type="warning"/>}
+          {searchVideoResult && searchVideoResult.pages.length > 0 &&
                     <div
-                        className={styles.amountResult}>
-                        {searchVideoResult.pages[0].total.value} résultats
+                      className={styles.amountResult}>
+                      {searchVideoResult.pages[0].total.value} résultats
                         ({searchVideoResult.pages[0].took / 1000}sec)
                     </div>
-                    }
-                    {
-                        searchVideoResult &&
+          }
+          {
+            searchVideoResult &&
                         searchVideoResult.pages.map(page => {
-                            return page.hits.map((videoResult) => {
-                                return <div key={videoResult._id} className={styles.videoRowWrap}>
-                                    <VideoRow video={videoResult._source.video}/>
-                                </div>
-                            })
+                          return page.hits.map((videoResult) => {
+                            return <div key={videoResult._id} className={styles.videoRowWrap}>
+                              <VideoRow
+                                onClick={(videoId) => navigate(`/video/${videoId}`)}
+                                video={videoResult._source.video}
+                              />
+                            </div>
+                          })
                         })
-                    }
-                    {
-                        searchVideoResult &&
+          }
+          {
+            searchVideoResult &&
                         searchVideoResult.pages[0].total.value > 9 &&
                         searchVideoResult.pages.length * 9 <= searchVideoResult.pages[0].total.value &&
                         <InView as="div" onChange={(inView) => setInLoadMore(inView)}>
-                            <Button loading={inLoadMore || isLoading} className={styles.loadMore}>Load more.</Button>
+                          <Button loading={inLoadMore || isLoading} className={styles.loadMore}>Load more.</Button>
                         </InView>
-                    }
-                </Col>
-            </Row>
+          }
         </Col>
-    </Row>
+      </Row>
+    </Col>
+  </Row>
 
 }

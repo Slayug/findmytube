@@ -1,4 +1,3 @@
-
 export interface VideoJob {
     video: Video
 }
@@ -27,6 +26,20 @@ export interface Video {
     viewCount: number;
     viewCountText: string;
 }
+
+type Language = 'fr' | 'en';
+
+export interface Translation {
+    text: string,
+    start: number,
+    duration: number
+}
+
+export type Languages = { [key in Language]?: { translations: string } }
+
+export type VideoResult = {
+    video?: Video,
+} & Languages;
 
 export interface SearchVideoResult {
     tool: number;

@@ -4,26 +4,25 @@ import {VideoCameraOutlined} from "@ant-design/icons";
 
 import styles from './VideoRow.module.scss';
 
-export default function VideoRow({video}: { video: Video }) {
+export default function VideoRow({video, onClick}: { video: Video, onClick?: (videoId: string) => void }) {
 
+  function getThumbnail() {
+    const thumbnail = video.videoThumbnails.find(({width}) => width === 336);
+    return thumbnail ? <img src={thumbnail.url} alt="Thumbnail"/> : <VideoCameraOutlined/>;
+  }
 
-    function getThumbnail() {
-        const thumbnail = video.videoThumbnails.find(({width}) => width === 336);
-        return thumbnail ? <img src={thumbnail.url} alt="Thumbnail"/> : <VideoCameraOutlined/>;
-    }
+  return <div onClick={() => onClick(video.videoId)} className={styles.videoRow}>
+    <Row>
+      <Col span={10}>
+        {getThumbnail()}
+      </Col>
 
-    return <div className={styles.videoRow}>
-        <Row>
-            <Col span={10}>
-                {getThumbnail()}
-            </Col>
+      <Col className={styles.description} span={14}>
+        <div className={styles.title}>{video.title}</div>
+        <div className={styles.published}>{video.publishedText}</div>
+        <div className={styles.authorLink}><a href={`https://www.youtube.com/c/${video.authorId}`}>{video.author}</a></div>
+      </Col>
+    </Row>
 
-            <Col className={styles.description} span={14}>
-                <div className={styles.title}>{video.title}</div>
-                <div className={styles.published}>{video.publishedText}</div>
-                <div className={styles.authorLink}><a href={`https://www.youtube.com/c/${video.authorId}`}>{video.author}</a></div>
-            </Col>
-        </Row>
-
-    </div>
+  </div>
 }

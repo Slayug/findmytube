@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 import {Video} from '@fy/core';
 
 const ytch = require('yt-channel-info');
