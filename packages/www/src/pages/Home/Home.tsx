@@ -79,7 +79,8 @@ export default function Home() {
                           return page.hits.map((videoResult) => {
                             return <div key={videoResult._id} className={styles.videoRowWrap}>
                               <VideoRow
-                                onClick={(videoId) => navigate(`/video/${videoId}`)}
+                                onClick={(videoId) =>
+                                  navigate(`/watch?v=${videoId}&q=${searchContent.replaceAll(" ", "+")}`)}
                                 video={videoResult._source.video}
                               />
                             </div>

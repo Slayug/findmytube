@@ -29,7 +29,7 @@ export interface Video {
 
 type Language = 'fr' | 'en';
 
-export interface Translation {
+export interface Transcription {
     text: string,
     start: number,
     duration: number

@@ -2,6 +2,21 @@
   .transcriptions {
     margin-left: 20px;
     max-height: 360px;
+    width: 450px;
     overflow: auto;
+
+    .time {
+      font-weight: 600;
+      width: 10px;
+    }
+
+    .word::after {
+      content: ' '
+    }
+
+    .wordFound {
+      background-color: yellow;
+    }
+
   }
 }

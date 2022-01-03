@@ -3,7 +3,7 @@ import Logo from './assets/icon.png';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
+  Route, Link,
 } from 'react-router-dom';
 import {Content, Footer, Header} from 'antd/es/layout/layout';
 import {Layout} from 'antd';
@@ -16,12 +16,16 @@ function App() {
     <div className="App">
       <Router>
         <Layout>
-          <Header style={{color: 'white', marginBottom: '20px'}}><img alt="FY logo" style={{height: '40px'}} src={Logo}/> <span
-            style={{fontWeight: 'bold'}}>FY</span></Header>
+          <Header style={{marginBottom: '20px'}}>
+            <Link to="/" style={{fontWeight: 'bold', color: 'white'}}>
+              <img alt="FY logo" style={{height: '40px'}} src={Logo}/>
+              <span style={{ marginLeft: '5px'}}>FY</span>
+            </Link>
+          </Header>
           <Content>
             <Routes>
               <Route path="/" element={<Home/>}/>
-              <Route path="/video/:videoId" element={<VideoPage/>}/>
+              <Route path="/watch" element={<VideoPage/>}/>
             </Routes>
           </Content>
           <Footer>/</Footer>
