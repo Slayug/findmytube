@@ -1,2 +1,2 @@
 youtube_transcript_api==0.4.3
-elasticsearch==8.0.0a1
+elasticsearch==7.16.2
