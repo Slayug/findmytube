@@ -3115,10 +3115,10 @@ builtin-modules@^3.1.0:
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-3.2.0.tgz#45d5db99e7ee5e6bc4f362e008bf917ab5049887"
   integrity sha512-lGzLKcioL90C7wMczpkY0n/oART3MbBa8R9OFGE1rJxoVI86u4WAGfEk8Wjv10eKSyTHVGkSo3bvBylCEtk7LA==
 
-bullmq@^1.59.4:
-  version "1.59.4"
-  resolved "https://registry.yarnpkg.com/bullmq/-/bullmq-1.59.4.tgz#b1f6957a202257bd547baa66f6d8bdebbe4f5483"
-  integrity sha512-QbKCOtHFVJtNSV96BG6aAGBafDD5nElzHif+Cc5Av/X4yltgOuYxGDL1q3SSAwYeetapX5bUABVR9icQGcGWZQ==
+bullmq@^1.64.0:
+  version "1.64.0"
+  resolved "https://registry.yarnpkg.com/bullmq/-/bullmq-1.64.0.tgz#cef829648c03115e27afcdfc35a45898f08fc56b"
+  integrity sha512-267EqWF7LPMecDb6/YiZv/SZyTB6goDRz90z1vLpoQoZo2A5DI5KDOEw+YuCYm+H5Gt9apAihFczIJjaPKGOFQ==
   dependencies:
     cron-parser "^2.18.0"
     get-port "^5.1.1"
@@ -5723,9 +5723,9 @@ interpret@^1.0.0:
   integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
 
 ioredis@^4.28.2:
-  version "4.28.2"
-  resolved "https://registry.yarnpkg.com/ioredis/-/ioredis-4.28.2.tgz#493ccd5d869fd0ec86c96498192718171f6c9203"
-  integrity sha512-kQ+Iv7+c6HsDdPP2XUHaMv8DhnSeAeKEwMbaoqsXYbO+03dItXt7+5jGQDRyjdRUV2rFJbzg7P4Qt1iX2tqkOg==
+  version "4.28.3"
+  resolved "https://registry.yarnpkg.com/ioredis/-/ioredis-4.28.3.tgz#b13fce8a6a7c525ba22e666d72980a3c0ba799aa"
+  integrity sha512-9JOWVgBnuSxpIgfpjc1OeY1OLmA4t2KOWWURTDRXky+eWO0LZhI33pQNT9gYxANUXfh5p/zYephYni6GPRsksQ==
   dependencies:
     cluster-key-slot "^1.1.0"
     debug "^4.3.1"
