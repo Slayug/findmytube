@@ -38,7 +38,7 @@ export class VideoService {
           query: {
             query_string: {
               default_field: '*.fullText',
-              query: `*${content}*`,
+              query: `"${content}"`,
             },
           },
           _source: ['video'],

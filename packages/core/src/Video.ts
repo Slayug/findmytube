@@ -27,7 +27,8 @@ export interface Video {
     viewCountText: string;
 }
 
-type Language = 'fr' | 'en';
+export const LanguageList = ['fr', 'en'] as const;
+export type Language = typeof LanguageList[number];
 
 export interface Transcription {
     text: string,

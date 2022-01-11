@@ -4,10 +4,10 @@
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/core/src/Video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/Video.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPage.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPage.tsx" afterDir="false" />
     </list>
@@ -52,7 +52,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/core/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/api/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -70,6 +70,10 @@
       <workItem from="1641138092145" duration="19500000" />
       <workItem from="1641199533870" duration="602000" />
       <workItem from="1641234807231" duration="10803000" />
+      <workItem from="1641847796684" duration="794000" />
+      <workItem from="1641891216831" duration="34000" />
+      <workItem from="1641897151583" duration="182000" />
+      <workItem from="1641925385808" duration="6534000" />
     </task>
     <servers />
   </component>

@@ -5,17 +5,21 @@
     width: 450px;
     overflow: auto;
 
-    .time {
-      font-weight: 600;
-      width: 10px;
-    }
+    .line {
+      display: block;
 
-    .word::after {
-      content: ' '
-    }
+      mark {
+        background-color: #FF77FF;
+      }
 
-    .wordFound {
-      background-color: yellow;
+      .time {
+        font-weight: 600;
+        width: 10px;
+      }
+
+      .wordFound {
+        background-color: yellow;
+      }
     }
 
   }

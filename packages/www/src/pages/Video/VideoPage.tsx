@@ -1,63 +1,95 @@
-import {useLocation, useSearchParams} from "react-router-dom";
+import { Fragment, useMemo, useState } from 'react';
+import {useSearchParams} from "react-router-dom";
 import useApiVideo from "../../hooks/useApiVideo";
 import {useQuery} from "react-query";
 import {Alert, Col, Row, Spin} from "antd";
 import ReactPlayer from 'react-player/lazy'
 
 import styles from './VideoPage.module.scss';
-import {useMemo} from "react";
-import {Transcription} from "@fy/core/src/Video";
-import classNames from "classnames";
+import {LanguageList, Transcription} from "@fy/core/dist";
+
+function markQueryWords(text: string, query: string) {
+
+  const sentenceWordsMarked = [];
+
+  let lastIndex = 0;
+  let currentIndexFound = text.toLowerCase().indexOf(query.toLowerCase());
+  let nextIndexFound = 0;
+
+  while (currentIndexFound !== -1) {
+
+    if (currentIndexFound === 0) {
+      sentenceWordsMarked.push(<mark>{text.substring(currentIndexFound, query.length)}</mark>)
+      if (text.toLowerCase().indexOf(query, query.length) === -1) {
+        sentenceWordsMarked.push(text.substring(currentIndexFound + query.length))
+      }
+    } else {
+      sentenceWordsMarked.push(text.substring(lastIndex, currentIndexFound));
+      sentenceWordsMarked.push(<mark>{text.substring(currentIndexFound, currentIndexFound + query.length)}</mark>);
+    }
+
+    lastIndex = currentIndexFound + query.length;
+    nextIndexFound = text.toLowerCase().indexOf(query, lastIndex);
+
+    if (nextIndexFound === -1) {
+      // no other match, append end of sentence
+      sentenceWordsMarked.push(text.substring(currentIndexFound + query.length));
+    }
+    currentIndexFound = nextIndexFound;
+  }
+
+  return sentenceWordsMarked;
+
+}
 
 function TranscriptionLine({transcription, urlQuery}: { transcription: Transcription, urlQuery: URLSearchParams }) {
 
   const query = urlQuery.get('q');
-  //TODO use only one memo to compute all data, will improve perf
-  const transcriptionWordsIndexed = useMemo(() => {
-    const words = query.split(' ');
-    return transcription.text.split(" ").map((word, index) => {
-      return {
-        index: `${transcription.start}-${transcription.duration}-${transcription.text}-${index}`,
-        word,
-        found: words.includes(word)
-      }
-    })
-  }, [transcription.text])
 
-  if (query) {
-    return <span>
-      <span className={styles.time}>{transcription.start}: </span>
-      {
-        transcriptionWordsIndexed.map(({index, word, found}) => {
-          return <span
-            className={classNames(found && styles.wordFound, styles.word)}
-            key={index}>{word}</span>
+  const lineMarked = useMemo(() => {
+    const indexOfQuery = transcription.text.toLowerCase().indexOf(query.toLowerCase());
+
+    let sentence = <span className={styles.sentence}>{transcription.text}</span>;
+    if (indexOfQuery > -1) {
+      sentence = <span className={styles.sentence}>{
+        markQueryWords(transcription.text, query).map((words) => {
+          return <Fragment key={`${transcription.start}-${words}-${Date.now()}`}>{words}</Fragment>
         })
-      }
-      <br/>
-    </span>
-  }
+      }</span>;
+    }
 
-  return <span>{transcription.start}: {transcription.text}</span>
+    return {
+      text: <span className={styles.line}>
+        <span className={styles.time}>{transcription.start}: </span>
+        {sentence}
+      </span>
+    }
+  }, [transcription.text, query])
+
+  return lineMarked.text;
 }
 
 export default function VideoPage() {
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [componentError, setComponentError] = useState<string | undefined>(undefined);
+  const [searchParams] = useSearchParams();
   const videoId = searchParams.get('v') ?? '';
   const {getVideoById} = useApiVideo();
   const {data: videoResult, error, isLoading} = useQuery("posts", () => getVideoById(videoId));
 
-  function getTranscriptions(): Transcription[] {
-    if (videoResult) {
-      return JSON.parse(videoResult.fr.translations);
+  function getCurrentTranscription(): Transcription[] {
+    for (const language of LanguageList) {
+      if (videoResult[language])
+        return JSON.parse(videoResult[language].translations);
     }
-    return []
+    setComponentError('Pas de transcription disponible.')
+    return [];
   }
 
   return <div className={styles.videoPage}>
     {isLoading && <Spin/>}
     {error && <Alert message="Video non trouvée" type="warning"/>}
+    {componentError && <Alert message={componentError} type="warning" />}
     <Row justify="center">
       <Col>
         {
@@ -65,14 +97,16 @@ export default function VideoPage() {
         }
       </Col>
       <Col>
-        {videoResult?.fr && <div className={styles.transcriptions}>{
-          getTranscriptions().map((transcription) => {
-            return <TranscriptionLine
-              key={transcription.start}
-              transcription={transcription}
-              urlQuery={searchParams}/>
-          })
-        }</div>}
+        <div className={styles.transcriptions}>
+          {
+            videoResult && getCurrentTranscription().map((transcription) => {
+              return <TranscriptionLine
+                key={transcription.start}
+                transcription={transcription}
+                urlQuery={searchParams}/>
+            })
+          }
+        </div>
       </Col>
     </Row>
   </div>
