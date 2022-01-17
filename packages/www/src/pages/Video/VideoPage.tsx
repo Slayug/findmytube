@@ -1,4 +1,4 @@
-import {Fragment, useMemo, useState} from "react";
+import {Fragment, useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {useSearchParams} from "react-router-dom";
 import useApiVideo from "../../hooks/useApiVideo";
 import {useQuery} from "react-query";
@@ -7,60 +7,16 @@ import ReactPlayer from "react-player";
 
 import styles from "./VideoPage.module.scss";
 import {LanguageList, Transcription} from "@fy/core/dist";
+import {findAllIndexOfQuery, markWordsFrom} from "./VideoPageDomain";
 
 const QUERY_KEY = "q";
 
-function findAllIndexOfQuery(fullText: string, query: string) {
-
-  const startIndexes = []
-  const getIndex = (previousIndex = 0) => fullText
-    .toLowerCase()
-    .indexOf(query.toLowerCase(), previousIndex);
-
-  let indexFound = 0;
-  while ((indexFound = getIndex(indexFound)) !== -1) {
-    startIndexes.push(indexFound);
-    indexFound++;
-  }
-
-  return startIndexes;
-
-}
-
-function markWordsFrom(transcription: Transcription, startIndex: number, endIndex: number) {
-
-  const sentence = transcription.text;
-  const wordsSentence = [];
-  const markedPart = sentence.substring(startIndex, endIndex);
-
-  if (startIndex === 0) {
-    wordsSentence.push(<mark>{markedPart}</mark>)
-    if (endIndex < sentence.length) {
-      wordsSentence.push(sentence.substring(endIndex, sentence.length));
-    }
-  } else {
-    wordsSentence.push(sentence.substring(0, startIndex));
-    wordsSentence.push(<mark>{markedPart}</mark>)
-
-    if (endIndex < sentence.length) {
-      wordsSentence.push(sentence.substring(endIndex, sentence.length));
-    }
-  }
-
-  return <Fragment>
-    {wordsSentence.map((words, index) => {
-      return <Fragment key={`${transcription.start}-${index}-${transcription.duration}-${words.length}`}>
-        {words}
-      </Fragment>;
-    })
-    }
-  </Fragment>
-}
-
-function Inline({transcription, line}: { transcription: Transcription, line: JSX.Element }) {
+function Inline(
+  {transcription, line, onSeek}: { transcription: Transcription, line: JSX.Element, onSeek: (time: number) => void }
+) {
 
   return <span className={styles.line}>
-    <span className={styles.time}>{transcription.start}: </span>
+    <span onClick={() => onSeek(transcription.start)} className={styles.time}>{transcription.start}: </span>
     {line}
   </span>
 
@@ -68,7 +24,11 @@ function Inline({transcription, line}: { transcription: Transcription, line: JSX
 
 const SHIFT_BETWEEN_LINE = ' ';
 
-function TranscriptionList({transcriptions, query}: { transcriptions: Transcription[], query: string }) {
+type ParsedLine = { transcription: Transcription, jsx: JSX.Element };
+
+function TranscriptionList(
+  {onSeek, transcriptions, query}: { onSeek: (time: number) => void, transcriptions: Transcription[], query: string }
+) {
 
   // create global memo
   const lines = useMemo(() => {
@@ -79,7 +39,7 @@ function TranscriptionList({transcriptions, query}: { transcriptions: Transcript
     });
       
     const startIndexes = findAllIndexOfQuery(fullText, query);
-    const parsedLines: { transcription: Transcription, jsx: JSX.Element }[] = [];
+    const parsedLines: ParsedLine[] = [];
 
     let charCount = 0;
     let untilNextLine = false;
@@ -89,7 +49,7 @@ function TranscriptionList({transcriptions, query}: { transcriptions: Transcript
       let lineAdded = false;
       if (untilNextLine) {
         parsedLines.push({
-          transcription, jsx: <Inline transcription={transcription} line={
+          transcription, jsx: <Inline onSeek={onSeek} transcription={transcription} line={
             markWordsFrom(
               transcription,
               0,
@@ -107,12 +67,10 @@ function TranscriptionList({transcriptions, query}: { transcriptions: Transcript
         const relativeStartIndex = startIndex - charCount - SHIFT_BETWEEN_LINE.length;
 
         if (startIndex > charCount && startIndex < charCount + transcription.text.length) {
-          // if the full query is located within the current line
-          // OR query starts within the line and end later
-          // careful startIndex is relative to the global fullText, while
           parsedLines.push({
             transcription,
             jsx: <Inline
+              onSeek={onSeek}
               transcription={transcription}
               line={
                 markWordsFrom(
@@ -134,7 +92,11 @@ function TranscriptionList({transcriptions, query}: { transcriptions: Transcript
       if (!lineAdded) {
         parsedLines.push({
           transcription,
-          jsx: <Inline transcription={transcription} line={<Fragment>{transcription.text}</Fragment>}/>
+          jsx: <Inline
+            onSeek={onSeek}
+            transcription={transcription}
+            line={<Fragment>{transcription.text}</Fragment>}
+          />
         })
       }
       charCount += transcription.text.length
@@ -159,7 +121,10 @@ export default function VideoPage() {
   );
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v") ?? "";
+  const youtubeRef = useRef<ReactPlayer>();
+
   const {getVideoById} = useApiVideo();
+
   const {
     data: videoResult,
     error,
@@ -175,6 +140,16 @@ export default function VideoPage() {
     return [];
   }
 
+  useEffect(() => {
+    if (youtubeRef) {
+      console.log('youtube ref ready');
+    }
+  }, [youtubeRef]);
+  
+  const onSeek = useCallback((time: number) => {
+    youtubeRef.current?.seekTo(time);
+  }, [youtubeRef]);
+
   return (
     <div className={styles.videoPage}>
       {isLoading && <Spin/>}
@@ -183,13 +158,14 @@ export default function VideoPage() {
       <Row justify="center">
         <Col>
           {videoResult && (
-            <ReactPlayer controls loop url={`https://www.youtube.com/watch?v=${videoId}`}/>
+            <ReactPlayer ref={youtubeRef} controls loop url={`https://www.youtube.com/watch?v=${videoId}`}/>
           )}
         </Col>
         <Col>
           <div className={styles.transcriptions}>
             {
               videoResult && <TranscriptionList
+                onSeek={onSeek}
                 transcriptions={getCurrentTranscription()}
                 query={searchParams.get(QUERY_KEY)}
               />

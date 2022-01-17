@@ -15,6 +15,12 @@
       .time {
         font-weight: 600;
         width: 10px;
+
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
 
       .wordFound {
