@@ -6,11 +6,13 @@
 - [x] Gestion du CORS pour l'api et le front
 - [x] Bien afficher les videos dans la liste
 - [x] Gérer la pagination sur la front
-- [ ] Append la recherche dans l'url
+- [x] Append la recherche dans l'url
 - [x] Afficher une page Video quand on clique sur une vidéo
-- [ ] Afficher les temps où la recherche se trouve dans la vidéo
-- [ ] Ajouter un producer en mode CRON qui rafraîchit la liste des vidéos fetch par chaîne
+- [x] Afficher les temps où la recherche se trouve dans la vidéo
 - [x] Sauvegarder Toutes les videos d'une chaînes, aujourd'hui seulement les dernières sont save
+- [ ] Ajouter un producer en mode CRON qui rafraîchit la liste des vidéos fetch par chaîne
+- [ ] Ajouter suivi automatique des traductions en fonction du live
+- [ ] Ajouter bouton suivant/précédent pour parcourir les occurences trouvées dans les sous-titres
 - [ ] Improve logs of producer & worker
 - [ ] ajouter une liste de mots clef/tendance à rechercher régulièrement et scrap les résultats
 - [ ] Configuer winston pour les logs
