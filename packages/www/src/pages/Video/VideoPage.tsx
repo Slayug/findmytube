@@ -147,12 +147,6 @@ export default function VideoPage() {
     setComponentError("Pas de transcription disponible.");
     return [];
   }
-
-  useEffect(() => {
-    if (youtubeRef) {
-      console.log('youtube ref ready');
-    }
-  }, [youtubeRef]);
   
   const onSeek = useCallback((time: number) => {
     youtubeRef.current?.seekTo(time);
