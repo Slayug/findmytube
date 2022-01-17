@@ -3,7 +3,7 @@ import {useSearchParams} from "react-router-dom";
 import useApiVideo from "../../hooks/useApiVideo";
 import {useQuery} from "react-query";
 import {Alert, Col, Row, Spin} from "antd";
-import ReactPlayer from "react-player/lazy";
+import ReactPlayer from "react-player";
 
 import styles from "./VideoPage.module.scss";
 import {LanguageList, Transcription} from "@fy/core/dist";
@@ -183,7 +183,7 @@ export default function VideoPage() {
       <Row justify="center">
         <Col>
           {videoResult && (
-            <ReactPlayer url={`https://www.youtube.com/watch?v=${videoId}`}/>
+            <ReactPlayer controls loop url={`https://www.youtube.com/watch?v=${videoId}`}/>
           )}
         </Col>
         <Col>
