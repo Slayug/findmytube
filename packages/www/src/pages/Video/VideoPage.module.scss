@@ -1,8 +1,9 @@
 .videoPage {
+
   .transcriptions {
     margin-left: 20px;
-    max-height: 360px;
-    width: 450px;
+    max-height: 720px;
+    min-width: 400px;
     overflow: auto;
 
     .line {

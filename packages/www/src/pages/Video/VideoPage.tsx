@@ -147,7 +147,7 @@ export default function VideoPage() {
     setComponentError("Pas de transcription disponible.");
     return [];
   }
-  
+
   const onSeek = useCallback((time: number) => {
     youtubeRef.current?.seekTo(time);
   }, [youtubeRef]);
@@ -160,7 +160,7 @@ export default function VideoPage() {
       <Row justify="center">
         <Col>
           {videoResult && (
-            <ReactPlayer ref={youtubeRef} controls loop url={`https://www.youtube.com/watch?v=${videoId}`}/>
+            <ReactPlayer width={1280} height={720} ref={youtubeRef} controls loop url={`https://www.youtube.com/watch?v=${videoId}`}/>
           )}
         </Col>
         <Col>
