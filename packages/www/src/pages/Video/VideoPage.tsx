@@ -15,8 +15,16 @@ function Inline(
   {transcription, line, onSeek}: { transcription: Transcription, line: JSX.Element, onSeek: (time: number) => void }
 ) {
 
+  const ms = transcription.start * 1000;
+  const hours = `0${new Date(ms).getHours() - 1}`.slice(-2);
+  const minutes = `0${new Date(ms).getMinutes()}`.slice(-2);
+  const seconds = `0${new Date(ms).getSeconds()}`.slice(-2);
+
   return <span className={styles.line}>
-    <span onClick={() => onSeek(transcription.start)} className={styles.time}>{transcription.start}: </span>
+    <span
+      onClick={() => onSeek(transcription.start)}
+      className={styles.time}>
+      {hours && `${hours}:`}{minutes && `${minutes}:`}{seconds ? `${seconds}` : `00`}: </span>
     {line}
   </span>
 
