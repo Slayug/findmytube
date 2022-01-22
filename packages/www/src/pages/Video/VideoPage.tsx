@@ -45,14 +45,14 @@ function TranscriptionList(
     const transcriptionsMapped = transcriptions.map((tr) => {
       return {start: tr.start, duration: tr.duration, text: tr.text + SHIFT_BETWEEN_LINE}
     });
-      
+
     const startIndexes = findAllIndexOfQuery(fullText, query);
     const parsedLines: ParsedLine[] = [];
 
     let charCount = 0;
     let untilNextLine = false;
     let charsRemaining = 0;
-    
+
     for (const transcription of transcriptionsMapped) {
       let lineAdded = false;
       if (untilNextLine) {
@@ -95,7 +95,7 @@ function TranscriptionList(
           }
           lineAdded = true;
         }
-       
+
       }
       if (!lineAdded) {
         parsedLines.push({
@@ -160,7 +160,15 @@ export default function VideoPage() {
       <Row justify="center">
         <Col>
           {videoResult && (
-            <ReactPlayer width={1280} height={720} ref={youtubeRef} controls loop url={`https://www.youtube.com/watch?v=${videoId}`}/>
+            <div className={styles.video}>
+              <ReactPlayer width='100%'
+                height='100%'
+                ref={youtubeRef}
+                controls
+                loop
+                url={`https://www.youtube.com/watch?v=${videoId}`}
+              />
+            </div>
           )}
         </Col>
         <Col>
