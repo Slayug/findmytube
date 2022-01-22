@@ -15,6 +15,8 @@ function Inline(
   {transcription, line, onSeek}: { transcription: Transcription, line: JSX.Element, onSeek: (time: number) => void }
 ) {
 
+  console.log('render Inline');
+
   const ms = transcription.start * 1000;
   const hours = `0${new Date(ms).getHours() - 1}`.slice(-2);
   const minutes = `0${new Date(ms).getMinutes()}`.slice(-2);
@@ -37,6 +39,7 @@ type ParsedLine = { transcription: Transcription, jsx: JSX.Element };
 function TranscriptionList(
   {onSeek, transcriptions, query}: { onSeek: (time: number) => void, transcriptions: Transcription[], query: string }
 ) {
+  console.log('renderTranscriptionList');
 
   // create global memo
   const lines = useMemo(() => {
@@ -145,6 +148,7 @@ export default function VideoPage() {
         return JSON.parse(videoResult[language].translations);
     }
     setComponentError("Pas de transcription disponible.");
+    console.log('error language not found');
     return [];
   }
 
@@ -152,6 +156,7 @@ export default function VideoPage() {
     youtubeRef.current?.seekTo(time);
   }, [youtubeRef]);
 
+  console.log('renderVideoPage');
   return (
     <div className={styles.videoPage}>
       {isLoading && <Spin/>}
@@ -174,7 +179,7 @@ export default function VideoPage() {
         <Col>
           <div className={styles.transcriptions}>
             {
-              videoResult && <TranscriptionList
+              !componentError && videoResult && <TranscriptionList
                 onSeek={onSeek}
                 transcriptions={getCurrentTranscription()}
                 query={searchParams.get(QUERY_KEY)}
