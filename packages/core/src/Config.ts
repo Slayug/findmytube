@@ -8,9 +8,11 @@ const Config = {
     elasticPort: 9200,
     sonarIndex: 'videos',
     elasticTranscriptIndex: 'transcript',
+    elasticChannelIndex: 'channel',
     redisHost: 'localhost',
     redisPort: 6379,
-    queueName: QueueName,
+    videoQueueName: QueueName,
+    channelQueueName: 'channel',
     extractorFileName: ExtractorFileName,
 };
 

@@ -1,8 +1,8 @@
 {
   "apps": [
     {
-      "name": "worker",
-      "script": "./src/worker.ts",
+      "name": "video-worker",
+      "script": "./src/VideoWorker.ts",
       "instances": "-1",
       "exec_mode": "cluster",
       "watch": ["./src"]

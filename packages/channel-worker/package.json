@@ -1,0 +1,24 @@
+{
+  "name": "@fy/channel-worker",
+  "version": "1.0.0",
+  "main": "./dist/ChannelWorker.js",
+  "private": true,
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.16.0",
+    "@fy/core": "^1.0.0",
+    "bullmq": "^1.64.0",
+    "scrape-youtube": "^2.1.14",
+    "yt-channel-info": "^2.2.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "pm2 start pm2.json"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.8.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
+  }
+}

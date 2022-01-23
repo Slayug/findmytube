@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "name": "channel-worker",
+      "script": "./src/ChannelWorker.ts",
+      "instances": "1",
+      "exec_mode": "cluster",
+      "watch": ["./src"]
+    }
+  ]
+}

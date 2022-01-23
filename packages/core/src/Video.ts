@@ -2,6 +2,42 @@ export interface VideoJob {
     video: Video
 }
 
+export interface ChannelJob {
+    channelId: string
+}
+
+export interface ChannelInfo {
+    author: string,
+    authorId: string,
+    authorUrl: string,
+    /**
+     * Will return null if none exist
+     */
+    authorBanners: any[],
+    /**
+     * Will return null if none exist
+     */
+    authorThumbnails: {
+        url: string,
+        width: number,
+        height: number
+    }[],
+    subscriberText: string,
+    subscriberCount: number,
+    description: string,
+    isFamilyFriendly: boolean,
+    relatedChannels: {
+        items: any[],
+        /**
+         * Will return null if there are 12 or fewer related channels.  Used with getRelatedChannelsMore()
+         */
+        continuation: string
+    },
+    allowedRegions: string[],
+    isVerified: boolean,
+    channelIdType: number,
+}
+
 /**
  * An Image which represents all banners and thumbnails
  */

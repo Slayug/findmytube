@@ -3,9 +3,14 @@ import {Video} from '@fy/core';
 const ytch = require('yt-channel-info');
 import { youtube } from 'scrape-youtube';
 import { SearchOptions } from 'scrape-youtube/lib/interface';
+import {ChannelInfo} from "@fy/core/dist/Video";
 
 
 class YoutubeHelper {
+
+    static async getChannelInfo(channelId: string): Promise<ChannelInfo> {
+        return ytch.getChannelInfo(channelId)
+    }
 
     static async loadLastChannelVideo(
         channelId: string,
@@ -40,6 +45,10 @@ class YoutubeHelper {
                         ...result.items,
                         ...deepResult.items
                     ]
+                }
+            } else {
+                return {
+                    items: result.items
                 }
             }
         }

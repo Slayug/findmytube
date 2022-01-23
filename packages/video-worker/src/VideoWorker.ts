@@ -9,8 +9,7 @@ const client = new Client({
 import {execSync} from 'child_process';
 
 const worker = new Worker<VideoJob, number>(
-    Config.queueName, async (job: Job<VideoJob>) => {
-
+    Config.videoQueueName, async (job: Job<VideoJob>) => {
         try {
             console.log(` > Processing ${job.data.video.videoId}`);
 

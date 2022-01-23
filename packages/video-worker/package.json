@@ -1,12 +1,13 @@
 {
-  "name": "@fy/worker",
+  "name": "@fy/video-worker",
   "version": "1.0.0",
-  "main": "./dist/worker.js",
+  "main": "./dist/VideoWorker.js",
   "private": true,
   "dependencies": {
     "@elastic/elasticsearch": "^7.16.0",
     "@fy/core": "^1.0.0",
-    "bullmq": "^1.64.0"
+    "bullmq": "^1.64.0",
+    "scrape-youtube": "^2.1.14"
   },
   "license": "MIT",
   "scripts": {
