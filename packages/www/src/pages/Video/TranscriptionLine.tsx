@@ -43,8 +43,7 @@ export function TranscriptionList(
     let untilNextLine = false;
     let charsRemaining = 0;
 
-    for (let transcriptionIndex = 0; transcriptionIndex < transcriptionsMapped.length; transcriptionIndex++){
-      const transcription = transcriptionsMapped[transcriptionIndex];
+    for (const transcription of transcriptionsMapped) {
       let lineAdded = false;
       if (untilNextLine) {
         parsedLines.push({
@@ -52,8 +51,7 @@ export function TranscriptionList(
             markWordsFrom(
               transcription,
               0,
-              charsRemaining,
-              transcriptionIndex
+              charsRemaining
             )}/>
         });
         lineAdded = true;
@@ -76,8 +74,7 @@ export function TranscriptionList(
                 markWordsFrom(
                   transcription,
                   relativeStartIndex,
-                  relativeStartIndex + query.length,
-                  transcriptionIndex
+                  relativeStartIndex + query.length
                 )
               }/>
           });

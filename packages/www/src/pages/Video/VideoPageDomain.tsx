@@ -30,22 +30,20 @@ export function findAllIndexOfQuery(fullText: string, query: string) {
 
 }
 
-export function markWordsFrom(transcription: Transcription, startIndex: number, endIndex: number, index: number) {
+export function markWordsFrom(transcription: Transcription, startIndex: number, endIndex: number) {
 
   const sentence = transcription.text;
   const wordsSentence = [];
   const markedPart = sentence.substring(startIndex, endIndex);
 
-  const appendMark = (text) => <mark id={`${index}`}>{text}</mark>
-
   if (startIndex === 0) {
-    wordsSentence.push(appendMark(markedPart))
+    wordsSentence.push(<mark>{markedPart}</mark>)
     if (endIndex < sentence.length) {
       wordsSentence.push(sentence.substring(endIndex, sentence.length));
     }
   } else {
     wordsSentence.push(sentence.substring(0, startIndex));
-    wordsSentence.push(appendMark(markedPart))
+    wordsSentence.push(<mark>{markedPart}</mark>)
 
     if (endIndex < sentence.length) {
       wordsSentence.push(sentence.substring(endIndex, sentence.length));
