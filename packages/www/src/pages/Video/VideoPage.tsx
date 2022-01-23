@@ -16,7 +16,7 @@ export default function VideoPage() {
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v") ?? "";
   const youtubeRef = useRef<ReactPlayer>();
-  const currentIndexMarkedElement = useRef(0);
+  const currentIndexMarkedElement = useRef(-1);
 
   const {getVideoById} = useApiVideo();
 
@@ -45,12 +45,12 @@ export default function VideoPage() {
       return;
     }
 
-    markedElements.item(currentIndexMarkedElement.current).scrollIntoView();
     if (currentIndexMarkedElement.current <= 0) {
       currentIndexMarkedElement.current = markedElements.length - 1;
     } else {
       currentIndexMarkedElement.current -= 1;
     }
+    markedElements.item(currentIndexMarkedElement.current).scrollIntoView();
   }
 
   function moveDown() {
@@ -60,12 +60,12 @@ export default function VideoPage() {
       return;
     }
 
-    markedElements.item(currentIndexMarkedElement.current).scrollIntoView();
     if (currentIndexMarkedElement.current >= markedElements.length - 1) {
       currentIndexMarkedElement.current = 0;
     } else {
       currentIndexMarkedElement.current += 1;
     }
+    markedElements.item(currentIndexMarkedElement.current).scrollIntoView();
   }
 
   return (

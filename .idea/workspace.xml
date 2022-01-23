@@ -4,23 +4,7 @@
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/channel-worker/src/ChannelWorker.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/video-worker/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/video-worker/pm2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/video-worker/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lerna-debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/lerna-debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/src/Config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/Config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/src/Video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/Video.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/producer/src/YoutubeHelper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/src/YoutubeHelper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/producer/src/producer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/src/producer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/worker/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/worker/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/worker/pm2.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/pm2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/worker/src/worker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/src/VideoWorker.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/worker/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +76,7 @@
       <workItem from="1642801305343" duration="315000" />
       <workItem from="1642850701078" duration="2666000" />
       <workItem from="1642875596752" duration="3287000" />
-      <workItem from="1642936614726" duration="14377000" />
+      <workItem from="1642936614726" duration="14771000" />
     </task>
     <servers />
   </component>
