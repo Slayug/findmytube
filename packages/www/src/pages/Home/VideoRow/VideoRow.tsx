@@ -19,9 +19,11 @@ export default function VideoRow({video, onClick}: { video: Video, onClick?: (vi
     return thumbnail ? <img src={thumbnail.url} alt="Thumbnail"/> : <VideoCameraOutlined/>;
   }
 
-
   function getTimer() {
     const secondsSplitted = (video.lengthSeconds / 60).toString().split('.');
+    if (secondsSplitted.length < 2) {
+      return secondsSplitted[0] + ":00";
+    }
     return secondsSplitted[0] + ':' + secondsSplitted[1].concat('0').substring(0, 2);
   }
 

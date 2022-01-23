@@ -24,7 +24,9 @@ export default function VideoPage() {
     data: videoResult,
     error,
     isLoading,
-  } = useQuery("posts", () => getVideoById(videoId), {});
+  } = useQuery(["video", videoId], () => getVideoById(videoId), {
+    cacheTime: 3
+  });
 
   function getCurrentTranscription(): Transcription[] {
     for (const language of LanguageList) {
