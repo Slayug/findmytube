@@ -1,18 +1,59 @@
 
 .videoRow {
+  display: flex;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+
+    .thumbnail {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
   &:hover {
     cursor: pointer;
     background-color: #DDDDDD;
   }
 
+  .thumbnail {
+    position: relative;
+
+    .timer {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+
+      font-size: 0.8rem;
+      font-weight: bold;
+      font-family: Roboto, Arial, sans-serif;
+
+      padding-left: 2px;
+      padding-right: 2px;
+
+      background-color: #18181890;
+      color: white;
+    }
+  }
+
   .description {
     width: 100%;
-    padding-left: 10px;
-    padding-top: 5px;
+
+    @media screen and (max-width: 768px) {
+      line-height: 1.2;
+      padding-top: 2px;
+      padding-left: 5px;
+    }
+
+    @media screen and (min-width: 768px) {
+      padding-left: 10px;
+      padding-top: 5px;
+    }
 
     .title {
       font-family: "Roboto","Arial",sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.3em;
     }
   }
 }

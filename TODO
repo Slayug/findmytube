@@ -10,10 +10,10 @@
 - [x] Afficher une page Video quand on clique sur une vidéo
 - [x] Afficher les temps où la recherche se trouve dans la vidéo
 - [x] Sauvegarder Toutes les videos d'une chaînes, aujourd'hui seulement les dernières sont save
+- [x] Ajouter bouton suivant/précédent pour parcourir les occurences trouvées dans les sous-titres
 - [ ] À chaque ajout de vidéo, sauvegarder la chaine dans un autre index elastic search (index channel)
 - [ ] Ajouter un producer en mode CRON qui rafraîchit la liste des vidéos fetch par chaîne à partir de l'index channel
 - [ ] Ajouter suivi automatique des traductions en fonction du live
-- [ ] Ajouter bouton suivant/précédent pour parcourir les occurences trouvées dans les sous-titres
 - [ ] Improve logs of producer & worker
 - [ ] ajouter une liste de mots clef/tendance à rechercher régulièrement et scrap les résultats
 - [ ] Configuer winston pour les logs

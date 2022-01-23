@@ -10,13 +10,15 @@ import {Layout} from 'antd';
 import Home from './pages/Home/Home';
 import VideoPage from "./pages/Video/VideoPage";
 
+import styles from './App.module.scss';
+
 function App() {
 
   return (
     <div className="App">
       <Router>
         <Layout>
-          <Header style={{marginBottom: '20px'}}>
+          <Header className={styles.header}>
             <Link to="/" style={{fontWeight: 'bold', color: 'white'}}>
               <img alt="FY logo" style={{height: '40px'}} src={Logo}/>
               <span style={{ marginLeft: '5px'}}>FY</span>

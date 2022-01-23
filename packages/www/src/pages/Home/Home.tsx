@@ -58,12 +58,12 @@ export default function Home() {
   return <Row className={styles.home}>
     <Col span={24}>
       <Row justify="center">
-        <Col span={6}>
+        <Col xs={24} sm={22} md={18} lg={18} xl={16} xxl={16}>
           <Search size="large" placeholder="input search text" onSearch={onSearch} style={{width: '100%'}}/>
         </Col>
       </Row>
       <Row justify="center">
-        <Col span={10}>
+        <Col xs={24} sm={22} md={18} lg={18} xl={16} xxl={16}>
           {isLoading && <Spin/>}
           {isError && <Alert message="Impossible de récupérer votre recherche" type="warning"/>}
           {searchVideoResult && searchVideoResult.pages.length > 0 &&

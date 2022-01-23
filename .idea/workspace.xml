@@ -4,12 +4,11 @@
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/www/src/pages/Video/TranscriptionLine.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPage.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPageDomain.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Video/VideoPageDomain.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/VideoRow/VideoRow.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/VideoRow/VideoRow.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/VideoRow/VideoRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/VideoRow/VideoRow.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +76,7 @@
       <workItem from="1642801305343" duration="315000" />
       <workItem from="1642850701078" duration="2666000" />
       <workItem from="1642875596752" duration="3287000" />
-      <workItem from="1642936614726" duration="3311000" />
+      <workItem from="1642936614726" duration="6366000" />
     </task>
     <servers />
   </component>
