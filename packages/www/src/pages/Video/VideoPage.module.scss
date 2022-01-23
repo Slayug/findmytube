@@ -37,8 +37,10 @@
 
 
   .transcriptions {
-    margin-left: 20px;
-    overflow: auto;
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 10px;
 
     @media screen and (max-width: 576px) {
       width: 100vh;
@@ -75,26 +77,39 @@
       height: 720px;
     }
 
-    .line {
-      display: block;
+    .arrows {
+      display: flex;
 
-      mark {
-        background-color: #FF77FF;
-      }
-
-      .time {
-        font-weight: 600;
-        width: 10px;
-
+      svg {
         cursor: pointer;
-
-        &:hover {
-          text-decoration: underline;
-        }
+        font-size: 2em;
       }
+    }
 
-      .wordFound {
-        background-color: yellow;
+    .lines {
+      overflow: auto;
+
+      .line {
+        display: block;
+
+        mark {
+          background-color: #FF77FF;
+        }
+
+        .time {
+          font-weight: 600;
+          width: 10px;
+
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .wordFound {
+          background-color: yellow;
+        }
       }
     }
 
