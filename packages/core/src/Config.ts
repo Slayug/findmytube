@@ -2,15 +2,15 @@ const QueueName = process.env.QUEUE_NAME ?? 'videos';
 const ExtractorFileName = 'extractor.py';
 
 const Config = {
-    apiHost: 'localhost',
-    apiPort: 8080,
-    elasticHost: 'localhost',
-    elasticPort: 9200,
+    apiHost: process.env.API_HOST ?? 'localhost',
+    apiPort: process.env.API_PORT ?? 8080,
+    elasticHost: process.env.ELASTIC_HOST ?? 'localhost',
+    elasticPort: process.env.ELASTIC_PORT ?? 9200,
     sonarIndex: 'videos',
     elasticTranscriptIndex: 'transcript',
     elasticChannelIndex: 'channel',
-    redisHost: 'localhost',
-    redisPort: 6379,
+    redisHost: process.env.REDIS_HOST ?? 'localhost',
+    redisPort: process.env.REDIS_PORT ?? 6379,
     videoQueueName: QueueName,
     channelQueueName: 'channel',
     extractorFileName: ExtractorFileName,

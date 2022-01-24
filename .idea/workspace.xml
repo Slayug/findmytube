@@ -6,17 +6,10 @@
       <change afterPath="$PROJECT_DIR$/packages/api/build.sh" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/video-worker/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/video-worker/build.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/video-worker/rollup.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/video-worker/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/video-worker/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/Config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/Config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +85,7 @@
       <workItem from="1642875596752" duration="3287000" />
       <workItem from="1642936614726" duration="23619000" />
       <workItem from="1643040225286" duration="9578000" />
-      <workItem from="1643059986785" duration="4356000" />
+      <workItem from="1643059986785" duration="5491000" />
     </task>
     <servers />
   </component>
