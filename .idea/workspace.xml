@@ -2,15 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/dockerimage.yml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/build.sh" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/dependabot.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/dependabot-auto-merge.yaml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/video-worker/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/video-worker/build.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/video-worker/rollup.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/video-worker/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/video-worker/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +27,7 @@
     <option name="done" value="true" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/packages/api" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -47,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/channel-worker" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/video-worker" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -57,6 +63,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/video-worker" />
       <recent name="$PROJECT_DIR$/packages/channel-worker" />
       <recent name="$PROJECT_DIR$/packages/www" />
     </key>
@@ -85,11 +92,18 @@
       <workItem from="1642875596752" duration="3287000" />
       <workItem from="1642936614726" duration="23619000" />
       <workItem from="1643040225286" duration="9578000" />
-      <workItem from="1643059986785" duration="421000" />
+      <workItem from="1643059986785" duration="4356000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/packages/video-worker/src/VideoWorker.js" />
+        <option value="$PROJECT_DIR$/packages/video-worker/src/VideoWorker.js" />
+        <option value="$PROJECT_DIR$/packages/video-worker/src/VideoWorker.js" />
+      </list>
+    </option>
   </component>
 </project>

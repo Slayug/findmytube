@@ -12,6 +12,7 @@
 - [x] Sauvegarder Toutes les videos d'une chaînes, aujourd'hui seulement les dernières sont save
 - [x] Ajouter bouton suivant/précédent pour parcourir les occurences trouvées dans les sous-titres
 - [x] À chaque ajout de vidéo, sauvegarder la chaine dans un autre index elastic search (index channel)
+- [ ] Optimiser les bundles des workers/producer avec rollup
 - [ ] Ajouter un producer en mode CRON qui rafraîchit la liste des vidéos fetch par chaîne à partir de l'index channel
 - [ ] Ajouter suivi automatique des traductions en fonction du live
 - [ ] Improve logs of producer & worker
