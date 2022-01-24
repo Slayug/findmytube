@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/dockerimage.yml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/build.sh" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/core/build.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/www/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/www/build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/dependabot.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/dependabot-auto-merge.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/producer/src/producer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/src/producer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +21,7 @@
     <option name="done" value="true" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/packages/api" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -84,7 +84,8 @@
       <workItem from="1642850701078" duration="2666000" />
       <workItem from="1642875596752" duration="3287000" />
       <workItem from="1642936614726" duration="23619000" />
-      <workItem from="1643040225286" duration="8718000" />
+      <workItem from="1643040225286" duration="9578000" />
+      <workItem from="1643059986785" duration="421000" />
     </task>
     <servers />
   </component>
