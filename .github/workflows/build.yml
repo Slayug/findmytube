@@ -18,5 +18,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
+    - name: Check out repository code
+      uses: actions/checkout@v2
     - name: build www
-      run: ls && cd packages/www && build.sh
+      run: |
+        ls ${{ github.workspace }}
+        - run: echo "🍏 This job's status is ${{ job.status }}."

@@ -6,6 +6,7 @@
       <change afterPath="$PROJECT_DIR$/packages/api/build.sh" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +82,7 @@
       <workItem from="1642875596752" duration="3287000" />
       <workItem from="1642936614726" duration="23619000" />
       <workItem from="1643040225286" duration="9578000" />
-      <workItem from="1643059986785" duration="5903000" />
+      <workItem from="1643059986785" duration="6367000" />
     </task>
     <servers />
   </component>
