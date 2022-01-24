@@ -19,7 +19,7 @@ function wait(time: number, data: {items: Video[]}): Promise<{items: Video[]}> {
 }
 
 [
-    'JsuispascontentTV',
+    'UC4bdl8K6B5Rt2dmKuvnhClg',
 ].forEach((channelId) => {
     console.log(`Add ${channelId} to queue.`)
     queue.add(`channel-${channelId}`, {channelId})
