@@ -19,4 +19,4 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: build www
-      run: cd packages/www && build.sh
+      run: ls && cd packages/www && build.sh
