@@ -35,7 +35,7 @@ jobs:
           # relative path to the place where source code with Dockerfile is located
           context: ./src/samples/simple
           # Note: tags has to be all lower-case
-          tags: ghcr.io/${{ env.GITHUB_REPOSITORY }}
+          tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 
