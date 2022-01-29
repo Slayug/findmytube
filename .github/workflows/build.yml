@@ -14,6 +14,11 @@ jobs:
 
     # steps to perform in job
     steps:
+      - name: set lower case owner name
+        run: |
+          echo "REPO_LC=${REPO,,}" >>${GITHUB_ENV}
+        env:
+          REPO: '${{ github.repository }}'
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -33,9 +38,9 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           # relative path to the place where source code with Dockerfile is located
-          context: ./src/samples/simple
+          context: ./packages/www
           # Note: tags has to be all lower-case
-          tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
+          tags: ghcr.io/${{ REPO }}:${{ github.sha }}
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 
