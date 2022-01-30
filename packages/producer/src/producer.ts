@@ -19,7 +19,32 @@ function wait(time: number, data: {items: Video[]}): Promise<{items: Video[]}> {
 }
 
 [
-    'UC4bdl8K6B5Rt2dmKuvnhClg',
+    'Officialjvcom',
+    'GouvHD',
+    'AntoineGoya',
+    'MaitreLomepal',
+    'DamDamLive',
+    'StupeflipOfficiel',
+    'DanyCaligula',
+    'fosdemtalks',
+    'LArchiPelle',
+    'MardiNoirPTLF',
+    'SAEZLepouvoirdesmots',
+    'LeChatQuiVole',
+    'KangooVan',
+    'UCyW65baBYNme1_81TrK8UOw',
+    'franceinfo',
+    'reinhardalexandre255',
+    'DanyRazBestOf',
+    'TF1',
+    'JsuispascontentTV',
+    'Aufhebung',
+    'MonsieurPhi',
+    'maxbird',
+    'Transculture',
+    'TroncheEnBiais-Zetetique',
+    'PlaceauPeuple',
+    'HeurekaFinanceEco'
 ].forEach((channelId) => {
     console.log(`Add ${channelId} to queue.`)
     queue.add(`channel-${channelId}`, {channelId})

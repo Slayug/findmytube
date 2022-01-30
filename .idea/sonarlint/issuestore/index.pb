@@ -5,5 +5,3 @@ E
 packages/www/build.sh,4/c/4c42edc916654cd84c48cf925c133ca0aaef99d9
 J
 packages/api/nest-cli.json,c/0/c0dc4231a2052ed2d8adff1266c059ce42fabfbb
-Q
-!packages/producer/src/producer.ts,6/1/61aaaa4ee0c910d9edffb02f28fd7db0d6ff02ee
