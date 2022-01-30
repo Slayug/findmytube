@@ -3,7 +3,7 @@ name: Build and Publish
 on:
   # run it on push to the default repository branch
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   # define job to build and publish docker image
@@ -44,9 +44,30 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           file: ./packages/www/Dockerfile
-          # relative path to the place where source code with Dockerfile is located
           context: ./packages/www
-          # Note: tags has to be all lower-case
-          tags: ghcr.io/${{ env.REPO_LC }}:${{ github.sha }}
-          # build on feature branches, push only on main branch
+          tags: ghcr.io/${{ env.REPO_LC }}/www:${{ github.sha }}
+          push: ${{ github.ref == 'refs/heads/main' }}
+
+      - name: Build image and push to Docker Hub and GitHub Container Registry
+        uses: docker/build-push-action@v2
+        with:
+          file: ./packages/api/Dockerfile
+          context: ./packages/
+          tags: ghcr.io/${{ env.REPO_LC }}/api:${{ github.sha }}
+          push: ${{ github.ref == 'refs/heads/main' }}
+
+      - name: Build image and push to Docker Hub and GitHub Container Registry
+        uses: docker/build-push-action@v2
+        with:
+          file: ./packages/video-worker/Dockerfile
+          context: ./packages/
+          tags: ghcr.io/${{ env.REPO_LC }}/video-worker:${{ github.sha }}
+          push: ${{ github.ref == 'refs/heads/main' }}
+
+      - name: Build image and push to Docker Hub and GitHub Container Registry
+        uses: docker/build-push-action@v2
+        with:
+          file: ./packages/channel-worker/Dockerfile
+          context: ./packages/
+          tags: ghcr.io/${{ env.REPO_LC }}/channel-worker:${{ github.sha }}
           push: ${{ github.ref == 'refs/heads/main' }}
