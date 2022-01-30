@@ -45,7 +45,7 @@ jobs:
         with:
           file: ./packages/www/Dockerfile
           # relative path to the place where source code with Dockerfile is located
-          context: ./packages
+          context: ./packages/www
           # Note: tags has to be all lower-case
           tags: ghcr.io/${{ env.REPO_LC }}:${{ github.sha }}
           # build on feature branches, push only on main branch
