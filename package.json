@@ -23,6 +23,7 @@
     "dist/"
   ],
   "scripts": {
+    "bootstrap": "lerna boostrap",
     "bootstrap:prod": "lerna bootstrap -- --production --no-optional",
     "changelog": "conventional-changelog -p angular -u",
     "changelog:update": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",

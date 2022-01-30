@@ -6,19 +6,8 @@
       <change afterPath="$PROJECT_DIR$/packages/api/build.sh" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/cron-channel-producer/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/cron-channel-producer/src/ChannelProducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/cron-channel-producer/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/1/61aaaa4ee0c910d9edffb02f28fd7db0d6ff02ee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/channel-worker/pm2.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/pm2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/producer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/producer/src/producer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/src/producer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/video-worker/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/cron-channel-producer/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/producer/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +91,7 @@
       <workItem from="1643232059079" duration="465000" />
       <workItem from="1643270231420" duration="25000" />
       <workItem from="1643475279205" duration="2957000" />
-      <workItem from="1643535428132" duration="6783000" />
+      <workItem from="1643535428132" duration="7095000" />
     </task>
     <servers />
   </component>
