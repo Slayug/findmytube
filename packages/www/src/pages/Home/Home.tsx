@@ -12,7 +12,6 @@ import VideoRow from "./VideoRow/VideoRow";
 import {InView} from "react-intersection-observer";
 
 const QUERY_KEY = "q";
-const SCROLL_Y_KEY = "scroll_y";
 
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
