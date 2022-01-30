@@ -23,6 +23,7 @@
     "dist/"
   ],
   "scripts": {
+    "bootstrap:prod": "lerna bootstrap -- --production --no-optional",
     "changelog": "conventional-changelog -p angular -u",
     "changelog:update": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "clean": "(rm -r ./.nyc_output || true) && (rm -r ./coverage || true) && (rm -r ./dist || true)",
@@ -38,7 +39,8 @@
     "upgrade": "npx npm-check -u",
     "version": "npm run build && npm run changelog:update",
     "dev": "lerna run dev",
-    "build": "lerna run --parallel build"
+    "build": "lerna run --parallel build",
+    "build:scope": "lerna run --stream build --scope "
   },
   "devDependencies": {
   },
