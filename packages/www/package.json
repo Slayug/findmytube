@@ -53,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.8.1",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.5.1"
