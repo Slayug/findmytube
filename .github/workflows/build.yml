@@ -37,7 +37,7 @@ jobs:
       - name: Build image and push to Docker Hub and GitHub Container Registry
         uses: docker/build-push-action@v2
         with:
-          file: ./packages/www
+          file: ./packages/www/Dockerfile
           # relative path to the place where source code with Dockerfile is located
           context: ./packages
           # Note: tags has to be all lower-case
