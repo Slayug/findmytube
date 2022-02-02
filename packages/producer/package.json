@@ -20,6 +20,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
+    "rollup": "^2.67.0",
     "scrape-youtube": "^2.1.13",
     "ts-node": "^10.4.0",
     "yt-channel-info": "^2.2.0"

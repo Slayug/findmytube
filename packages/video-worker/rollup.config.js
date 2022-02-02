@@ -1,6 +1,5 @@
 // rollup.config.js
 import typescript from '@rollup/plugin-typescript';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 import pkg from './package.json';
 
@@ -9,7 +8,7 @@ const plugins = [
         tsconfig: './tsconfig.json',
     }),
 ];
-const input = 'src/VideoWorker.ts';
+const input = 'src/index.ts';
 
 export default [
     {

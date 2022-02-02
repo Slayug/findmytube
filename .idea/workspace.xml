@@ -6,19 +6,10 @@
       <change afterPath="$PROJECT_DIR$/packages/api/build.sh" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/channel-worker/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/cron-channel-producer/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/channel-worker/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/channel-worker/src/ChannelWorker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/cron-channel-producer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cron-channel-producer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/cron-channel-producer/src/ChannelProducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cron-channel-producer/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/video-worker/build.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/video-worker/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/video-worker/src/VideoWorker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/video-worker/rollup.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/rollup.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,9 +56,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/channel-worker" />
       <recent name="$PROJECT_DIR$/packages/cron-channel-producer" />
       <recent name="$PROJECT_DIR$/packages/video-worker" />
-      <recent name="$PROJECT_DIR$/packages/channel-worker" />
       <recent name="$PROJECT_DIR$/packages/www" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -106,7 +97,7 @@
       <workItem from="1643651217786" duration="22000" />
       <workItem from="1643658806635" duration="666000" />
       <workItem from="1643705265575" duration="285000" />
-      <workItem from="1643823233245" duration="985000" />
+      <workItem from="1643823233245" duration="1299000" />
     </task>
     <servers />
   </component>
