@@ -20,5 +20,6 @@
 - [ ] ajouter une liste de mots clef/tendance à rechercher régulièrement et scrap les résultats
 - [ ] Configuer winston pour les logs
 - [ ] Gestion du CORS en prod, que autoriser le front
+- [ ] Lancer les builds de package seulement quand leurs codes ont changé https://github.com/marketplace/actions/has-changes #ops
 - [ ] Implémenter le PIT quand on fait un search sur ElasticSearch https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#search-after
 - [ ] Enlever Javscript/Typescript en back et tout réécrire avec RabbitMQ https://blog.ippon.fr/2018/03/27/comparatif-rabbitmq-kafka/
