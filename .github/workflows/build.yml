@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: cache node_modules
-        id: node_modules_${{ matrix.package }}
+        id: node_modules
         uses: actions/cache@v2
         with:
           path: packages/${{ matrix.package }}
