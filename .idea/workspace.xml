@@ -6,7 +6,19 @@
       <change afterPath="$PROJECT_DIR$/packages/api/build.sh" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/channel-worker/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/cron-channel-producer/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/channel-worker/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/channel-worker/src/ChannelWorker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/cron-channel-producer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cron-channel-producer/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/cron-channel-producer/src/ChannelProducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cron-channel-producer/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/video-worker/build.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/video-worker/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/video-worker/src/VideoWorker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,13 +55,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/cron-channel-producer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/channel-worker" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/api/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/core/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -90,18 +102,15 @@
       <workItem from="1643232059079" duration="465000" />
       <workItem from="1643270231420" duration="25000" />
       <workItem from="1643475279205" duration="2957000" />
-      <workItem from="1643535428132" duration="7478000" />
+      <workItem from="1643535428132" duration="9230000" />
+      <workItem from="1643651217786" duration="22000" />
+      <workItem from="1643658806635" duration="666000" />
+      <workItem from="1643705265575" duration="285000" />
+      <workItem from="1643823233245" duration="985000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/packages/video-worker/src/VideoWorker.js" />
-        <option value="$PROJECT_DIR$/packages/video-worker/src/VideoWorker.js" />
-        <option value="$PROJECT_DIR$/packages/video-worker/src/VideoWorker.js" />
-      </list>
-    </option>
   </component>
 </project>

@@ -11,6 +11,9 @@ jobs:
     name: Build Docker image and push to repositories
     # run only when code is compiling and tests are passing
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: ['api', 'www', 'video-worker', 'cron-channel-producer', 'channel-worker']
 
     # steps to perform in job
     steps:
@@ -34,40 +37,18 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build www build
+      - name: Build with Lerna
         run: |
           yarn install
           yarn run bootstrap:prod
-          yarn run build:scope @fy/www
+          yarn run build
 
-      - name: Build image and push to Docker Hub and GitHub Container Registry
+      - name: Build ${{ matrix.package }} image and push to GitHub Container Registry
         uses: docker/build-push-action@v2
         with:
-          file: ./packages/www/Dockerfile
-          context: ./packages/www
-          tags: ghcr.io/${{ env.REPO_LC }}/www:${{ github.sha }}
+          file: ./packages/${{ matrix.package }}/Dockerfile
+          context: ./packages/${{ matrix.package }}
+          tags: ghcr.io/${{ env.REPO_LC }}/${{ matrix.package }}:${{ github.sha }}
           push: ${{ github.ref == 'refs/heads/main' }}
-
-      - name: Build image and push to Docker Hub and GitHub Container Registry
-        uses: docker/build-push-action@v2
-        with:
-          file: ./packages/api/Dockerfile
-          context: ./packages/
-          tags: ghcr.io/${{ env.REPO_LC }}/api:${{ github.sha }}
-          push: ${{ github.ref == 'refs/heads/main' }}
-
-      - name: Build image and push to Docker Hub and GitHub Container Registry
-        uses: docker/build-push-action@v2
-        with:
-          file: ./packages/video-worker/Dockerfile
-          context: ./packages/
-          tags: ghcr.io/${{ env.REPO_LC }}/video-worker:${{ github.sha }}
-          push: ${{ github.ref == 'refs/heads/main' }}
-
-      - name: Build image and push to Docker Hub and GitHub Container Registry
-        uses: docker/build-push-action@v2
-        with:
-          file: ./packages/channel-worker/Dockerfile
-          context: ./packages/
-          tags: ghcr.io/${{ env.REPO_LC }}/channel-worker:${{ github.sha }}
-          push: ${{ github.ref == 'refs/heads/main' }}
+          build-args: |
+            PACKAGE=${{ matrix.package }}

@@ -1,7 +1,7 @@
 {
   "name": "@fy/cron-channel-producer",
   "version": "1.0.0",
-  "main": "./dist/ChannelProducer.js",
+  "main": "./dist/index.js",
   "private": true,
   "dependencies": {
     "@elastic/elasticsearch": "^7.16.0",
