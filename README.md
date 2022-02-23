@@ -5,6 +5,8 @@
 * NodeJS >= 14.13.1
 * Python 3.X
 * Docker & Docker-compose
+* Yarn
+* pm2
 
 
 Une fois les requirements installés : `./dev/setup.sh`
