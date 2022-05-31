@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/packages/api/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/api/build.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.controller.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/api/src/video/video.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/channel-worker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/cron-channel-producer/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cron-channel-producer/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +12,9 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

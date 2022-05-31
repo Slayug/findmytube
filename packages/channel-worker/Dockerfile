@@ -21,4 +21,4 @@ WORKDIR /home/node
 COPY --from=0 /home/node/$PACKAGE $PACKAGE/
 COPY --from=0 /home/node/core core/
 
-CMD ["node", "$PACKAGE/dist/index"]
+CMD ["node", "channel-worker/dist/index"]
