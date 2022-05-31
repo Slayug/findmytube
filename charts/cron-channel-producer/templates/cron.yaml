@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: hello
+  name: cron-channel-producer
 spec:
   schedule: "*/10 * * * *"
   jobTemplate:
@@ -9,7 +9,9 @@ spec:
       template:
         spec:
           containers:
-            - name: cron-channel-producer
-              image: ghcr.io/slayug/fy/cron-channel-producer
-              imagePullPolicy: IfNotPresent
+          - name: cron-channel-producer
+            image: ghcr.io/slayug/fy/cron-channel-producer:b2469fae0085b956eb1a94671e65bbb4b07cedc7
+            imagePullPolicy: IfNotPresent
+          imagePullSecrets:
+            - name: regcred
           restartPolicy: OnFailure

@@ -4,5 +4,7 @@ coverage/
 dist/
 node_modules/
 
+.idea/
+
 # Project files:
 *.sublime-*
