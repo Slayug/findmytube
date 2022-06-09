@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "channel-worker",
-      "script": "./src/ChannelWorker.ts",
+      "script": "./src/index.ts",
       "instances": "-1",
       "exec_mode": "cluster",
       "watch": ["./src"]

@@ -35,7 +35,6 @@ export default function Home() {
       refetchOnMount: false,
       retry: false,
       enabled: false,
-      getPreviousPageParam: firstPage => firstPage ? firstPage.page - 1 : false,
       getNextPageParam: nextPage => nextPage ? nextPage.page + 1 : false
     });
 

@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "video-worker",
-      "script": "./src/VideoWorker.ts",
+      "script": "./src/index.ts",
       "instances": "-1",
       "exec_mode": "cluster",
       "watch": ["./src"]
