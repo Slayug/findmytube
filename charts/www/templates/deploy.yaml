@@ -2,20 +2,27 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fy-www
+  namespace: fy
   labels:
+    project: fy
     app: wwww
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wwww
+      project: fy
+      app: www
   template:
     metadata:
       labels:
+        project: fy
         app: www
     spec:
       containers:
         - name: fy-www
-          image: ghcr.io/slayug/fy/www:ee92abbe8c480cf780554aa466c7c525c408c14e
+          image: ghcr.io/slayug/fy/www
+          imagePullPolicy: Always
           ports:
-            - containerPort: 80
+          - containerPort: 80
+      imagePullSecrets:
+      - name: regcred

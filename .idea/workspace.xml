@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/charts/www/templates/ingress.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/charts/www/templates/service.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/nginx/setup.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/setup-cluster.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/www/default.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/cron-channel-producer/templates/cron.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/cron-channel-producer/templates/cron.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/www/Chart.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/Chart.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/values/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/values/dev.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/www/templates/deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/channel-worker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/cron-channel-producer/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cron-channel-producer/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/cron-channel-producer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cron-channel-producer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/video-worker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/www/templates/ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/ingress.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/www/templates/service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +74,7 @@
       <recent name="$PROJECT_DIR$/packages/www" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/packages/www" />
       <recent name="$PROJECT_DIR$/packages/worker/src" />
     </key>
@@ -121,6 +122,8 @@
       <workItem from="1654155783346" duration="598000" />
       <workItem from="1654165265080" duration="1939000" />
       <workItem from="1654775414981" duration="4585000" />
+      <workItem from="1655575956694" duration="3754000" />
+      <workItem from="1655589718606" duration="405000" />
     </task>
     <servers />
   </component>
