@@ -10,8 +10,8 @@ spec:
         spec:
           containers:
           - name: cron-channel-producer
-            image: ghcr.io/slayug/fy/cron-channel-producer:b2469fae0085b956eb1a94671e65bbb4b07cedc7
-            imagePullPolicy: IfNotPresent
+            image: ghcr.io/slayug/fy/cron-channel-producer
+            imagePullPolicy: Always
           imagePullSecrets:
             - name: regcred
           restartPolicy: OnFailure

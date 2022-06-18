@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: www-ingress
+  namespace: fy
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    {{ if or (eq .Values.env "prod") (eq .Values.env "staging") }}
+    kubernetes.io/tls-acme: "true"
+    {{ end }}
+spec:
+  tls:
+    - hosts:
+        - www.{{ .Values.host }}
+    {{ if or (eq .Values.env "prod") (eq .Values.env "staging") }}
+      secretName: wildcard-{{ .Values.env }}-deadlock-tls
+    {{ else }}
+      secretName: cert-selfsigned-secrets
+    {{ end }}
+  rules:
+    - host: api.{{ .Values.host }}
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: deadlock-api-service
+                port:
+                  number: 80

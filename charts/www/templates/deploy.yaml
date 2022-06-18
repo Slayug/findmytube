@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fy-www
+  labels:
+    app: wwww
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wwww
+  template:
+    metadata:
+      labels:
+        app: www
+    spec:
+      containers:
+        - name: fy-www
+          image: ghcr.io/slayug/fy/www:ee92abbe8c480cf780554aa466c7c525c408c14e
+          ports:
+            - containerPort: 80
