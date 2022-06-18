@@ -3,22 +3,15 @@ FROM node:17-alpine3.14
 ARG PACKAGE
 WORKDIR /home/node
 
+COPY tsconfig.json tsconfig.json
 COPY core ./core
 COPY $PACKAGE/ $PACKAGE/
 
 RUN cd $PACKAGE && npm install --production
 
-RUN rm core/node_modules -rf
-RUN rm core/src -rf
+RUN rm /home/node/core/node_modules -rf
+RUN npm cache clean --force
 
+WORKDIR /home/node/$PACKAGE
 
-FROM node:17-alpine3.14
-
-ARG PACKAGE
-
-WORKDIR /home/node
-
-COPY --from=0 /home/node/$PACKAGE $PACKAGE/
-COPY --from=0 /home/node/core core/
-
-CMD ["node", "channel-worker/dist/index"]
+CMD ["npx", "ts-node", "--transpile-only", "src/index.ts"]

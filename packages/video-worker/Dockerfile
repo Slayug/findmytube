@@ -1,21 +1,18 @@
 FROM node:17-alpine3.14
 
+ARG PACKAGE
 WORKDIR /home/node
 
+COPY tsconfig.json tsconfig.json
 COPY core ./core
-COPY video-worker/ video-worker/
+COPY $PACKAGE/ $PACKAGE/
 
-RUN cd video-worker && npm install --production
-RUN rm core/node_modules -rf
-RUN rm core/src -rf
+RUN cd $PACKAGE && npm install --production
 
+RUN rm /home/node/core/node_modules -rf
+RUN npm cache clean --force
 
-FROM node:17-alpine3.14
+WORKDIR /home/node/$PACKAGE
 
-WORKDIR /home/node
-
-COPY --from=0 /home/node/video-worker video-worker/
-COPY --from=0 /home/node/core core/
-
-CMD ["node", "video-worker/dist/VideoWorker"]
+CMD ["npx", "ts-node", "--transpile-only", "src/index.ts"]
 
