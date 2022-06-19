@@ -1,22 +1,14 @@
 import {Queue} from 'bullmq';
 
-import {Config, Video, ChannelJob} from '@fy/core';
+import {Config, ChannelJob} from '@fy/core';
 
 const queue = new Queue<ChannelJob>(Config.channelQueueName, {
     connection: {
         host: Config.redisHost,
-        port: Config.redisPort
+        port: Config.redisPort,
+        password: Config.redisPassword
     }
 });
-
-
-function wait(time: number, data: {items: Video[]}): Promise<{items: Video[]}> {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(data);
-        }, time)
-    });
-}
 
 [
     'Officialjvcom',

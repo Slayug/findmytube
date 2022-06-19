@@ -11,7 +11,8 @@ const client = new Client({
 const videoQueue = new Queue<VideoJob>(Config.videoQueueName, {
     connection: {
         host: Config.redisHost,
-        port: Config.redisPort
+        port: Config.redisPort,
+        password: Config.redisPassword
     }
 });
 

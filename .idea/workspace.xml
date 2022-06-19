@@ -2,16 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/charts/nginx/setup.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/setup-cluster.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/www/default.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/channel-worker/template/channel-worker-deploy.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/producer/Chart.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/producer/templates/job.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/redis/configmap.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/producer/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/cron-channel-producer/templates/cron.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/cron-channel-producer/templates/cron.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/channel-worker/template/deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/channel-worker/template/channel-worker-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/cron-channel-producer/templates/cron.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/cron-channel-producer/templates/cron-channel-producer.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/elastic/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/elastic/setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/redis/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/redis/setup.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/values/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/values/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/www/templates/deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/www/templates/ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/ingress.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/www/templates/service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/channel-worker/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/Config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/Config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/cron-channel-producer/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cron-channel-producer/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/producer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/producer/src/producer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/src/producer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/video-worker/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/src/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +71,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/www/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/api/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -80,9 +88,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="NimRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="Application" factoryName="Application">
       <method v="2">
-        <option name="nim.task.build.to.cache" enabled="true" />
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -123,7 +131,8 @@
       <workItem from="1654165265080" duration="1939000" />
       <workItem from="1654775414981" duration="4585000" />
       <workItem from="1655575956694" duration="3754000" />
-      <workItem from="1655589718606" duration="405000" />
+      <workItem from="1655589718606" duration="1064000" />
+      <workItem from="1655630367152" duration="6712000" />
     </task>
     <servers />
   </component>

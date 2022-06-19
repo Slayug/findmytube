@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fy-channel-worker
+  namespace: fy
+  labels:
+    project: fy
+    app: channel-worker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      project: fy
+      app: channel-worker
+  template:
+    metadata:
+      labels:
+        project: fy
+        app: channel-worker
+    spec:
+      containers:
+        - name: fy-channel-worker
+          image: ghcr.io/slayug/fy/channel-worker:4bb8d5cf8d9616868e042426fe850939bec94b57
+          imagePullPolicy: Always
+          env:
+            - name: ELASTIC_HOST
+              value: {{ .Values.elastic.masterHost }}
+            - name: REDIS_HOST
+              value: {{ .Values.redis.masterHost }}
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                    name: fy-redis
+                    key: redis-password
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: regcred

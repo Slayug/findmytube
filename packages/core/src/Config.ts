@@ -11,6 +11,7 @@ const Config = {
     elasticChannelIndex: 'channel',
     redisHost: process.env.REDIS_HOST ?? 'localhost',
     redisPort: process.env.REDIS_PORT ?? 6379,
+    redisPassword: process.env.REDIS_PASSWORD ?? "",
     videoQueueName: QueueName,
     channelQueueName: 'channel',
     extractorFileName: ExtractorFileName,

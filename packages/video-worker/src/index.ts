@@ -31,7 +31,8 @@ const worker = new Worker<VideoJob, number>(
     }, {
         connection: {
             host: Config.redisHost,
-            port: Config.redisPort
+            port: Config.redisPort,
+            password: Config.redisPassword
         }
     });
 

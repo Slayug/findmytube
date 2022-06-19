@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        package: ['api', 'www', 'video-worker', 'cron-channel-producer', 'channel-worker']
+        package: ['producer', 'api', 'www', 'video-worker', 'cron-channel-producer', 'channel-worker']
     # steps to perform in job
     steps:
       - name: set lower case owner name

@@ -9,7 +9,8 @@ const client = new Client({
 const channelQueue = new Queue<ChannelJob>(Config.channelQueueName, {
     connection: {
         host: Config.redisHost,
-        port: Config.redisPort
+        port: Config.redisPort,
+        password: Config.redisPassword,
     }
 });
 

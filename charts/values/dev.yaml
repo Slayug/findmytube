@@ -1,2 +1,11 @@
 host: "dev.fy.com"
 namespace: fy
+
+elastic:
+  masterHost: "elasticsearch-master.fy.svc.cluster.local"
+
+redis:
+  masterHost: "fy-redis-master.fy.svc.cluster.local"
+  masterPort: 6379
+  slaveHost: "fy-redis-replicas.fy.svc.cluster.local"
+  slavePort: 6379
