@@ -1,14 +1,26 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: producer
-  app: fy
+  name: fy-producer
+  namespace: fy
+  labels:
+    project: fy
+    app: producer
 spec:
   template:
     spec:
       containers:
       - name: fy-producer
-        image: perl
-        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+        image: ghcr.io/slayug/fy/producer:269c3555dde1330526da100b57b046125bb07a5d
+        imagePullPolicy: Always
+        env:
+        - name: REDIS_HOST
+          value: {{ .Values.redis.masterHost }}
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+                name: fy-redis
+                key: redis-password
       restartPolicy: Never
-  backoffLimit: 4
+      imagePullSecrets:
+       - name: regcred
