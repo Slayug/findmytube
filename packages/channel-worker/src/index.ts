@@ -88,7 +88,8 @@ const worker = new Worker<ChannelJob, number>(
     }, {
         connection: {
             host: Config.redisHost,
-            port: Config.redisPort
+            port: Config.redisPort,
+            password: Config.redisPassword
         }
     });
 

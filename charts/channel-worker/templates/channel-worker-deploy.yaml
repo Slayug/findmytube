@@ -7,7 +7,7 @@ metadata:
     project: fy
     app: channel-worker
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       project: fy
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: fy-channel-worker
-          image: ghcr.io/slayug/fy/channel-worker:4bb8d5cf8d9616868e042426fe850939bec94b57
+          image: ghcr.io/slayug/fy/channel-worker:98a5e10ce3925e00fa08c7a8cb47eb99eb144020
           imagePullPolicy: Always
           env:
             - name: ELASTIC_HOST
