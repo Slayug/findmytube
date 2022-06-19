@@ -2,24 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/charts/channel-worker/template/channel-worker-deploy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/charts/producer/Chart.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/charts/producer/templates/job.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/charts/redis/configmap.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/producer/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/api/templates/api-deploy.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/api/templates/api-ingress.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/api/templates/api-service.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/channel-worker/Chart.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/www/templates/www-configmap-js.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/channel-worker/template/deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/channel-worker/template/channel-worker-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/cron-channel-producer/templates/cron.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/cron-channel-producer/templates/cron-channel-producer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/elastic/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/elastic/setup.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/redis/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/redis/setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/api/templates/deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/api/Chart.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/producer/templates/job.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/producer/templates/producer-job.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/values/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/values/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/channel-worker/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/src/Config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/Config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/cron-channel-producer/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cron-channel-producer/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/producer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/producer/src/producer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/producer/src/producer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/video-worker/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/www/templates/deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/www-deploy.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/www/templates/ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/www-ingress.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/www/templates/service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/www-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/hooks/useApiVideo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/hooks/useApiVideo.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +128,7 @@
       <workItem from="1654775414981" duration="4585000" />
       <workItem from="1655575956694" duration="3754000" />
       <workItem from="1655589718606" duration="1064000" />
-      <workItem from="1655630367152" duration="6712000" />
+      <workItem from="1655630367152" duration="8195000" />
     </task>
     <servers />
   </component>

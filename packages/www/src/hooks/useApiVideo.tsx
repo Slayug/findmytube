@@ -1,9 +1,8 @@
 import axios from "axios";
-import {Config} from "@fy/core";
 import {SearchVideoResult} from "@fy/core/src/Video";
 import {VideoResult} from "@fy/core/dist/Video";
 
-axios.defaults.baseURL = `http://${Config.apiHost}:${Config.apiPort}`;
+axios.defaults.baseURL = `${FrontConfig.apiBaseUrl}`;
 
 
 const VIDEO_ENDPOINT = '/videos';

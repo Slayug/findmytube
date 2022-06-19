@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fy-www
+  namespace: fy
+  labels:
+    project: fy
+    app: www
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: fy
+      app: www
+  template:
+    metadata:
+      labels:
+        project: fy
+        app: www
+    spec:
+      containers:
+        - name: fy-www
+          image: ghcr.io/slayug/fy/www
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
+          volumeMounts:
+          - name: cm-www-conf-js
+            mountPath: /usr/share/nginx/html/env
+      imagePullSecrets:
+      - name: regcred
+      volumes:
+      - name: cm-www-conf-js
+        configMap:
+          name: www-configmap-js

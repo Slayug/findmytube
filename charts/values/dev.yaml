@@ -1,6 +1,9 @@
 host: "dev.fy.com"
 namespace: fy
 
+api:
+  baseUrl: "http://api.dev.fy.com"
+
 elastic:
   masterHost: "elasticsearch-master.fy.svc.cluster.local"
 

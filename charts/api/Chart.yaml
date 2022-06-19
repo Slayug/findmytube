@@ -1,0 +1,7 @@
+apiVersion: v3
+name: api
+version: 0.1
+home: https://github.com/Slayug/fy
+maintainers:
+  - email: alex.loo@protonmail.com
+    name: Alexandra
