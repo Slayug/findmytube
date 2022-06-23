@@ -14,8 +14,12 @@
     "name": "Anylia"
   },
   "workspaces": {
-    "packages": ["packages/*"],
-    "nohoist": ["**/@fy/**"]
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@fy/**"
+    ]
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -37,12 +41,12 @@
     "build:scope": "lerna run --stream build --scope "
   },
   "devDependencies": {
+    "lerna": "^5.1.4"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
