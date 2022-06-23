@@ -42,6 +42,7 @@ jobs:
         run: |
           yarn install
           yarn run bootstrap
+          npx lerna run --scope @fy/core build
           yarn run build
 
       - name: Build ${{ matrix.package }} image and push to GitHub Container Registry
