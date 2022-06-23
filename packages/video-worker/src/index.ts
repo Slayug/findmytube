@@ -13,7 +13,7 @@ const worker = new Worker<VideoJob, number>(
         try {
             console.log(` > Processing ${job.data.video.videoId}`);
 
-            execSync('python ' +
+            execSync('python3 ' +
                 [Config.extractorFileName,
                     job.data.video.videoId,
                     Config.elasticHost,

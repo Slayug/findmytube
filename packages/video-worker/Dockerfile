@@ -3,6 +3,10 @@ FROM node:17-alpine3.14
 ARG PACKAGE
 WORKDIR /home/node
 
+RUN apk add --no-cache python3 py3-pip
+COPY requirements requirements
+RUN pip install -r requirements
+
 COPY tsconfig.json tsconfig.json
 COPY core ./core
 COPY $PACKAGE/ $PACKAGE/

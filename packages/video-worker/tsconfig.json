@@ -2,7 +2,7 @@
   "extends": "../tsconfig.json",
   "include": ["./src/**/*"],
   "compilerOptions": {
-    "module": "ESNext",
+    "module": "CommonJS",
     "sourceMap": true,
     "outDir": "./dist"
   },

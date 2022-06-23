@@ -10712,7 +10712,7 @@ schema-utils@^4.0.0:
     ajv-formats "^2.1.1"
     ajv-keywords "^5.0.0"
 
-scrape-youtube@^2.1.13, scrape-youtube@^2.1.14:
+scrape-youtube@^2.1.14:
   version "2.1.14"
   resolved "https://registry.yarnpkg.com/scrape-youtube/-/scrape-youtube-2.1.14.tgz#218e83c4547cdbbe580f7cafa7bf2cf0764535cf"
   integrity sha512-gJIk66t0+LOBBvQ9KP24VIWb2CpLlhUZNPRuMtlSnMELPimpx06enOj8QssSK925YPFpzdCAkERjsjHo1lTlYA==

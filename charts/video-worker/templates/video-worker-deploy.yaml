@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fy-channel-worker
+  name: fy-video-worker
   namespace: fy
   labels:
     project: fy
-    app: channel-worker
+    app: video-worker
 spec:
   replicas: 1
   selector:
     matchLabels:
       project: fy
-      app: channel-worker
+      app: video-worker
   template:
     metadata:
       labels:
         project: fy
-        app: channel-worker
+        app: video-worker
     spec:
       containers:
-        - name: fy-channel-worker
-          image: ghcr.io/slayug/fy/channel-worker:latest
+        - name: fy-video-worker
+          image: ghcr.io/slayug/fy/video-worker:latest
           imagePullPolicy: Always
           env:
             - name: ELASTIC_HOST
