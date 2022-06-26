@@ -22,6 +22,16 @@ spec:
         - name: fy-api
           image: ghcr.io/slayug/fy/api:269c3555dde1330526da100b57b046125bb07a5d
           imagePullPolicy: Always
+          env:
+            - name: ELASTIC_HOST
+              value: {{ .Values.elastic.masterHost }}
+            - name: REDIS_HOST
+              value: {{ .Values.redis.masterHost }}
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fy-redis
+                  key: redis-password
           ports:
           - containerPort: 8080
       imagePullSecrets:

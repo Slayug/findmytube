@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/charts/video-worker/templates/video-worker-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/dockerimage.yml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/cluster-config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/setup-k8s.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/channel-worker/templates/channel-worker-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/channel-worker/templates/channel-worker-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/video-worker/template/deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/video-worker/Chart.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dev/setup.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/video-worker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/video-worker/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/video-worker/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/video-worker/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements" beforeDir="false" afterPath="$PROJECT_DIR$/packages/requirements" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/api/templates/api-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/api/templates/api-deploy.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/elastic/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/elastic/setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/redis/configmap.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/redis/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/redis/setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/video-worker/templates/video-worker-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/video-worker/templates/video-worker-deploy.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/setup-cluster.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dev/setup-cluster.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +62,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/core/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/www/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -83,9 +80,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="NimRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="Application" factoryName="Application">
       <method v="2">
-        <option name="nim.task.build.to.cache" enabled="true" />
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -133,7 +130,10 @@
       <workItem from="1655819248969" duration="56000" />
       <workItem from="1655907206515" duration="1082000" />
       <workItem from="1655911129581" duration="1653000" />
-      <workItem from="1655970180694" duration="5051000" />
+      <workItem from="1655970180694" duration="7349000" />
+      <workItem from="1655997576786" duration="4110000" />
+      <workItem from="1656048116711" duration="27000" />
+      <workItem from="1656251388521" duration="2613000" />
     </task>
     <servers />
   </component>

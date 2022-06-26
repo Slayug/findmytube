@@ -1,3 +1,6 @@
+#!/bin/sh -x
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install fy-redis bitnami/redis
 
