@@ -2,28 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/charts/redis/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/api/templates/api-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/api/templates/api-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/api/templates/api-ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/api/templates/api-ingress.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/api/templates/api-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/api/templates/api-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/channel-worker/templates/channel-worker-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/channel-worker/templates/channel-worker-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/channel-worker/templates/channel-worker-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/channel-worker/templates/channel-worker-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/cron-channel-producer/templates/cron-channel-producer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/cron-channel-producer/templates/cron-channel-producer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/elastic/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/elastic/setup.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/producer/templates/producer-job.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/producer/templates/producer-job.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/redis/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/redis/setup.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/values/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/values/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/video-worker/templates/video-worker-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/video-worker/templates/video-worker-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/www/Chart.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/Chart.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/www/templates/www-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/www-deploy.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/www/templates/www-ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/www-ingress.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/www/templates/www-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/www-service.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/setup-cluster.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dev/setup-cluster.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/setup-k8s.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dev/setup-k8s.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/public/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +130,7 @@
       <workItem from="1656048116711" duration="27000" />
       <workItem from="1656251388521" duration="3294000" />
       <workItem from="1656349630406" duration="59000" />
-      <workItem from="1656350297625" duration="941000" />
+      <workItem from="1656350297625" duration="1359000" />
     </task>
     <servers />
   </component>
