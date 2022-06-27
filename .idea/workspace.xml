@@ -2,15 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/dev/cluster-config.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/setup-k8s.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/redis/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/api/templates/api-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/api/templates/api-deploy.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/api/templates/api-ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/api/templates/api-ingress.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/api/templates/api-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/api/templates/api-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/channel-worker/templates/channel-worker-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/channel-worker/templates/channel-worker-deploy.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/channel-worker/templates/channel-worker-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/channel-worker/templates/channel-worker-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/cron-channel-producer/templates/cron-channel-producer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/cron-channel-producer/templates/cron-channel-producer.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/elastic/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/elastic/setup.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/redis/configmap.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/producer/templates/producer-job.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/producer/templates/producer-job.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/redis/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/redis/setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/values/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/values/dev.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/video-worker/templates/video-worker-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/video-worker/templates/video-worker-deploy.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/www/Chart.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/Chart.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/www/templates/www-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/www-deploy.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/www/templates/www-ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/www-ingress.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/www/templates/www-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/www-service.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/setup-cluster.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dev/setup-cluster.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/setup-k8s.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dev/setup-k8s.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/build.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +48,7 @@
     </file-type-list>
   </component>
   <component name="KubernetesApiPersistence">
-    <option name="context" value="kind-kind" />
+    <option name="context" value="kind-cluster-fy" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="onblzgex" />
@@ -56,7 +69,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../portfolio" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -133,7 +146,9 @@
       <workItem from="1655970180694" duration="7349000" />
       <workItem from="1655997576786" duration="4110000" />
       <workItem from="1656048116711" duration="27000" />
-      <workItem from="1656251388521" duration="2613000" />
+      <workItem from="1656251388521" duration="3294000" />
+      <workItem from="1656349630406" duration="59000" />
+      <workItem from="1656350297625" duration="941000" />
     </task>
     <servers />
   </component>

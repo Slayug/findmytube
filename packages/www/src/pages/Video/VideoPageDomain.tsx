@@ -1,4 +1,4 @@
-import {Transcription} from "@fy/core";
+import {Transcription} from " @findmytube/core";
 import {Fragment} from "react";
 
 export function getFullTextFrom(transcriptions: Transcription[]) {

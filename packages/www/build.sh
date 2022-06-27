@@ -3,4 +3,4 @@
 yarn install
 yarn run build
 
-docker build . -t fy-www
+docker build . -t findmytube-www

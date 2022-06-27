@@ -1,16 +1,16 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: fy-producer
-  namespace: fy
+  name: findmytube-producer
+  namespace: findmytube
   labels:
-    project: fy
+    project: findmytube
     app: producer
 spec:
   template:
     spec:
       containers:
-      - name: fy-producer
+      - name: findmytube-producer
         image: ghcr.io/slayug/fy/producer:269c3555dde1330526da100b57b046125bb07a5d
         imagePullPolicy: Always
         env:
@@ -19,7 +19,7 @@ spec:
         - name: REDIS_PASSWORD
           valueFrom:
             secretKeyRef:
-                name: fy-redis
+                name: findmytube-redis
                 key: redis-password
       restartPolicy: Never
       imagePullSecrets:

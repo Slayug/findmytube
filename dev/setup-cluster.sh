@@ -4,7 +4,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 kind create cluster --name cluster-fy --config $DIR/cluster-config.yaml
 
-kubectl create namespace fy
+kubectl create namespace findmytube
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 

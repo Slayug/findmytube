@@ -46,8 +46,8 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
     "baseUrl": ".",
     "paths": {
-      "@fy/core": ["./core"],
-      "@fy/core/*": ["./core/*"]
+      " @findmytube/core": ["./core"],
+      " @findmytube/core/*": ["./core/*"]
     }
   },
   "exclude": ["node_modules"],

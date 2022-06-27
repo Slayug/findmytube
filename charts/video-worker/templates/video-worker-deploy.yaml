@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fy-video-worker
-  namespace: fy
+  name: findmytube-video-worker
+  namespace: findmytube
   labels:
-    project: fy
+    project: findmytube
     app: video-worker
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      project: fy
+      project: findmytube
       app: video-worker
   template:
     metadata:
       labels:
-        project: fy
+        project: findmytube
         app: video-worker
     spec:
       containers:
-        - name: fy-video-worker
+        - name: findmytube-video-worker
           image: ghcr.io/slayug/fy/video-worker:latest
           imagePullPolicy: Always
           env:
@@ -30,7 +30,7 @@ spec:
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                    name: fy-redis
+                    name: findmytube-redis
                     key: redis-password
           ports:
             - containerPort: 80

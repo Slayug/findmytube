@@ -1,8 +1,8 @@
-host: "dev.fy.com"
-namespace: fy
+host: "dev.findmytube.io"
+namespace: findmytube
 
 api:
-  baseUrl: "http://api.dev.fy.com"
+  baseUrl: "http://api.{{ .Values.host }}"
 
 elastic:
   masterHost: "elasticsearch-master.fy.svc.cluster.local"

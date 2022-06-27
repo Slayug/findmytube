@@ -1,5 +1,5 @@
 import {Worker, Job} from 'bullmq';
-import {Config, VideoJob} from '@fy/core';
+import {Config, VideoJob} from ' @findmytube/core';
 
 const {Client} = require('@elastic/elasticsearch')
 const client = new Client({

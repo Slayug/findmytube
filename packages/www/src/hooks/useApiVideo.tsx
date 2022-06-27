@@ -1,6 +1,6 @@
 import axios from "axios";
-import {SearchVideoResult} from "@fy/core/src/Video";
-import {VideoResult} from "@fy/core/dist/Video";
+import {SearchVideoResult} from " @findmytube/core/src/Video";
+import {VideoResult} from " @findmytube/core/dist/Video";
 
 axios.defaults.baseURL = `${FrontConfig.apiBaseUrl}`;
 

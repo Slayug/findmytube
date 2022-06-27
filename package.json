@@ -1,5 +1,5 @@
 {
-  "name": "@fy/root",
+  "name": " @findmytube/root",
   "version": "1.0.4",
   "description": "Find text over Youtube videos",
   "keywords": [
@@ -18,7 +18,7 @@
       "packages/*"
     ],
     "nohoist": [
-      "**/@fy/**"
+      "**/ @findmytube/**"
     ]
   },
   "main": "dist/index.js",

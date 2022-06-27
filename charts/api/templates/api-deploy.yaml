@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fy-api
-  namespace: fy
+  name: findmytube-api
+  namespace: findmytube
   labels:
-    project: fy
+    project: findmytube
     app: api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      project: fy
+      project: findmytube
       app: api
   template:
     metadata:
       labels:
-        project: fy
+        project: findmytube
         app: api
     spec:
       containers:
-        - name: fy-api
+        - name: findmytube-api
           image: ghcr.io/slayug/fy/api:269c3555dde1330526da100b57b046125bb07a5d
           imagePullPolicy: Always
           env:
@@ -30,7 +30,7 @@ spec:
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: fy-redis
+                  name: findmytube-redis
                   key: redis-password
           ports:
           - containerPort: 8080

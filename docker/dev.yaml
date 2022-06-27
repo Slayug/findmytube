@@ -2,7 +2,7 @@ version: "3.9"
 services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.16.3
-    container_name: fy-elasticsearch
+    container_name: findmytube-elasticsearch
     environment:
       - discovery.type=single-node
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
@@ -12,17 +12,17 @@ services:
       - 9200:9200
       - 9300:9300
     networks:
-      - fy
+      - findmytube
   redis:
     image: redis:6.2.6-alpine
-    container_name: fy-redis
+    container_name: findmytube-redis
     ports:
       - 6379:6379
     networks:
-      - fy
+      - findmytube
 volumes:
   data_elasticsearch:
     driver: local
 networks:
-  fy:
+  findmytube:
     driver: bridge

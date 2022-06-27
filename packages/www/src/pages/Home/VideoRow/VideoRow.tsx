@@ -1,4 +1,4 @@
-import {Video} from "@fy/core";
+import {Video} from " @findmytube/core";
 import {VideoCameraOutlined} from "@ant-design/icons";
 
 import styles from './VideoRow.module.scss';

@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { ElasticsearchModule } from '@nestjs/elasticsearch';
 import { VideoController } from './video/video.controller';
 import { VideoService } from './video/video.service';
-import { Config } from '@fy/core';
+import { Config } from ' @findmytube/core';
 
 @Module({
   imports: [

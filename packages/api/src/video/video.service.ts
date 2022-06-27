@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { ElasticsearchService } from '@nestjs/elasticsearch';
-import { SearchVideoResult } from '@fy/core/src/Video';
-import { Config } from '@fy/core';
-import { VideoResult } from '@fy/core/dist/Video';
+import { SearchVideoResult } from ' @findmytube/core/src/Video';
+import { Config } from ' @findmytube/core';
+import { VideoResult } from ' @findmytube/core/dist/Video';
 
 const SEARCH_ELEMENT_PER_PAGE = 9;
 

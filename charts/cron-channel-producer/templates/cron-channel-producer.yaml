@@ -20,7 +20,7 @@ spec:
               - name: REDIS_PASSWORD
                 valueFrom:
                   secretKeyRef:
-                      name: fy-redis
+                      name: findmytube-redis
                       key: redis-password
           imagePullSecrets:
             - name: regcred

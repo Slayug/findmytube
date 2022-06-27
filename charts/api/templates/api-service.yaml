@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: fy
-  name: fy-api-service
+  namespace: findmytube
+  name: findmytube-api-service
 spec:
   selector:
     app: api

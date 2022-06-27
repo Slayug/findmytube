@@ -1,9 +1,9 @@
-import {Video} from '@fy/core';
+import {Video} from ' @findmytube/core';
 
 const ytch = require('yt-channel-info');
 import { youtube } from 'scrape-youtube';
 import { SearchOptions } from 'scrape-youtube/lib/interface';
-import {ChannelInfo} from "@fy/core/dist/Video";
+import {ChannelInfo} from " @findmytube/core/dist/Video";
 
 
 class YoutubeHelper {

@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fy-www
-  namespace: fy
+  name: findmytube-www
+  namespace: findmytube
   labels:
-    project: fy
+    project: findmytube
     app: www
 spec:
   replicas: 1
   selector:
     matchLabels:
-      project: fy
+      project: findmytube
       app: www
   template:
     metadata:
       labels:
-        project: fy
+        project: findmytube
         app: www
     spec:
       containers:
-        - name: fy-www
+        - name: findmytube-www
           image: ghcr.io/slayug/fy/www
           imagePullPolicy: Always
           ports:

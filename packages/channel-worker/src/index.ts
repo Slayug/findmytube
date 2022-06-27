@@ -1,5 +1,5 @@
 import {Queue, Worker} from 'bullmq';
-import {Config, ChannelJob, VideoJob} from '@fy/core';
+import {Config, ChannelJob, VideoJob} from ' @findmytube/core';
 import YoutubeHelper from "./YoutubeHelper";
 
 const {Client} = require('@elastic/elasticsearch')
