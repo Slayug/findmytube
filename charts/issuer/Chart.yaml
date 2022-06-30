@@ -1,0 +1,7 @@
+description: Issuer for findmytube.io
+home: https://findmytube.io
+maintainers:
+  - email: contact@findmytube.io
+    name: Alexandra
+name: issuer
+version: 0.1

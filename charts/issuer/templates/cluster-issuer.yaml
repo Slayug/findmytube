@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: findmytube-clusterissuer
+spec:
+  acme:
+    # The ACME server URL
+    server: https://acme-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: contact@findmytube.io
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: private-key-{{ .Values.env }}
+    solvers:
+      - http01:
+          ingress:
+            class: nginx

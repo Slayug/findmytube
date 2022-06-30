@@ -5,13 +5,33 @@ metadata:
   namespace: findmytube
   annotations:
     kubernetes.io/ingress.class: nginx
+    {{ if or (eq .Values.env "prod") (eq .Values.env "staging") }}
+    cert-manager.io/cluster-issuer: findmytube-clusterissuer
+    {{ end }}
 spec:
+  tls:
+    - hosts:
+      - www.{{ .Values.host }}
+      - {{ .Values.host }}
+      {{ if or (eq .Values.env "prod") (eq .Values.env "staging") }}
+      secretName: {{ .Values.env }}-www-findmytube-tls
+      {{ end }}
   rules:
+    - host: {{ .Values.host }}
+      http:
+       paths:
+         - path: /
+           pathType: ImplementationSpecific
+           backend:
+             service:
+               name: findmytube-www-service
+               port:
+                 number: 80
     - host: www.{{ .Values.host }}
       http:
        paths:
          - path: /
-           pathType: Prefix
+           pathType: ImplementationSpecific
            backend:
              service:
                name: findmytube-www-service

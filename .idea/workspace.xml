@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/charts/cert-manager/setup.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/issuer/Chart.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/issuer/templates/cluster-issuer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/values/prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/api/templates/api-ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/api/templates/api-ingress.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/elastic/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/elastic/values.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/redis/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/redis/values.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/redis/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/redis/setup.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/values/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/values/dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/www/templates/www-configmap-js.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/www-configmap-js.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/www/templates/www-ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/www-ingress.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/setup-cluster.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dev/setup-cluster.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/setup-k8s.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dev/setup-k8s.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +39,7 @@
     </file-type-list>
   </component>
   <component name="KubernetesApiPersistence">
-    <option name="context" value="kind-cluster-fy" />
+    <option name="context" value="gke_findmytube_europe-west9-c_findmytube-cluster" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="onblzgex" />
@@ -51,7 +60,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../portfolio" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/charts" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -62,6 +71,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/charts" />
       <recent name="$PROJECT_DIR$/packages/channel-worker" />
       <recent name="$PROJECT_DIR$/packages/cron-channel-producer" />
       <recent name="$PROJECT_DIR$/packages/video-worker" />
@@ -130,7 +140,13 @@
       <workItem from="1656048116711" duration="27000" />
       <workItem from="1656251388521" duration="3294000" />
       <workItem from="1656349630406" duration="59000" />
-      <workItem from="1656350297625" duration="1359000" />
+      <workItem from="1656350297625" duration="10004000" />
+      <workItem from="1656400260674" duration="596000" />
+      <workItem from="1656430900761" duration="4261000" />
+      <workItem from="1656453343132" duration="2951000" />
+      <workItem from="1656458942456" duration="307000" />
+      <workItem from="1656490346575" duration="1125000" />
+      <workItem from="1656507052548" duration="31000" />
     </task>
     <servers />
   </component>

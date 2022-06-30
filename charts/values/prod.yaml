@@ -1,13 +1,12 @@
-host: "dev.findmytube.io"
+host: "findmytube.io"
 namespace: findmytube
-env: dev
-
+env: prod
 
 elastic:
   masterHost: "elasticsearch-master.findmytube.svc.cluster.local"
 
 redis:
-  masterHost: "findmytube-redis-master.findmytube.svc.cluster.local"
+  masterHost: "findmytube-redis-master"
   masterPort: 6379
   slaveHost: "findmytube-redis-replicas.findmytube.svc.cluster.local"
   slavePort: 6379
