@@ -93,10 +93,12 @@ export default function Home() {
                         searchVideoResult.pages.map(page => {
                           return page.hits.map((videoResult) => {
                             return <div key={videoResult._id} className={styles.videoRowWrap}>
-                              <VideoRow
-                                onClick={(videoId) => goToVideo(videoId)}
-                                video={videoResult._source.video}
-                              />
+                              {
+                                (videoResult._source && videoResult._source.video) ? <VideoRow
+                                  onClick={(videoId) => goToVideo(videoId)}
+                                  video={videoResult._source.video}
+                                /> : <hr className={videoResult._id} />
+                              }
                             </div>
                           })
                         })
