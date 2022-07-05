@@ -1,5 +1,5 @@
 {
-  "name": " @findmytube/producer",
+  "name": "@findmytube/producer",
   "version": "1.0.0",
   "private": true,
   "main": "./dist/producer.js",

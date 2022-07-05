@@ -1,5 +1,5 @@
 {
-  "name": " @findmytube/channel-worker",
+  "name": "@findmytube/channel-worker",
   "version": "1.0.0",
   "main": "./dist/index.js",
   "private": true,

@@ -1,5 +1,5 @@
 {
-  "name": " @findmytube/www",
+  "name": "@findmytube/www",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
