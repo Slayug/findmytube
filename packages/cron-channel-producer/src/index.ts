@@ -1,5 +1,5 @@
 import {Queue} from 'bullmq';
-import {Config, ChannelJob} from ' @findmytube/core';
+import {Config, ChannelJob} from '@findmytube/core';
 
 const {Client} = require('@elastic/elasticsearch')
 const client = new Client({

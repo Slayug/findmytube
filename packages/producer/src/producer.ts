@@ -1,6 +1,6 @@
 import {Queue} from 'bullmq';
 
-import {Config, ChannelJob} from ' @findmytube/core';
+import {Config, ChannelJob} from '@findmytube/core';
 
 const queue = new Queue<ChannelJob>(Config.channelQueueName, {
     connection: {

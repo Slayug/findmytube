@@ -12,6 +12,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "start": "nodemon src/index.ts",
     "dev": "pm2 start pm2.json"
   },
   "devDependencies": {
