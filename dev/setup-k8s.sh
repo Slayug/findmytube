@@ -14,6 +14,7 @@ fi
 $DIR/../charts/elastic/setup.sh
 $DIR/../charts/redis/setup.sh
 
+helm upgrade --install findmytube-issuer ./charts/issuer -f ./charts/values/$ENV.yaml
 helm upgrade --install findmytube-www ./charts/www/ -f ./charts/values/$ENV.yaml
 helm upgrade --install findmytube-video-worker ./charts/video-worker/ -f ./charts/values/$ENV.yaml
 helm upgrade --install findmytube-channel-worker ./charts/channel-worker/ -f ./charts/values/$ENV.yaml
