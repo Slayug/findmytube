@@ -1,4 +1,4 @@
-import {Transcription} from " @findmytube/core";
+import {Transcription} from "@findmytube/core";
 import styles from "./VideoPage.module.scss";
 import {Fragment, useMemo} from "react";
 import {findAllIndexOfQuery, getFullTextFrom, markWordsFrom} from "./VideoPageDomain";

@@ -7,7 +7,7 @@ import useApiVideo from "../../hooks/useApiVideo";
 import {useEffect, useState} from "react";
 import {useInfiniteQuery} from "react-query";
 import Search from "antd/es/input/Search";
-import {SearchVideoResult} from " @findmytube/core/src/Video";
+import {SearchVideoResult} from "@findmytube/core/src/Video";
 import VideoRow from "./VideoRow/VideoRow";
 import {InView} from "react-intersection-observer";
 

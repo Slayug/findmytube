@@ -6,7 +6,7 @@ import {Alert, Col, Row, Spin} from "antd";
 import ReactPlayer from "react-player";
 
 import styles from "./VideoPage.module.scss";
-import {LanguageList, Transcription} from " @findmytube/core/dist";
+import {LanguageList, Transcription} from "@findmytube/core/dist";
 import {CaretDownOutlined, CaretUpOutlined} from "@ant-design/icons";
 import {TranscriptionList} from "./TranscriptionLine";
 
