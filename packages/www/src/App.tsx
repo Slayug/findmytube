@@ -20,8 +20,8 @@ function App() {
         <Layout>
           <Header className={styles.header}>
             <Link to="/" style={{fontWeight: 'bold', color: 'white'}}>
-              <img alt="FY logo" style={{height: '40px'}} src={Logo}/>
-              <span style={{ marginLeft: '5px'}}>FY</span>
+              <img alt="findmytube logo" style={{height: '40px'}} src={Logo}/>
+              <span style={{ marginLeft: '5px'}}>FINDMYTUBE</span>
             </Link>
           </Header>
           <Content>
