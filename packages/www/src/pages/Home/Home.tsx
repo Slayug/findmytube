@@ -54,11 +54,9 @@ export default function Home() {
 
   useEffect(() => {
     if (inLoadMore) {
-      setTimeout(() => {
-        if (inLoadMore) {
-          fetchNextPage();
-        }
-      }, 700);
+      if (inLoadMore) {
+        fetchNextPage();
+      }
     }
   }, [inLoadMore, fetchNextPage])
 
