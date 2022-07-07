@@ -7,7 +7,7 @@ metadata:
     project: findmytube
     app: www
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       project: findmytube
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: findmytube-www
-          image: ghcr.io/slayug/fy/www
+          image: ghcr.io/slayug/fy/www:4237f8851c06178f839c70618c0a8cab626539b9
           imagePullPolicy: Always
           ports:
           - containerPort: 80
