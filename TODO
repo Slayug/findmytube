@@ -12,14 +12,16 @@
 - [x] Sauvegarder Toutes les videos d'une chaînes, aujourd'hui seulement les dernières sont save
 - [x] Ajouter bouton suivant/précédent pour parcourir les occurences trouvées dans les sous-titres
 - [x] À chaque ajout de vidéo, sauvegarder la chaine dans un autre index elastic search (index channel)
-- [ ] Externaliser les configs pour (worker, producer et api partagé) et www (via config.js local) de l'autre côté
+- [x] Externaliser les configs pour (worker, producer et api partagé) et www (via config.js local) de l'autre côté
 - [ ] Optimiser les bundles des workers/producer avec rollup
-- [ ] Ajouter un producer en mode CRON qui rafraîchit la liste des vidéos fetch par chaîne à partir de l'index channel
+- [x] Ajouter un producer en mode CRON qui rafraîchit la liste des vidéos fetch par chaîne à partir de l'index channel
 - [ ] Ajouter suivi automatique des traductions en fonction du live
 - [ ] Improve logs of producer & worker
 - [ ] ajouter une liste de mots clef/tendance à rechercher régulièrement et scrap les résultats
 - [ ] Configuer winston pour les logs
-- [ ] Gestion du CORS en prod, que autoriser le front
+- [x] Gestion du CORS en prod, que autoriser le front
 - [ ] Lancer les builds de package seulement quand leurs codes ont changé https://github.com/marketplace/actions/has-changes #ops
+- [ ] #feat chercher en précisant une chaîne précise
+- [ ] #feat scrapper les mots clefs sur youtube quand un.e utilisateur.rice a 0 résultat
 - [ ] Implémenter le PIT quand on fait un search sur ElasticSearch https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#search-after
 - [ ] Enlever Javscript/Typescript en back et tout réécrire avec RabbitMQ https://blog.ippon.fr/2018/03/27/comparatif-rabbitmq-kafka/
