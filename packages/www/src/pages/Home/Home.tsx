@@ -72,7 +72,7 @@ export default function Home() {
     <Col span={24}>
       <Row justify="center">
         <Col xs={24} sm={22} md={18} lg={18} xl={16} xxl={14}>
-          <Search defaultValue={searchParams.get(QUERY_KEY)} size="large" placeholder="input search text" onSearch={onSearch} style={{width: '100%'}}/>
+          <Search autoFocus defaultValue={searchParams.get(QUERY_KEY)} size="large" placeholder="input search text" onSearch={onSearch} style={{width: '100%'}}/>
         </Col>
       </Row>
       <Row justify="center">
