@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/charts/cert-manager/setup.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/charts/issuer/Chart.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/charts/issuer/templates/cluster-issuer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/charts/values/prod.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/api/templates/api-ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/api/templates/api-ingress.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/elastic/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/elastic/values.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/redis/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/redis/values.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/redis/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/redis/setup.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/values/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/values/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/www/templates/www-configmap-js.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/www-configmap-js.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/www/templates/www-ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/www/templates/www-ingress.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/setup-k8s.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dev/setup-k8s.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/SearchBar/SearchBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/SearchBar/SearchBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/VideoRow/VideoRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/VideoRow/VideoRow.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +31,7 @@
     </file-type-list>
   </component>
   <component name="KubernetesApiPersistence">
-    <option name="context" value="gke_findmytube_europe-west9-c_findmytube-cluster" />
+    <option name="context" value="gke_findmytube_europe-west9-b_findmytube-cluster" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="onblzgex" />
@@ -60,13 +52,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/charts" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/www/node_modules/typescript/lib" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -147,10 +141,46 @@
       <workItem from="1656458942456" duration="307000" />
       <workItem from="1656490346575" duration="1125000" />
       <workItem from="1656507052548" duration="31000" />
+      <workItem from="1656670383627" duration="2599000" />
+      <workItem from="1657029120026" duration="56000" />
+      <workItem from="1657033294490" duration="2604000" />
+      <workItem from="1657041977566" duration="2340000" />
+      <workItem from="1657052457022" duration="1934000" />
+      <workItem from="1657094485857" duration="2099000" />
+      <workItem from="1657110164430" duration="2746000" />
+      <workItem from="1657128671811" duration="3024000" />
+      <workItem from="1657178584014" duration="4903000" />
+      <workItem from="1657213013226" duration="4013000" />
+      <workItem from="1657257872135" duration="1572000" />
+      <workItem from="1657262981070" duration="2874000" />
+      <workItem from="1657291174634" duration="5930000" />
+      <workItem from="1657344422438" duration="1208000" />
+      <workItem from="1657345659258" duration="753000" />
+      <workItem from="1657347457334" duration="332000" />
+      <workItem from="1657367570483" duration="599000" />
+      <workItem from="1657440098496" duration="1158000" />
+      <workItem from="1657456773656" duration="5964000" />
+      <workItem from="1657468041640" duration="2496000" />
+      <workItem from="1657515154467" duration="6057000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/api/src/channel/channel.service.ts</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

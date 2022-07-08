@@ -35,7 +35,9 @@ export default function VideoRow({video, onClick}: { video: Video, onClick?: (vi
     <div className={styles.description}>
       <div className={styles.title}>{video.title}</div>
       <div className={styles.published}>{video.publishedText}</div>
-      <div className={styles.authorLink}><a href={`https://www.youtube.com/c/${video.authorId}`}>{video.author}</a></div>
+      <div className={styles.authorLink}>
+        <a href={`https://www.youtube.com/c/${video.authorId}`}>{video.author}</a>
+      </div>
     </div>
 
   </div>

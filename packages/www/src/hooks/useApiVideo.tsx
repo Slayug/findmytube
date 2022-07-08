@@ -2,25 +2,25 @@ import axios from "axios";
 import {SearchVideoResult} from "@findmytube/core/src/Video";
 import {VideoResult} from "@findmytube/core/dist/Video";
 
-axios.defaults.baseURL = `${FrontConfig.apiBaseUrl}`;
-
+export interface SearchVideoParams {
+    q: string,
+    channelAuthor?: string,
+    page?: number
+}
 
 const VIDEO_ENDPOINT = '/videos';
 export default function useApiVideo() {
 
-  function getVideoById(videoId: string): Promise<VideoResult> {
-    return axios.get(`${VIDEO_ENDPOINT}/${videoId}`).then((r) => r.data)
+  function getVideoById(videoId: string) {
+    return axios.get<VideoResult>(`${VIDEO_ENDPOINT}/${videoId}`).then((r) => r.data)
   }
 
-  function searchVideo(content: string, page = 0): Promise<SearchVideoResult> {
-    return axios.get(VIDEO_ENDPOINT, {
-      params: {
-        q: content,
-        page
-      }
+  function searchVideo(params: {page?: 0, q: string, channelAuthor?: string}) {
+    return axios.get<SearchVideoResult>(VIDEO_ENDPOINT, {
+      params: {...params}
     }).then((r) => r.data)
   }
 
 
-  return { searchVideo, getVideoById }
+  return {searchVideo, getVideoById}
 }

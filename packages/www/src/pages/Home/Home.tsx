@@ -1,25 +1,30 @@
-import {Alert, Button, Col, Row, Spin} from 'antd';
+import {Alert, Button, Col, Input, Row, Spin} from 'antd';
 
 import {useNavigate, useSearchParams} from "react-router-dom";
 
 import styles from './Home.module.scss';
 import useApiVideo from "../../hooks/useApiVideo";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useInfiniteQuery} from "react-query";
-import Search from "antd/es/input/Search";
 import {SearchVideoResult} from "@findmytube/core/src/Video";
+import useApiChannel from "../../hooks/useApiChannel";
+import SearchBar from "./SearchBar/SearchBar";
 import VideoRow from "./VideoRow/VideoRow";
 import {InView} from "react-intersection-observer";
 
 const QUERY_KEY = "q";
+const CHANNEL_KEY = "channelAuthor";
 
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [inLoadMore, setInLoadMore] = useState(false);
-  const [searchContent, setSearchContent] = useState<string>(searchParams.get(QUERY_KEY));
+  //const [searchContent, setSearchContent] = useState<string>(searchParams.get(QUERY_KEY) || '');
+  const searchContent = useRef<string>(searchParams.get(QUERY_KEY) ?? '');
+  const channelAuthorSelected = useRef<string>(searchParams.get(CHANNEL_KEY) ?? '');
 
   const {searchVideo} = useApiVideo();
+  const {searchChannel} = useApiChannel();
 
   const navigate = useNavigate();
 
@@ -30,49 +35,81 @@ export default function Home() {
     isLoading,
     isError,
   } = useInfiniteQuery<SearchVideoResult>(
-    `search-${searchContent}`,
-    ({pageParam}) => searchVideo(searchContent, pageParam), {
+    `search-${searchContent.current}-${channelAuthorSelected.current}`,
+    ({pageParam}) => searchVideo({
+      q: searchContent.current,
+      page: pageParam ?? 0,
+      channelAuthor: channelAuthorSelected.current
+    }), {
       refetchOnMount: false,
       retry: false,
-      enabled: false,
+      enabled: true,
+      refetchOnWindowFocus: false,
       getNextPageParam: nextPage => nextPage ? nextPage.page + 1 : false
     });
 
   useEffect(() => {
-    const query = searchParams.get(QUERY_KEY);
-    if (query) {
-      setSearchContent(query);
-    }
-  }, [])
-
-  useEffect(() => {
-    if (searchContent) {
-      setSearchParams({q: searchContent})
-      search()
-    }
-  }, [searchContent, search])
-
-  useEffect(() => {
     if (inLoadMore) {
-      if (inLoadMore) {
-        fetchNextPage();
-      }
+      fetchNextPage();
     }
   }, [inLoadMore, fetchNextPage])
 
-  function onSearch(value: string) {
-    setSearchContent(value)
+  useEffect(() => {
+    updateSearchParams();
+  }, [searchContent, channelAuthorSelected])
+
+  function onPressEnterContent(change: React.KeyboardEvent<HTMLInputElement>) {
+    searchContent.current = change.currentTarget.value;
+    search();
   }
 
   function goToVideo(videoId: string) {
-    navigate(`/watch?v=${videoId}&q=${searchContent.replaceAll(" ", "+")}`)
+    navigate(`/watch?v=${videoId}&q=${searchContent.current.replaceAll(" ", "+")}`)
+  }
+
+  function updateSearchParams() {
+    setSearchParams({q: searchContent.current, channelAuthor: channelAuthorSelected.current})
+  }
+
+  function onSelectChannel(channel: string) {
+    channelAuthorSelected.current = channel
+    updateSearchParams();
+    search();
+  }
+
+  function onClearChannel() {
+    channelAuthorSelected.current = '';
+    updateSearchParams();
+    search();
   }
 
   return <Row className={styles.home}>
     <Col span={24}>
       <Row justify="center">
         <Col xs={24} sm={22} md={18} lg={18} xl={16} xxl={14}>
-          <Search autoFocus defaultValue={searchParams.get(QUERY_KEY)} size="large" placeholder="input search text" onSearch={onSearch} style={{width: '100%'}}/>
+          <Row>
+            <Col span={12}>
+              <Input
+                autoFocus
+                defaultValue={searchParams.get(QUERY_KEY)} size="large"
+                placeholder="Search the speech"
+                onPressEnter={onPressEnterContent} style={{width: '100%'}}/>
+            </Col>
+            <Col span={12}>
+              <SearchBar
+                defaultSearchQuery={searchParams.get(CHANNEL_KEY)}
+                onSelect={onSelectChannel}
+                onClear={onClearChannel}
+                searchMethod={(query) => searchChannel(query).then((response) => {
+                  return response.hits.map((channel => {
+                    return {
+                      value: channel._source.channel.author,
+                      label: <div>{channel._source.channel.author}</div>
+                    }
+                  })) ?? []
+                })}/>
+            </Col>
+          </Row>
         </Col>
       </Row>
       <Row justify="center">
@@ -80,11 +117,11 @@ export default function Home() {
           {isLoading && <Spin/>}
           {isError && <Alert message="Impossible de récupérer votre recherche" type="warning"/>}
           {searchVideoResult && searchVideoResult.pages.length > 0 &&
-                    <div
-                      className={styles.amountResult}>
-                      {searchVideoResult.pages[0].total.value} résultats
-                        ({searchVideoResult.pages[0].took / 1000}sec)
-                    </div>
+                        <div
+                          className={styles.amountResult}>
+                          {searchVideoResult.pages[0].total.value} résultats
+                            ({searchVideoResult.pages[0].took / 1000}sec)
+                        </div>
           }
           {
             searchVideoResult &&
@@ -95,7 +132,7 @@ export default function Home() {
                                 (videoResult._source && videoResult._source.video) ? <VideoRow
                                   onClick={(videoId) => goToVideo(videoId)}
                                   video={videoResult._source.video}
-                                /> : <hr className={videoResult._id} />
+                                /> : <hr className={videoResult._id}/>
                               }
                             </div>
                           })

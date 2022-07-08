@@ -5,6 +5,8 @@ import { ElasticsearchModule } from '@nestjs/elasticsearch';
 import { VideoController } from './video/video.controller';
 import { VideoService } from './video/video.service';
 import { Config } from '@findmytube/core';
+import { ChannelController } from './channel/channel.controller';
+import { ChannelService } from './channel/channel.service';
 
 @Module({
   imports: [
@@ -12,7 +14,7 @@ import { Config } from '@findmytube/core';
       node: `http://${Config.elasticHost}:${Config.elasticPort}`,
     }),
   ],
-  controllers: [AppController, VideoController],
-  providers: [AppService, VideoService],
+  controllers: [AppController, VideoController, ChannelController],
+  providers: [AppService, VideoService, ChannelService],
 })
 export class AppModule {}

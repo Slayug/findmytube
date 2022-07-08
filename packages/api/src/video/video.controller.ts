@@ -32,13 +32,14 @@ export class VideoController {
   async search(
     @Query('q') content: string,
     @Query('page', ParseIntPipe) page = 0,
+    @Query('channelAuthor') channelAuthor: string,
   ) {
     if (page < 0) {
       throw new HttpException('Page must be >= 0', HttpStatus.BAD_REQUEST);
     }
 
     try {
-      return await this.videoService.search(content, page);
+      return await this.videoService.search({ content, page, channelAuthor });
     } catch (err) {
       console.error(err);
       throw new HttpException(

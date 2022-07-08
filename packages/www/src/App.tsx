@@ -11,6 +11,11 @@ import Home from './pages/Home/Home';
 import VideoPage from "./pages/Video/VideoPage";
 
 import styles from './App.module.scss';
+import axios from "axios";
+
+
+// setup axios
+axios.defaults.baseURL = `${FrontConfig.apiBaseUrl}`;
 
 function App() {
 

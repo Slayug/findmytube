@@ -33,7 +33,7 @@ export interface ChannelInfo {
          */
         continuation: string
     },
-    allowedRegions: string[],
+    allowedRegions?: string[],
     isVerified: boolean,
     channelIdType: number,
 }
@@ -78,7 +78,7 @@ export type VideoResult = {
     video?: Video,
 } & Languages;
 
-export interface SearchVideoResult {
+type Result = {
     tool: number;
     timed_out: boolean;
     page: number,
@@ -91,13 +91,28 @@ export interface SearchVideoResult {
     };
     total: {
         value: number
+
     }
+}
+
+export type SearchChannelResult = {
     hits: {
-        _index: "transcript",
+        _index: 'channel',
+        _id: string,
+        _score: number,
+        _source: {
+            channel: ChannelInfo
+        }
+    }[]
+}
+
+export type SearchVideoResult = {
+    hits: {
+        _index: 'transcript',
         _id: string,
         _score: number,
         _source: {
             video: Video
         }
     }[]
-}
+} & Result;

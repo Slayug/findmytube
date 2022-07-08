@@ -25,25 +25,79 @@ export class VideoService {
     }
   }
 
-  async search(content: string, page = 0): Promise<SearchVideoResult> {
+  searchVideoParam(content: string, from: number, size: number) {
+    return {
+      index: Config.elasticTranscriptIndex,
+      from,
+      size,
+      body: {
+        query: {
+          query_string: {
+            default_field: '*.fullText',
+            query: `"${content}"`,
+          },
+        },
+        _source: ['video'],
+      },
+    };
+  }
+
+  searchVideoChannelParam(
+    content: string,
+    from: number,
+    size: number,
+    channelAuthor: string,
+  ) {
+    return {
+      index: Config.elasticTranscriptIndex,
+      from,
+      size,
+      body: {
+        query: {
+          bool: {
+            must: [
+              {
+                query_string: {
+                  default_field: '*.fullText',
+                  query: `"${content}"`,
+                },
+              },
+              {
+                match: {
+                  'video.author': {
+                    operator: 'and',
+                    query: channelAuthor,
+                  },
+                },
+              },
+            ],
+          },
+        },
+        _source: ['video'],
+      },
+    };
+  }
+
+  async search(params: {
+    page: number;
+    content: string;
+    channelAuthor?: string;
+  }): Promise<SearchVideoResult> {
     // from https://github.com/elastic/elasticsearch-js/blob/3cfc31902e9adafadcea3f9eff6dbb2a81349bb5/docs/examples/proxy/api/search.js#L56
-    const from = page * SEARCH_ELEMENT_PER_PAGE;
+    const { page, content, channelAuthor } = params;
+    const from = (page ?? 0) * SEARCH_ELEMENT_PER_PAGE;
     const size = SEARCH_ELEMENT_PER_PAGE;
     try {
-      const response = await this.elasticsearchService.search({
-        index: Config.elasticTranscriptIndex,
-        from,
-        size,
-        body: {
-          query: {
-            query_string: {
-              default_field: '*.fullText',
-              query: `"${content}"`,
-            },
-          },
-          _source: ['video'],
-        },
-      });
+      let response;
+      if (channelAuthor) {
+        response = await this.elasticsearchService.search(
+          this.searchVideoChannelParam(content, from, size, channelAuthor),
+        );
+      } else {
+        response = await this.elasticsearchService.search(
+          this.searchVideoParam(content, from, size),
+        );
+      }
 
       return {
         took: response.body.took,

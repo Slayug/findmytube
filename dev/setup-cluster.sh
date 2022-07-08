@@ -2,7 +2,7 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-kind create cluster --name cluster-findmytube --config $DIR/cluster-config.yaml
+kind create cluster --config $DIR/cluster-config.yaml
 
 kubectl create namespace findmytube
 

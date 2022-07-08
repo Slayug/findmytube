@@ -13,15 +13,15 @@
 - [x] Ajouter bouton suivant/précédent pour parcourir les occurences trouvées dans les sous-titres
 - [x] À chaque ajout de vidéo, sauvegarder la chaine dans un autre index elastic search (index channel)
 - [x] Externaliser les configs pour (worker, producer et api partagé) et www (via config.js local) de l'autre côté
-- [ ] Optimiser les bundles des workers/producer avec rollup
 - [x] Ajouter un producer en mode CRON qui rafraîchit la liste des vidéos fetch par chaîne à partir de l'index channel
-- [ ] Ajouter suivi automatique des traductions en fonction du live
-- [ ] Improve logs of producer & worker
-- [ ] ajouter une liste de mots clef/tendance à rechercher régulièrement et scrap les résultats
-- [ ] Configuer winston pour les logs
 - [x] Gestion du CORS en prod, que autoriser le front
-- [ ] Lancer les builds de package seulement quand leurs codes ont changé https://github.com/marketplace/actions/has-changes #ops
+- [ ] Optimiser les bundles des workers/producer avec rollup
+- [ ] #feat Ajouter suivi automatique des traductions en fonction du live
+- [ ] #dev Improve logs of producer & worker
+- [ ] #feat ajouter une liste de mots clef/tendance à rechercher régulièrement et scrap les résultats
+- [ ] Configuer winston pour les logs
+- [ ] #ops #ci Lancer les builds de package seulement quand leurs codes ont changé https://github.com/marketplace/actions/has-changes
 - [ ] #feat chercher en précisant une chaîne précise
 - [ ] #feat scrapper les mots clefs sur youtube quand un.e utilisateur.rice a 0 résultat
-- [ ] Implémenter le PIT quand on fait un search sur ElasticSearch https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#search-after
-- [ ] Enlever Javscript/Typescript en back et tout réécrire avec RabbitMQ https://blog.ippon.fr/2018/03/27/comparatif-rabbitmq-kafka/
+- [ ] #feat Implémenter le PIT quand on fait un search sur ElasticSearch https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#search-after
+- [ ] Enlever Javscript/Typescript en back et tout réécrire avec RabbitMQ https://blog.ippon.fr/2018/03/27/comparatif-rabbitmq-kafka/ ??
