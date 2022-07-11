@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/SearchBar/SearchBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/SearchBar/SearchBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/VideoRow/VideoRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/VideoRow/VideoRow.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

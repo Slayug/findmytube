@@ -36,7 +36,7 @@ jobs:
           yarn install
           yarn run bootstrap
           npx lerna run --scope @findmytube/core build
-          lerna run --scope @findmytube/${{ matrix.package }} build  --stream
+          npx lerna run --scope @findmytube/${{ matrix.package }} build  --stream
 
       - name: Build ${{ matrix.package }} image and push to GitHub Container Registry
         uses: docker/build-push-action@v2
