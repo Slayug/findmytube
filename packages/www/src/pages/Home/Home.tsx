@@ -55,7 +55,7 @@ export default function Home() {
 
   useEffect(() => {
     updateSearchParams();
-  }, [searchContent, channelAuthorSelected])
+  }, [searchContent.current, channelAuthorSelected.current])
 
   function onPressEnterContent(change: React.KeyboardEvent<HTMLInputElement>) {
     searchContent.current = change.currentTarget.value;
@@ -67,12 +67,14 @@ export default function Home() {
   }
 
   function updateSearchParams() {
+    let currentParams = {};
     if (searchContent.current) {
-      setSearchParams({q: searchContent.current});
+      currentParams = {q: searchContent.current};
     }
     if (channelAuthorSelected.current) {
-      setSearchParams({channelAuthor: channelAuthorSelected.current})
+      currentParams = {...currentParams, channelAuthor: channelAuthorSelected.current};
     }
+    setSearchParams(currentParams);
   }
 
   function onSelectChannel(channel: string) {
