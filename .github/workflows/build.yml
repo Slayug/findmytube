@@ -3,7 +3,7 @@ name: Build and Publish
 on:
   # run it on push to the default repository branch
   push:
-    branches: [ main ]
+    branches: [ build ]
 
 jobs:
   # define job to build and publish docker image
@@ -47,7 +47,6 @@ jobs:
 
       - name: Build ${{ matrix.package }} image and push to GitHub Container Registry
         uses: docker/build-push-action@v2
-
         with:
           file: ./packages/${{ matrix.package }}/Dockerfile
           context: ./packages/
