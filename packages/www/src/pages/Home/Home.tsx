@@ -19,9 +19,8 @@ export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [inLoadMore, setInLoadMore] = useState(false);
-  //const [searchContent, setSearchContent] = useState<string>(searchParams.get(QUERY_KEY) || '');
-  const searchContent = useRef<string>(searchParams.get(QUERY_KEY) ?? '');
-  const channelAuthorSelected = useRef<string>(searchParams.get(CHANNEL_KEY) ?? '');
+  const searchContent = useRef<string | null>(searchParams.get(QUERY_KEY));
+  const channelAuthorSelected = useRef<string | null>(searchParams.get(CHANNEL_KEY));
 
   const {searchVideo} = useApiVideo();
   const {searchChannel} = useApiChannel();
@@ -43,7 +42,7 @@ export default function Home() {
     }), {
       refetchOnMount: false,
       retry: false,
-      enabled: true,
+      enabled: searchContent.current !== null || channelAuthorSelected.current !== null,
       refetchOnWindowFocus: false,
       getNextPageParam: nextPage => nextPage ? nextPage.page + 1 : false
     });
@@ -68,7 +67,12 @@ export default function Home() {
   }
 
   function updateSearchParams() {
-    setSearchParams({q: searchContent.current, channelAuthor: channelAuthorSelected.current})
+    if (searchContent.current) {
+      setSearchParams({q: searchContent.current});
+    }
+    if (channelAuthorSelected.current) {
+      setSearchParams({channelAuthor: channelAuthorSelected.current})
+    }
   }
 
   function onSelectChannel(channel: string) {
