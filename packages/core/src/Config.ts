@@ -2,7 +2,7 @@ const QueueName = process.env.QUEUE_NAME ?? 'videos';
 const ExtractorFileName = 'extractor.py';
 
 const Config = {
-    host: process.env.HOST ?? 'dev.findmytube.io',
+    host: process.env.HOST ?? 'localhost:3000',
     apiHost: process.env.API_HOST ?? 'localhost',
     apiPort: process.env.API_PORT ?? 8080,
     elasticHost: process.env.ELASTIC_HOST ?? 'localhost',

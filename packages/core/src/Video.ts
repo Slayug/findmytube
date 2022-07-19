@@ -106,6 +106,12 @@ export type SearchChannelResult = {
     }[]
 }
 
+export type SearchChannelYoutubeResult = {
+    name: string,
+    descriptionShort: string,
+    channelID: string
+}
+
 export type SearchVideoResult = {
     hits: {
         _index: 'transcript',
