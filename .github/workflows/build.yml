@@ -28,7 +28,7 @@ jobs:
         id: node_modules
         uses: actions/cache@v2
         with:
-          path: packages/${{ matrix.package }}
+          path: packages/${{ matrix.package }}/node_modules
           key: node_modules_${{ matrix.package }}
 
       - name: Login to Github Packages
