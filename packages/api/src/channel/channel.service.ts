@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { ElasticsearchService } from '@nestjs/elasticsearch';
 
-import ytsr from 'ytsr';
 import { Config } from '@findmytube/core';
+import * as ytsr from 'ytsr';
+import { Channel } from 'ytsr';
+import { SearchChannelResult } from '@findmytube/core/dist/Video';
 
 const SEARCH_ELEMENT_PER_PAGE = 6;
 
@@ -10,19 +12,53 @@ const SEARCH_ELEMENT_PER_PAGE = 6;
 export class ChannelService {
   constructor(private readonly elasticsearchService: ElasticsearchService) {}
 
+  async getByAuthor(author: string) {
+    const result = await this.elasticsearchService.search({
+      index: Config.elasticChannelIndex,
+      body: {
+        query: {
+          bool: {
+            should: [
+              {
+                match: {
+                  'channel.author': author,
+                },
+              },
+            ],
+          },
+        },
+        _source: {
+          excludes: [
+            'authorBanners',
+            'authorThumbnails',
+            'allowedRegions',
+            'description',
+          ],
+        },
+      },
+    });
+    return result.body.hits as SearchChannelResult;
+  }
+
   async searchOnYoutube(content: string, page = 0) {
     const queryFilter = await ytsr.getFilters(content);
     const channelFilter = queryFilter.get('Type').get('Channel');
     const options = { pages: page };
 
-    return await ytsr(channelFilter.url, options);
+    const result = await ytsr(channelFilter.url, options);
+    return result.items.map((item: Channel) => ({
+      name: item.name,
+      descriptionShort: item.descriptionShort,
+      channelID: item.channelID,
+    }));
   }
 
   async searchOnElastic(content: string, page = 0) {
     const from = page * SEARCH_ELEMENT_PER_PAGE;
     const size = SEARCH_ELEMENT_PER_PAGE;
+
     try {
-      const response = await this.elasticsearchService.search({
+      const elasticResponse = await this.elasticsearchService.search({
         index: Config.elasticChannelIndex,
         from,
         size,
@@ -44,11 +80,10 @@ export class ChannelService {
         },
       });
 
-
       return {
-        took: response.body.took,
+        took: elasticResponse.body.took,
         page,
-        ...response.body.hits,
+        ...elasticResponse.body.hits,
       };
     } catch (err) {
       console.error('Cannot get a result from elasticSearch ', err);

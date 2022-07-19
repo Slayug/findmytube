@@ -2342,6 +2342,21 @@
   resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-2.0.2.tgz#baea7764b1adf201ce4a792fe971fd7211dad2e4"
   integrity sha512-fpnI00dt+yO1cKx9qBXelKhPBdEgvc8ZPav1+0r09j0woYQU2N79w/jcGawSY5UGlgQ3vjaJsFHnGbGvvqdLzg==
 
+"@nestjs/bull-shared@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/bull-shared/-/bull-shared-0.1.0.tgz#3f2b21432b716944fbd35f9fb22c059a0b9c0395"
+  integrity sha512-BVVLj0HeLZ3bj9G/AXW+43AVT8BSSgP+s+9+YHrkGSLLgXNc5G2lRL20zOTqMO1gPiKRwOOvO8r3//5Ijyaikg==
+  dependencies:
+    tslib "2.4.0"
+
+"@nestjs/bullmq@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/bullmq/-/bullmq-0.1.0.tgz#56090de0726f11b86b0b854e81de5f3d0c505baa"
+  integrity sha512-w2ETsaZkhxqXD3LMrQt5QTvpzKtttgrwqz8Nv4tkgGGWqZ+SrVb57cG2x6c6fZWco9HYW37YYXJPiHkAPpaeVw==
+  dependencies:
+    "@nestjs/bull-shared" "^0.1.0"
+    tslib "2.4.0"
+
 "@nestjs/cli@^8.0.0":
   version "8.2.8"
   resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-8.2.8.tgz#63e5b477f90e6d0238365dcc6236b95bf4f0c807"
@@ -4436,6 +4451,21 @@ bullmq@^1.64.0:
   version "1.86.4"
   resolved "https://registry.yarnpkg.com/bullmq/-/bullmq-1.86.4.tgz#ab7d5992a5021d7c25f4d50c3f50cacd9695fdcd"
   integrity sha512-f8O/2k3ETEc0KzplNdxZhEvSXY0iDwP14tr5VDZ67QC6VG3LvRdBvxwz3fioJQbCz+8mehWSW2P9KIqgTrmdag==
+  dependencies:
+    cron-parser "^4.2.1"
+    get-port "^5.1.1"
+    glob "^7.2.0"
+    ioredis "^4.28.5"
+    lodash "^4.17.21"
+    msgpackr "^1.4.6"
+    semver "^7.3.7"
+    tslib "^1.14.1"
+    uuid "^8.3.2"
+
+bullmq@^1.86.7:
+  version "1.86.7"
+  resolved "https://registry.yarnpkg.com/bullmq/-/bullmq-1.86.7.tgz#29b0d4c4ab47360e87917b316931820e032dc4f8"
+  integrity sha512-4fsIcoMmdRmPvll/dV205wfKJlx7jfn1zX1AzO2t56juxiVrbXv5MtYLYzFgx8FW4CnyWzhxXMqJSdTmdxxJ+g==
   dependencies:
     cron-parser "^4.2.1"
     get-port "^5.1.1"

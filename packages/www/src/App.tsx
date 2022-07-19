@@ -14,7 +14,6 @@ import styles from './App.module.scss';
 import axios from "axios";
 
 
-// setup axios
 axios.defaults.baseURL = `${FrontConfig.apiBaseUrl}`;
 
 function App() {

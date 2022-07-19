@@ -12,6 +12,21 @@ import { ChannelService } from './channel.service';
 export class ChannelController {
   constructor(private readonly channelService: ChannelService) {}
 
+  @Get('/youtube')
+  async searchOnYoutube(
+    @Query('q') content: string,
+    @Query('page', ParseIntPipe) page = 0,
+  ) {
+    try {
+      return await this.channelService.searchOnYoutube(content, page);
+    } catch (e) {
+      console.error('Cannot recover youbtube channel', e);
+
+      // attempt to return only scrapped channels
+      return this.search(content, page);
+    }
+  }
+
   @Get()
   async search(
     @Query('q') content: string,

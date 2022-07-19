@@ -26,11 +26,13 @@ export default function SearchBar<T>({
   const {
     data: searchResult,
     refetch: search,
+    isLoading
   } = useQuery(['searchbar-search', searchQuery],
     () => searchMethod(searchQuery), {
       enabled: false,
       refetchOnMount: false,
-      retry: false
+      retry: false,
+      cacheTime: 15
     });
 
   const onSearch = (value: string) => {
@@ -68,6 +70,7 @@ export default function SearchBar<T>({
     allowClear
   >
     <Input.Search
+      loading={isLoading}
       onPressEnter={(event) => {
         onPressEnter?.(event.currentTarget.value)
       }}

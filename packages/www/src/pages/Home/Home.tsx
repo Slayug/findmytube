@@ -11,6 +11,7 @@ import useApiChannel from "../../hooks/useApiChannel";
 import SearchBar from "./SearchBar/SearchBar";
 import VideoRow from "./VideoRow/VideoRow";
 import {InView} from "react-intersection-observer";
+import {AxiosError} from "axios";
 
 const QUERY_KEY = "q";
 const CHANNEL_KEY = "channelAuthor";
@@ -23,7 +24,7 @@ export default function Home() {
   const channelAuthorSelected = useRef<string | null>(searchParams.get(CHANNEL_KEY));
 
   const {searchVideo} = useApiVideo();
-  const {searchChannel} = useApiChannel();
+  const {searchYoutubeChannel} = useApiChannel();
 
   const navigate = useNavigate();
 
@@ -33,7 +34,8 @@ export default function Home() {
     data: searchVideoResult,
     isLoading,
     isError,
-  } = useInfiniteQuery<SearchVideoResult>(
+    error
+  } = useInfiniteQuery<SearchVideoResult, AxiosError>(
     `search-${searchContent.current}-${channelAuthorSelected.current}`,
     ({pageParam}) => searchVideo({
       q: searchContent.current,
@@ -59,7 +61,7 @@ export default function Home() {
 
   function onPressEnterContent(change: React.KeyboardEvent<HTMLInputElement>) {
     searchContent.current = change.currentTarget.value;
-    search();
+    updateSearchParams();
   }
 
   function goToVideo(videoId: string) {
@@ -80,7 +82,6 @@ export default function Home() {
   function onSelectChannel(channel: string) {
     channelAuthorSelected.current = channel
     updateSearchParams();
-    search();
   }
 
   function onClearChannel() {
@@ -106,11 +107,14 @@ export default function Home() {
                 defaultSearchQuery={searchParams.get(CHANNEL_KEY)}
                 onSelect={onSelectChannel}
                 onClear={onClearChannel}
-                searchMethod={(query) => searchChannel(query).then((response) => {
-                  return response.hits.map((channel => {
+                searchMethod={(query) => searchYoutubeChannel(query).then((response) => {
+                  return response.map((channel => {
                     return {
-                      value: channel._source.channel.author,
-                      label: <div>{channel._source.channel.author}</div>
+                      key: channel.channelID,
+                      value: channel.name,
+                      label: <div title={channel.descriptionShort}>
+                        {channel.name} {channel.descriptionShort && '-'} {channel.descriptionShort}
+                      </div>
                     }
                   })) ?? []
                 })}/>
@@ -121,7 +125,10 @@ export default function Home() {
       <Row justify="center">
         <Col xs={24} sm={22} md={18} lg={18} xl={16} xxl={14}>
           {isLoading && <Spin/>}
-          {isError && <Alert message="Impossible de récupérer votre recherche" type="warning"/>}
+          {(isError && error.response.status === 404) ?
+            <Alert
+              message="La chaîne est en cours de scan, merci de retenter dans quelques instants."
+              type="info"/> : isError && <Alert message="Impossible de récupérer votre recherche" type="warning"/>}
           {searchVideoResult && searchVideoResult.pages.length > 0 &&
                         <div
                           className={styles.amountResult}>

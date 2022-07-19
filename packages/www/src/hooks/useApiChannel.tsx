@@ -1,7 +1,8 @@
 import axios from "axios";
-import {SearchChannelResult} from "@findmytube/core/dist/Video";
+import {SearchChannelResult, SearchChannelYoutubeResult} from "@findmytube/core/dist/Video";
 
 const CHANNEL_ENDPOINT = '/channels';
+const CHANNEL_YOUTUBE_ENDPOINT = '/channels/youtube';
 
 export default function useApiChannel() {
 
@@ -15,5 +16,14 @@ export default function useApiChannel() {
   }
 
 
-  return { searchChannel }
+  function searchYoutubeChannel(content: string, page = 0): Promise<SearchChannelYoutubeResult[]> {
+    return axios.get(CHANNEL_YOUTUBE_ENDPOINT, {
+      params: {
+        q: content,
+        page
+      }
+    }).then((r) => r.data)
+  }
+
+  return { searchChannel, searchYoutubeChannel }
 }

@@ -8,10 +8,18 @@ import {
   Query,
 } from '@nestjs/common';
 import { VideoService } from './video.service';
+import { ChannelService } from '../channel/channel.service';
+import { InjectQueue } from '@nestjs/bullmq';
+import { Config } from '@findmytube/core';
+import { Queue } from 'bullmq';
 
 @Controller('/videos')
 export class VideoController {
-  constructor(private readonly videoService: VideoService) {}
+  constructor(
+    private readonly videoService: VideoService,
+    private readonly channelService: ChannelService,
+    @InjectQueue(Config.channelQueueName) private readonly channelQueue: Queue,
+  ) {}
 
   @Get(':videoId')
   async getById(@Param() { videoId }) {
@@ -36,6 +44,22 @@ export class VideoController {
   ) {
     if (page < 0) {
       throw new HttpException('Page must be >= 0', HttpStatus.BAD_REQUEST);
+    }
+
+    if (channelAuthor) {
+      const existingAuthors = await this.channelService.getByAuthor(
+        channelAuthor,
+      );
+      if (existingAuthors.hits.length === 0) {
+        const youtubeChannel = await this.channelService.searchOnYoutube(
+          channelAuthor,
+        );
+        console.log(`Sending ${youtubeChannel[0].channelID} to channel queue`);
+        await this.channelQueue.add(`channel-${youtubeChannel[0].channelID}`, {
+          channelId: youtubeChannel[0].channelID,
+        });
+        throw new HttpException('Channel not found', HttpStatus.NOT_FOUND);
+      }
     }
 
     try {
