@@ -92,16 +92,16 @@ export default function Home() {
   return <Row className={styles.home}>
     <Col span={24}>
       <Row justify="center">
-        <Col xs={24} sm={22} md={18} lg={18} xl={16} xxl={14}>
-          <Row>
-            <Col span={12}>
+        <Col xs={24} sm={24} md={18} lg={18} xl={16} xxl={14}>
+          <Row justify="center">
+            <Col xs={24} sm={24} md={18} lg={18} xl={16} xxl={12}>
               <Input
                 autoFocus
                 defaultValue={searchParams.get(QUERY_KEY)} size="large"
                 placeholder="Search the speech"
                 onPressEnter={onPressEnterContent} style={{width: '100%'}}/>
             </Col>
-            <Col span={12}>
+            <Col xs={24} sm={24} md={18} lg={18} xl={16} xxl={12}>
               <SearchBar
                 defaultSearchQuery={searchParams.get(CHANNEL_KEY)}
                 onSelect={onSelectChannel}
