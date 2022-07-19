@@ -25,7 +25,8 @@ export default function VideoPage() {
     error,
     isLoading,
   } = useQuery(["video", videoId], () => getVideoById(videoId), {
-    cacheTime: 3
+    cacheTime: 3,
+    refetchOnWindowFocus: false,
   });
 
   function getCurrentTranscription(): Transcription[] {
