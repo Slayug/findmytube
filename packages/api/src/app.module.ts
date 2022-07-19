@@ -13,7 +13,7 @@ import { BullModule } from '@nestjs/bullmq';
   imports: [
     BullModule.forRoot({
       connection: {
-        host: 'localhost',
+        host: Config.redisHost,
         port: Config.redisPort,
         password: Config.redisPassword,
       },
