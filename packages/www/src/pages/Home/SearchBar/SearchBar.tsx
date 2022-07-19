@@ -25,7 +25,7 @@ export default function SearchBar<T>({
 
   const {
     data: searchResult,
-    refetch: search
+    refetch: search,
   } = useQuery(['searchbar-search', searchQuery],
     () => searchMethod(searchQuery), {
       enabled: false,
@@ -42,12 +42,12 @@ export default function SearchBar<T>({
 
 
   useEffect(() => {
-    if (searchQuery !== '') {
+    if (searchQuery !== null && searchQuery !== '') {
       clearTimeout(timerRef.current)
       timerRef.current = window.setTimeout(() => {
         timerRef.current = 0;
         search();
-      }, 550)
+      }, 350)
     }
   }, [searchQuery])
 
