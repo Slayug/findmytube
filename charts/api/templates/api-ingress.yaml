@@ -5,14 +5,14 @@ metadata:
   namespace: findmytube
   annotations:
     kubernetes.io/ingress.class: nginx
-    {{ if or (eq .Values.env "prod") (eq .Values.env "staging") }}
+    {{ if or (eq .Values.env "production") (eq .Values.env "staging") }}
     cert-manager.io/cluster-issuer: findmytube-clusterissuer
     {{ end }}
 spec:
   tls:
     - hosts:
       - api.{{ .Values.host }}
-      {{ if or (eq .Values.env "prod") (eq .Values.env "staging") }}
+      {{ if or (eq .Values.env "production") (eq .Values.env "staging") }}
       secretName: {{ .Values.env }}-api-findmytube-tls
       {{ end }}
   rules:

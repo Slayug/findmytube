@@ -1,6 +1,10 @@
 host: "findmytube.io"
 namespace: findmytube
-env: prod
+env: production
+
+version:
+  api: e903d86bdfac4e88794a9a30140ed86a8365508f
+  www: e903d86bdfac4e88794a9a30140ed86a8365508f
 
 elastic:
   masterHost: "elasticsearch-master.findmytube.svc.cluster.local"

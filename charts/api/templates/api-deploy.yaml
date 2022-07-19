@@ -20,9 +20,11 @@ spec:
     spec:
       containers:
         - name: findmytube-api
-          image: ghcr.io/slayug/fy/api:7dc7a24b07cefecdda4f1eb80616e8c9ccf13ddd
+          image: ghcr.io/slayug/fy/api:{{ .Values.version.api }}
           imagePullPolicy: Always
           env:
+            - name: NODE_ENV
+              value: {{ .Values.env }}
             - name: HOST
               value: {{ .Values.host }}
             - name: ELASTIC_HOST

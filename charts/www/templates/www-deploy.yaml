@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: findmytube-www
-          image: ghcr.io/slayug/fy/www:3b9a46292b1133e22717f3ae4c413eb6be047626
+          image: ghcr.io/slayug/fy/www:{{ .Values.version.www }}
           imagePullPolicy: Always
           ports:
           - containerPort: 80
