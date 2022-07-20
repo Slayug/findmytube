@@ -3,8 +3,8 @@ namespace: findmytube
 env: production
 
 version:
-  api: e903d86bdfac4e88794a9a30140ed86a8365508f
-  www: e903d86bdfac4e88794a9a30140ed86a8365508f
+  api: f77919d7721a05b0618e3bc3a0108190b31efab8
+  www: ab9c2c38c93cc9afd675a2581e3aed40e23341c9
 
 elastic:
   masterHost: "elasticsearch-master.findmytube.svc.cluster.local"
