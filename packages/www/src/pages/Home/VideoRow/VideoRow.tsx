@@ -8,14 +8,19 @@ const availableVideoWidth = {
   'S': 196,
   'M': 246,
   'L': 336,
+  'XL': 480
 }
 
 export default function VideoRow({video, onClick}: { video: Video, onClick?: (videoId: string) => void }) {
 
   function getThumbnail() {
-    const thumbnail = video.videoThumbnails
-      .find(({width}) => width === availableVideoWidth.L);
+    let thumbnail = video.videoThumbnails
+      .find(({width}) => width === availableVideoWidth.L || width === availableVideoWidth.XL);
 
+    if (!thumbnail) {
+      thumbnail = video.videoThumbnails[0];
+    }
+    console.log(video.videoThumbnails, thumbnail)
     return thumbnail ? <img src={thumbnail.url} alt="Thumbnail"/> : <VideoCameraOutlined/>;
   }
 
@@ -29,7 +34,7 @@ export default function VideoRow({video, onClick}: { video: Video, onClick?: (vi
 
   return <div onClick={() => onClick(video.videoId)} className={styles.videoRow}>
     <div className={styles.thumbnail}>
-      <div className={styles.timer}>{getTimer()}</div>
+      <div className={styles.timer}>{video.lengthSeconds > 0 && getTimer()}</div>
       {getThumbnail()}
     </div>
     <div className={styles.description}>

@@ -19,6 +19,13 @@
 
   .thumbnail {
     position: relative;
+    img {
+      width: 336px;
+      max-height: 250px;
+
+      background-color: #232323;
+      object-fit: contain;
+    }
 
     .timer {
       position: absolute;
