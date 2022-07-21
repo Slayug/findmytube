@@ -40,6 +40,11 @@ class YoutubeHelper {
             const result = await ytch.getChannelVideos(channelId, 'newest');
             if (result.continuation) {
                 const deepResult = await YoutubeHelper.loadAllChannelVideos(channelId, result.items, result.continuation)
+                if (!deepResult) {
+                    return {
+                        items: [ ...result.items ]
+                    }
+                }
                 return {
                     items: [
                         ...result.items,
