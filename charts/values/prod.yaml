@@ -4,7 +4,7 @@ env: production
 
 version:
   api: f77919d7721a05b0618e3bc3a0108190b31efab8
-  www: ab9c2c38c93cc9afd675a2581e3aed40e23341c9
+  www: 0e2cd08bf2da1cec7f573a6dfdcbbffbffae97e5
 
 elastic:
   masterHost: "elasticsearch-master.findmytube.svc.cluster.local"

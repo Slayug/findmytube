@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
           - name: cron-channel-producer
-            image: ghcr.io/slayug/fy/cron-channel-producer:4bb8d5cf8d9616868e042426fe850939bec94b57
+            image: ghcr.io/slayug/fy/cron-channel-producer:caca1392ff6c2b67db12f92702f4dc820dd63607
             imagePullPolicy: Always
             env:
               - name: ELASTIC_HOST
