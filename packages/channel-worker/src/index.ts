@@ -66,7 +66,7 @@ const worker = new Worker<ChannelJob, number>(
                 // fetch new ones
                 console.log('Find new videos for ', job.data.channelId);
                 channelVideoResult.items.forEach((video) => {
-                    console.log(`Post videoId: ${video.videoId}`);
+                    console.log(`> Post videoId: ${video.videoId}`);
                     videoQueue.add('video', {video})
                 })
             } else if (videoFoundAlreadyFetched === 0) {
