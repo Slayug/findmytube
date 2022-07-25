@@ -32,6 +32,14 @@ def format_language(result, _languages, key):
     }
 
 
+def index_video(video_id, languages):
+    try:
+        res = es_client.index(index=TRANSCRIPT_INDEX, id=video_id, document=languages)
+        print(f"Elastic result: {res['result']}")
+    except Exception as ex:
+        print(str(ex))
+
+
 video_id = sys.argv[1]
 elasticsearch_host = str(sys.argv[2])
 elasticsearch_port = str(sys.argv[3])
@@ -47,6 +55,7 @@ try:
     transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
 except TranscriptsDisabled as ex:
     print(f"> TranscriptsDisabled for {video_id} do not continue.")
+    index_video(video_id, {})
     exit(0)
 
 languages = {}
@@ -64,9 +73,4 @@ for key in transcript_list._generated_transcripts:
         format_language(language.fetch(), languages, key)
 
 # send result to elastic search
-try:
-    res = es_client.index(index=TRANSCRIPT_INDEX, id=video_id, document=languages)
-    print(res['result'])
-except Exception as ex:
-    print(str(ex))
-# print(json.dumps(languages))
+index_video(video_id, languages)

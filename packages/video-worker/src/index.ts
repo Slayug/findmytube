@@ -56,7 +56,7 @@ worker.on('completed', async (job) => {
                     params: {video: dataJob.video}
                 }
             }
-        })
+        });
     } catch (e) {
         console.error(e);
         console.error('Cannot put script after job done');
