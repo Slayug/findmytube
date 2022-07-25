@@ -11,8 +11,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index.ts",
-    "dev": "pm2 start pm2.json"
+    "dev": "nodemon src/index.ts",
+    "start": "pm2 start pm2.json"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.1.3",
@@ -21,6 +21,7 @@
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.8.1",
     "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.19",
     "prettier": "^2.5.1",
     "rollup": "^2.66.0"
   }
