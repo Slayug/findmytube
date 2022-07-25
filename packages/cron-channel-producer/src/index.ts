@@ -23,7 +23,6 @@ client.search({
         stored_fields: []
     },
 }).then((response) => {
-    console.log(response.body.hits.total.value, response.body.hits.hits.length)
     response.body.hits.hits.forEach((channel) => {
         console.log('Push channel to queue', channel._id)
         channelQueue.add(`channel-${channel._id}`, {channelId: channel._id})

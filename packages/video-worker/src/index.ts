@@ -1,27 +1,33 @@
-import {Worker, Job} from 'bullmq';
+import {Job, Worker} from 'bullmq';
 import {Config, VideoJob} from '@findmytube/core';
 
-const {Client} = require('@elastic/elasticsearch')
+import {Client} from '@elastic/elasticsearch';
+import {execSync} from 'child_process';
+
 const client = new Client({
     node: `http://${Config.elasticHost}:${Config.elasticPort}`
 });
 
-import {execSync} from 'child_process';
-
 const worker = new Worker<VideoJob, number>(
     Config.videoQueueName, async (job: Job<VideoJob>) => {
         try {
-            console.log(` > Processing ${job.data.video.videoId}`);
+            const {body: found} = await client.exists({
+                index: Config.elasticTranscriptIndex,
+                id: job.data.video.videoId,
+            });
+            if (!found) {
+                console.log(` > Processing ${job.data.video.videoId}`);
 
-            execSync('python3 ' +
-                [Config.extractorFileName,
-                    job.data.video.videoId,
-                    Config.elasticHost,
-                    Config.elasticPort.toString()
-                ].join(' ')
-            );
-            console.log(' ==========================');
-            console.log(` > ${job.data.video.videoId} done.`);
+                execSync('python3 ' +
+                    [Config.extractorFileName,
+                        job.data.video.videoId,
+                        Config.elasticHost,
+                        Config.elasticPort.toString()
+                    ].join(' ')
+                );
+                console.log(' ==========================');
+                console.log(` > ${job.data.video.videoId} done.`);
+            }
         } catch (e) {
             console.error('something bad happened for ' + job.data.video.videoId);
             throw e;
