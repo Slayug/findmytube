@@ -21,7 +21,7 @@
 - [ ] #feat ajouter une liste de mots clef/tendance à rechercher régulièrement et scrap les résultats
 - [ ] Configuer winston pour les logs
 - [ ] #ops #ci Lancer les builds de package seulement quand leurs codes ont changé https://github.com/marketplace/actions/has-changes
-- [ ] #feat chercher en précisant une chaîne précise
-- [ ] #feat scrapper les mots clefs sur youtube quand un.e utilisateur.rice a 0 résultat
+- [x] #feat chercher en précisant une chaîne précise
+- [x] #feat scrapper les mots clefs sur youtube quand un.e utilisateur.rice a 0 résultat
 - [ ] #feat Implémenter le PIT quand on fait un search sur ElasticSearch https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#search-after
 - [ ] Enlever Javscript/Typescript en back et tout réécrire avec RabbitMQ https://blog.ippon.fr/2018/03/27/comparatif-rabbitmq-kafka/ ??
