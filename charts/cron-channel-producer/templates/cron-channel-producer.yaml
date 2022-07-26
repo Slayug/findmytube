@@ -3,15 +3,15 @@ kind: CronJob
 metadata:
   name: cron-channel-producer
 spec:
-  schedule: "*/10 * * * *"
+  schedule: "0 */8 * * *"
   jobTemplate:
     spec:
       template:
         spec:
           containers:
-          - name: cron-channel-producer
-            image: ghcr.io/slayug/fy/cron-channel-producer:caca1392ff6c2b67db12f92702f4dc820dd63607
-            imagePullPolicy: Always
+          - name: findmytube-cron-channel-producer
+            image: ghcr.io/slayug/fy/cron-channel-producer:3e6f535c7c14363b192f8521d9a897ce7a366367
+            imagePullPolicy: IfNotPresent
             env:
               - name: ELASTIC_HOST
                 value: {{ .Values.elastic.masterHost }}
