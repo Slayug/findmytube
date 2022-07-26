@@ -17,14 +17,11 @@ export class ChannelService {
       index: Config.elasticChannelIndex,
       body: {
         query: {
-          bool: {
-            should: [
-              {
-                match: {
-                  'channel.author': author,
-                },
-              },
-            ],
+          match: {
+            'channel.author': {
+              query: author,
+              operator: 'and',
+            },
           },
         },
         _source: {

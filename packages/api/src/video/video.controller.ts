@@ -50,6 +50,7 @@ export class VideoController {
       const existingAuthors = await this.channelService.getByAuthor(
         channelAuthor,
       );
+
       if (existingAuthors.hits.length === 0) {
         const youtubeChannel = await this.channelService.searchOnYoutube(
           channelAuthor,
