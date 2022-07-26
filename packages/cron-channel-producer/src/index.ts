@@ -1,7 +1,9 @@
 import {Queue} from 'bullmq';
-import {Config, ChannelJob} from '@findmytube/core';
+import {ChannelJob, Config} from '@findmytube/core';
 
-const {Client} = require('@elastic/elasticsearch')
+import {Client} from "@elastic/elasticsearch";
+import {ChannelInfo} from "@findmytube/core/dist/Video";
+
 const client = new Client({
     node: `http://${Config.elasticHost}:${Config.elasticPort}`
 });
@@ -14,17 +16,23 @@ const channelQueue = new Queue<ChannelJob>(Config.channelQueueName, {
     }
 });
 
-client.search({
-    index: Config.elasticChannelIndex,
-    trackTotalHits: true,
-    from: 0,
-    size: 100,
-    body: {
-        stored_fields: []
-    },
-}).then((response) => {
-    response.body.hits.hits.forEach((channel) => {
-        console.log('Push channel to queue', channel._id)
-        channelQueue.add(`channel-${channel._id}`, {channelId: channel._id})
+try {
+
+    const response = await client.search({
+        index: Config.elasticChannelIndex,
+        from: 0,
+        size: 120,
     });
-});
+
+
+    await Promise.all(response.body.hits.hits.map((channel) => {
+            console.log('Push channel to queue', channel._id)
+            return channelQueue.add(`channel-${channel._id}`, {channelId: channel._id})
+        }
+    ));
+    process.exit(0);
+
+} catch (e) {
+    console.error('Cannot push a channel', e);
+    process.exit(1);
+}

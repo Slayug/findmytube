@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "./dist/index.js",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@elastic/elasticsearch": "^7.16.0",
     "@findmytube/core": "^1.0.0",
@@ -13,6 +14,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "start": "ts-node --transpile-only src/index.ts",
     "dev": "nodemon src/index.ts"
   },
   "devDependencies": {

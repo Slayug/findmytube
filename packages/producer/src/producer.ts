@@ -10,7 +10,7 @@ const queue = new Queue<ChannelJob>(Config.channelQueueName, {
     }
 });
 
-[
+const promises = [
   'amigoscode',
   'AndroidDevelopers',
   'FlorinPop',
@@ -38,7 +38,12 @@ const queue = new Queue<ChannelJob>(Config.channelQueueName, {
   'LePasseTempsToulouse',
   'Hasheur',
   'UCjBVoSdVxL_fTU6JZCVcOUw',
-].forEach((channelId) => {
+].map((channelId) => {
     console.log(`Add ${channelId} to queue.`)
-    queue.add(`channel-${channelId}`, {channelId})
-})
+    return queue.add(`channel-${channelId}`, {channelId})
+});
+
+Promise.all(promises).catch((e) => {
+    console.error('Cannot add to queue', e);
+    process.exit(1);
+});
