@@ -1,6 +1,6 @@
 import {Transcription} from "@findmytube/core";
 import styles from "./VideoPage.module.scss";
-import {Fragment, useMemo} from "react";
+import {Fragment, useEffect, useMemo} from "react";
 import {findAllIndexOfQuery, getFullTextFrom, markWordsFrom} from "./VideoPageDomain";
 
 const SHIFT_BETWEEN_LINE = ' ';
@@ -105,6 +105,17 @@ export function TranscriptionList(
     return parsedLines;
 
   }, [transcriptions.length, query])
+
+  useEffect(() => {
+    // access to real DOM we are safe for first render for now, using ref need refacto
+    setTimeout(() => {
+      const firstMark = document.getElementsByTagName('mark').item(0);
+      if (firstMark) {
+        firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 300);
+
+  }, [])
 
   return <div className={styles.lines}>
     {

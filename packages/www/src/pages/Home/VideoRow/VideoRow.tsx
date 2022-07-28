@@ -20,7 +20,6 @@ export default function VideoRow({video, onClick}: { video: Video, onClick?: (vi
     if (!thumbnail) {
       thumbnail = video.videoThumbnails[0];
     }
-    console.log(video.videoThumbnails, thumbnail)
     return thumbnail ? <img src={thumbnail.url} alt="Thumbnail"/> : <VideoCameraOutlined/>;
   }
 
