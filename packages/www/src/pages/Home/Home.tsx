@@ -4,7 +4,7 @@ import {useNavigate, useSearchParams} from "react-router-dom";
 
 import styles from './Home.module.scss';
 import useApiVideo from "../../hooks/useApiVideo";
-import {useEffect, useRef, useState} from "react";
+import {Fragment, useEffect, useRef, useState} from "react";
 import {useInfiniteQuery} from "react-query";
 import {SearchVideoResult} from "@findmytube/core/src/Video";
 import useApiChannel from "../../hooks/useApiChannel";
@@ -98,6 +98,7 @@ export default function Home() {
             <Col xs={24} sm={24} md={18} lg={18} xl={16} xxl={12}>
               <Input
                 autoFocus
+                type="search"
                 defaultValue={searchParams.get(QUERY_KEY)} size="large"
                 placeholder="Search the speech"
                 onPressEnter={onPressEnterContent} style={{width: '100%'}}/>
@@ -155,9 +156,15 @@ export default function Home() {
             searchVideoResult &&
                         searchVideoResult.pages[0].total.value > 9 &&
                         searchVideoResult.pages.length * 9 <= searchVideoResult.pages[0].total.value &&
-                        <InView as="div" onChange={(inView) => setInLoadMore(inView)}>
-                          <Button loading={inLoadMore || isLoading} className={styles.loadMore}>Load more.</Button>
-                        </InView>
+            <Fragment>
+              <InView as="div" onChange={(inView) => setInLoadMore(inView)}>
+                <Button
+                  onClick={() => setInLoadMore(true)}
+                  loading={inLoadMore || isLoading} className={styles.loadMore}>
+                            Load more.
+                </Button>
+              </InView>
+            </Fragment>
           }
         </Col>
       </Row>

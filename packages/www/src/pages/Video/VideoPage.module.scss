@@ -1,4 +1,4 @@
-$video_height_xs: 150px;
+$video_height_xs: 200px;
 $video_height_sm: 335px;
 $video_height_md: 360px;
 $video_height_lg: 360px;
@@ -12,6 +12,7 @@ $video_height_xxxl: 720px;
   .video {
     @media screen and (max-width: 576px) {
       width: 100vw;
+      height: $video_height_xs;
     }
 
     @media screen and (min-width: 576px) {
@@ -50,11 +51,11 @@ $video_height_xxxl: 720px;
     display: flex;
     flex-direction: column;
 
-    margin-left: 10px;
+    padding-left: 10px;
 
     @media screen and (max-width: 576px) {
       width: 100vw;
-      height: calc(100vh - #{$video_height_xs});
+      height: calc(100vh - #{$video_height_xs} - 64px);
     }
 
     @media screen and (min-width: 576px) {
