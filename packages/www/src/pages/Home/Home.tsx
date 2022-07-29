@@ -124,7 +124,7 @@ export default function Home() {
       </Row>
       <Row justify="center">
         <Col xs={24} sm={22} md={18} lg={18} xl={16} xxl={14}>
-          {isLoading && <Spin/>}
+          {isLoading && <Spin style={{ margin: "10px" }}/>}
           {(isError && error?.response && error.response.status === 404) ?
             <Alert
               message="La chaîne est en cours de scan, merci de retenter dans quelques instants."

@@ -53,12 +53,12 @@ $video_height_xxxl: 720px;
     margin-left: 10px;
 
     @media screen and (max-width: 576px) {
-      width: 100vh;
+      width: 100vw;
       height: calc(100vh - #{$video_height_xs});
     }
 
     @media screen and (min-width: 576px) {
-      width: 100vh;
+      width: 100vw;
       height: calc(100vh - #{$video_height_sm});
     }
 
