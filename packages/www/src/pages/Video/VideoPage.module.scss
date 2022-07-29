@@ -1,3 +1,12 @@
+$video_height_xs: 150px;
+$video_height_sm: 335px;
+$video_height_md: 360px;
+$video_height_lg: 360px;
+$video_height_xl: 517px;
+$video_height_xxl: 585px;
+$video_height_xxxl: 720px;
+
+
 .videoPage {
 
   .video {
@@ -6,32 +15,33 @@
     }
 
     @media screen and (min-width: 576px) {
-      width: 90vw;
+      width: 100vw;
+      height: $video_height_sm;
     }
 
     @media screen and (min-width: 768px) {
       width: 640px;
-      height: 360px;
+      height: $video_height_md;
     }
 
     @media screen and (min-width: 992px) {
       width: 640px;
-      height: 360px;
+      height: $video_height_lg;
     }
 
     @media screen and (min-width: 1200px) {
       width: 920px;
-      height: 517px;
+      height: $video_height_xl;
     }
 
     @media screen and (min-width: 1440px) {
       width: 1040px;
-      height: 585px;
+      height: $video_height_xxl;
     }
 
     @media screen and (min-width: 1660px) {
       width: 1280px;
-      height: 720px;
+      height: $video_height_xxxl;
     }
   }
 
@@ -44,17 +54,17 @@
 
     @media screen and (max-width: 576px) {
       width: 100vh;
-      min-height: 270px;
+      height: calc(100vh - #{$video_height_xs});
     }
 
     @media screen and (min-width: 576px) {
       width: 100vh;
-      min-height: 320px;
+      height: calc(100vh - #{$video_height_sm});
     }
 
     @media screen and (min-width: 768px) {
       width: 640px;
-      height: 200px;
+      height: calc(100vh - #{$video_height_md});
     }
 
     @media screen and (min-width: 992px) {

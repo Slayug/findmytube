@@ -34,7 +34,6 @@ function App() {
               <Route path="/watch" element={<VideoPage/>}/>
             </Routes>
           </Content>
-          <Footer>/</Footer>
         </Layout>
       </Router>
 
