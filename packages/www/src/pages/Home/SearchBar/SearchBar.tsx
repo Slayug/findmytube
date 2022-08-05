@@ -59,15 +59,12 @@ export default function SearchBar<T>({
   }
 
   return <AutoComplete
-    dropdownMatchSelectWidth={252}
     style={{width: '100%'}}
     options={searchResult}
     onSearch={onSearch}
     onChange={_onChange}
     value={searchQuery}
     onSelect={onSelect}
-    onClear={onClear}
-    allowClear
   >
     <Input.Search
       loading={isLoading}
