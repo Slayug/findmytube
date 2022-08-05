@@ -1,4 +1,4 @@
-import {Alert, Button, Col, Input, Row, Spin} from 'antd';
+import {Alert, Button, Col, Input, InputRef, Row, Spin} from 'antd';
 
 import {useNavigate, useSearchParams} from "react-router-dom";
 
@@ -22,6 +22,7 @@ export default function Home() {
   const [inLoadMore, setInLoadMore] = useState(false);
   const searchContent = useRef<string | null>(searchParams.get(QUERY_KEY));
   const channelAuthorSelected = useRef<string | null>(searchParams.get(CHANNEL_KEY));
+  const searchInputRef = useRef<InputRef>();
 
   const {searchVideo} = useApiVideo();
   const {searchYoutubeChannel} = useApiChannel();
@@ -81,6 +82,7 @@ export default function Home() {
 
   function onSelectChannel(channel: string) {
     channelAuthorSelected.current = channel
+    searchContent.current = searchInputRef.current?.input.value;
     updateSearchParams();
   }
 
@@ -101,6 +103,7 @@ export default function Home() {
                 type="search"
                 defaultValue={searchParams.get(QUERY_KEY)} size="large"
                 placeholder="Search the speech"
+                ref={searchInputRef}
                 onPressEnter={onPressEnterContent} style={{width: '100%'}}/>
             </Col>
             <Col xs={24} sm={24} md={18} lg={18} xl={16} xxl={12}>
