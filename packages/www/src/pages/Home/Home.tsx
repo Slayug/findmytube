@@ -174,7 +174,7 @@ export default function Home() {
       </Row>
     </Col>
     <Footer>
-      <div>contact@findmytube.io</div>
+      <div></div>
     </Footer>
   </Row>
 
