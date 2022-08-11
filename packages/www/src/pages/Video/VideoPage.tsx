@@ -1,4 +1,4 @@
-import {useCallback, useRef} from "react";
+import {Fragment, useCallback, useRef} from "react";
 import {useSearchParams} from "react-router-dom";
 import useApiVideo from "../../hooks/useApiVideo";
 import {useQuery} from "react-query";
@@ -71,9 +71,11 @@ export default function VideoPage() {
     markedElements.item(currentIndexMarkedElement.current).scrollIntoView();
   }
 
-  return (
-    <div className={styles.videoPage}>
-      {isLoading && <Spin/>}
+  function renderContent() {
+    if (isLoading) {
+      return <Spin />
+    }
+    return <Fragment>
       {error && <Alert message="Video non trouvée" type="warning"/>}
       <Row justify="center">
         <Col>
@@ -107,6 +109,14 @@ export default function VideoPage() {
           </div>
         </Col>
       </Row>
+
+
+    </Fragment>
+  }
+
+  return (
+    <div className={styles.videoPage}>
+      {renderContent()}
     </div>
   );
 }

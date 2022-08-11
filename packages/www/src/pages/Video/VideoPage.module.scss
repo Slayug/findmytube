@@ -9,6 +9,9 @@ $video_height_xxxl: 720px;
 
 .videoPage {
 
+  display: flex;
+  justify-content: center;
+
   .video {
     @media screen and (max-width: 576px) {
       width: 100vw;
