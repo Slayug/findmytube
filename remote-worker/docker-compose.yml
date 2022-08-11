@@ -1,0 +1,10 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  video-worker:
+    container_name: findmytube-video-worker
+    image: ghcr.io/slayug/fy/video-worker:latest
+    network_mode: host
+    environment:
+      ELASTIC_HOST: ${ELASTIC_HOST}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
