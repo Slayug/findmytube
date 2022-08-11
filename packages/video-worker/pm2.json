@@ -3,7 +3,7 @@
     {
       "name": "video-worker",
       "script": "./src/index.ts",
-      "instances": "1",
+      "instances": "3",
       "exec_mode": "cluster",
       "watch": ["./src"]
     }

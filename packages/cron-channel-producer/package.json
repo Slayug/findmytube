@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "ts-node --transpile-only src/index.ts",
+    "build": "ts-node --transpile-only src/index.ts",
     "dev": "nodemon src/index.ts"
   },
   "devDependencies": {

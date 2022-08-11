@@ -31,6 +31,13 @@ services:
       - 6379:6379
     networks:
       - findmytube
+  redis-commander:
+    image: ghcr.io/joeferner/redis-commander
+    container_name: findmytube-redis-commander
+    ports:
+      - 8081:8081
+    networks:
+      - findmytube
 volumes:
   data_elasticsearch:
     driver: local

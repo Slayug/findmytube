@@ -2,7 +2,6 @@ import {Queue} from 'bullmq';
 import {ChannelJob, Config} from '@findmytube/core';
 
 import {Client} from "@elastic/elasticsearch";
-import {ChannelInfo} from "@findmytube/core/dist/Video";
 
 const client = new Client({
     node: `http://${Config.elasticHost}:${Config.elasticPort}`

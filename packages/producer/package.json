@@ -11,8 +11,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ./src/producer.ts",
-    "dev": "pm2 start pm2.json"
+    "dev": "nodemon ./src/producer.ts",
+    "start": "pm2 start pm2.json"
   },
   "devDependencies": {
     "@types/node": "^17.0.5",

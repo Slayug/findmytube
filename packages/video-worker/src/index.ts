@@ -16,7 +16,8 @@ const worker = new Worker<VideoJob, number>(
                 id: job.data.video.videoId,
             });
             if (!found) {
-                console.log(` > Processing ${job.data.video.videoId}`);
+                console.log(' ==========================');
+                console.log(` > Processing video: ${job.data.video.videoId}`);
 
                 execSync('python3 ' +
                     [Config.extractorFileName,
@@ -25,8 +26,7 @@ const worker = new Worker<VideoJob, number>(
                         Config.elasticPort.toString()
                     ].join(' ')
                 );
-                console.log(' ==========================');
-                console.log(` > ${job.data.video.videoId} done.`);
+                console.log(` > Video ${job.data.video.videoId} scrapped.`);
             }
         } catch (e) {
             console.error('something bad happened for ' + job.data.video.videoId);
@@ -59,7 +59,7 @@ worker.on('completed', async (job) => {
         });
     } catch (e) {
         console.error(e);
-        console.error('Cannot put script after job done');
+        console.error('Cannot update on elastic after job done');
     }
 });
 

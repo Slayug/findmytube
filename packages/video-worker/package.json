@@ -11,8 +11,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.ts",
-    "start": "pm2 start pm2.json"
+    "start": "nodemon src/index.ts",
+    "dev": "pm2 start pm2.json"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.1.3",
