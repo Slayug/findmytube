@@ -12,6 +12,7 @@ import SearchBar from "./SearchBar/SearchBar";
 import VideoRow from "./VideoRow/VideoRow";
 import {InView} from "react-intersection-observer";
 import {AxiosError} from "axios";
+import {Footer} from "antd/es/layout/layout";
 
 const QUERY_KEY = "q";
 const CHANNEL_KEY = "channelAuthor";
@@ -172,6 +173,9 @@ export default function Home() {
         </Col>
       </Row>
     </Col>
+    <Footer>
+      <div>contact@findmytube.io</div>
+    </Footer>
   </Row>
 
 }
