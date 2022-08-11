@@ -25,3 +25,4 @@
 - [x] #feat scrapper les mots clefs sur youtube quand un.e utilisateur.rice a 0 résultat
 - [ ] #feat Implémenter le PIT quand on fait un search sur ElasticSearch https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#search-after
 - [ ] Enlever Javscript/Typescript en back et tout réécrire avec RabbitMQ https://blog.ippon.fr/2018/03/27/comparatif-rabbitmq-kafka/ ??
+- [ ] Faire un job automatique pour deploy avec une pre-release, pour éviter de faire des builds à chaque fois.
