@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: cron-channel-producer
 spec:
-  schedule: "0 */8 * * *"
+  schedule: "0 */2 * * *"
   jobTemplate:
     spec:
       template:
