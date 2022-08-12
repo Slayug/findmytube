@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/elastic/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/elastic/setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/elastic/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/elastic/values.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +29,7 @@
     </file-type-list>
   </component>
   <component name="KubernetesApiPersistence">
-    <option name="context" value="gke_findmytube_europe-west9-b_findmytube-cluster" />
+    <option name="context" value="kubernetes-admin@findmytube-cluster" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="onblzgex" />
@@ -42,6 +43,7 @@
   <component name="ProjectId" id="239Eq1kRMKMQ3wa8xeYt0nm9CSF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -50,7 +52,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/charts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../takima/developer-roadmap" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -159,6 +161,10 @@
       <workItem from="1657456773656" duration="5964000" />
       <workItem from="1657468041640" duration="2496000" />
       <workItem from="1657515154467" duration="6057000" />
+      <workItem from="1660287337992" duration="677000" />
+      <workItem from="1660304191484" duration="949000" />
+      <workItem from="1660312057878" duration="626000" />
+      <workItem from="1660325021724" duration="1464000" />
     </task>
     <servers />
   </component>
