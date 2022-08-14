@@ -4,6 +4,25 @@ import {Config, VideoJob} from '@findmytube/core';
 import {Client} from '@elastic/elasticsearch';
 import {execSync} from 'child_process';
 
+import {format, createLogger, transports} from "winston";
+
+const timestampFormat = format.printf(({ level, message, label, timestamp }) => {
+    return `${timestamp} [${label}] ${level}: ${message}`;
+});
+
+const logger = createLogger({
+    level: 'info',
+    format: format.combine(
+      format.label({ label: 'video-worker' }),
+      format.timestamp(),
+      timestampFormat
+    ),
+    defaultMeta: { service: 'video-worker' },
+    transports: [
+        new transports.Console(),
+    ],
+});
+
 const client = new Client({
     node: `http://${Config.elasticHost}:${Config.elasticPort}`
 });
@@ -16,8 +35,7 @@ const worker = new Worker<VideoJob, number>(
                 id: job.data.video.videoId,
             });
             if (!found) {
-                console.log(' ==========================');
-                console.log(` > Processing video: ${job.data.video.videoId}`);
+                logger.info(`Processing video: ${job.data.video.videoId}`);
 
                 execSync('python3 ' +
                     [Config.extractorFileName,
@@ -26,10 +44,10 @@ const worker = new Worker<VideoJob, number>(
                         Config.elasticPort.toString()
                     ].join(' ')
                 );
-                console.log(` > Video ${job.data.video.videoId} scrapped.`);
+                logger.info(`Video ${job.data.video.videoId} scrapped.`);
             }
         } catch (e) {
-            console.error('something bad happened for ' + job.data.video.videoId);
+            logger.error(`Something bad happened with the videoId: ${job.data.video.videoId}`, e);
             throw e;
         }
 
@@ -58,12 +76,11 @@ worker.on('completed', async (job) => {
             }
         });
     } catch (e) {
-        console.error(e);
-        console.error('Cannot update on elastic after job done');
+        logger.error('Cannot update on elastic after job done', e);
+        throw e;
     }
 });
 
 worker.on('error', err => {
-    // log the error
-    console.error('Cannot handle', err);
+    logger.error('Error with the worker', err);
 });
