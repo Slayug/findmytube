@@ -1,4 +1,6 @@
 export {
+    ChannelInfo,
+    VideoResult,
     Video,
     VideoJob,
     ChannelJob,
@@ -7,6 +9,7 @@ export {
     LanguageList,
     Transcription,
     SearchChannelYoutubeResult,
-    SearchVideoResult
+    SearchVideoResult,
+    SearchChannelResult
 } from './Video';
 export { default as Config } from './Config';

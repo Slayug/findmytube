@@ -1,5 +1,5 @@
 import axios from "axios";
-import {SearchChannelResult, SearchChannelYoutubeResult} from "@findmytube/core/dist/Video";
+import {SearchChannelResult, SearchChannelYoutubeResult} from "@findmytube/core";
 
 const CHANNEL_ENDPOINT = '/channels';
 const CHANNEL_YOUTUBE_ENDPOINT = '/channels/youtube';

@@ -7,10 +7,11 @@
   "dependencies": {
     "@elastic/elasticsearch": "^7.16.0",
     "@findmytube/core": "^1.0.0",
+    "@findmytube/logger": "^1.0.0",
     "bullmq": "^1.64.0",
     "scrape-youtube": "^2.1.14",
-    "yt-channel-info": "^2.2.0",
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.4.0",
+    "yt-channel-info": "^2.2.0"
   },
   "license": "MIT",
   "scripts": {

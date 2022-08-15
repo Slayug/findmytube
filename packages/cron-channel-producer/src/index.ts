@@ -2,6 +2,7 @@ import {Queue} from 'bullmq';
 import {ChannelJob, Config} from '@findmytube/core';
 
 import {Client} from "@elastic/elasticsearch";
+import {logger} from "@findmytube/logger";
 
 const client = new Client({
     node: `http://${Config.elasticHost}:${Config.elasticPort}`
@@ -25,13 +26,13 @@ try {
 
 
     await Promise.all(response.body.hits.hits.map((channel) => {
-            console.log('Push channel to queue', channel._id)
+            logger.info(`Push channel to queue: ${channel._id}`)
             return channelQueue.add(`channel-${channel._id}`, {channelId: channel._id})
         }
     ));
     process.exit(0);
 
 } catch (e) {
-    console.error('Cannot push a channel', e);
+    logger.error('Cannot push a channel', e);
     process.exit(1);
 }

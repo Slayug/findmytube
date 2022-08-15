@@ -1,12 +1,5 @@
 import axios from "axios";
-import {SearchVideoResult} from "@findmytube/core/src/Video";
-import {VideoResult} from "@findmytube/core/dist/Video";
-
-export interface SearchVideoParams {
-    q: string,
-    channelAuthor?: string,
-    page?: number
-}
+import {VideoResult, SearchVideoResult} from "@findmytube/core";
 
 const VIDEO_ENDPOINT = '/videos';
 export default function useApiVideo() {

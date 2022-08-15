@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { ElasticsearchService } from '@nestjs/elasticsearch';
 
-import { Config } from '@findmytube/core';
+import { Config, SearchChannelResult } from '@findmytube/core';
 import * as ytsr from 'ytsr';
 import { Channel } from 'ytsr';
-import { SearchChannelResult } from '@findmytube/core/dist/Video';
 
 const SEARCH_ELEMENT_PER_PAGE = 6;
 

@@ -3,9 +3,11 @@ import typescript from '@rollup/plugin-typescript';
 
 import pkg from './package.json';
 
-const plugins = [typescript({
-    tsconfig: './tsconfig.json',
-})];
+const plugins = [
+    typescript({
+        tsconfig: './tsconfig.json',
+    }),
+];
 const input = 'src/index.ts';
 
 export default [

@@ -4,29 +4,11 @@ import {Config, VideoJob} from '@findmytube/core';
 import {Client} from '@elastic/elasticsearch';
 import {execSync} from 'child_process';
 
-import {format, createLogger, transports} from "winston";
-
-const timestampFormat = format.printf(({ level, message, label, timestamp }) => {
-    return `${timestamp} [${label}] ${level}: ${message}`;
-});
-
-const logger = createLogger({
-    level: 'info',
-    format: format.combine(
-      format.label({ label: 'video-worker' }),
-      format.timestamp(),
-      timestampFormat
-    ),
-    defaultMeta: { service: 'video-worker' },
-    transports: [
-        new transports.Console(),
-    ],
-});
+import { logger } from '@findmytube/logger';
 
 const client = new Client({
     node: `http://${Config.elasticHost}:${Config.elasticPort}`
 });
-
 const worker = new Worker<VideoJob, number>(
     Config.videoQueueName, async (job: Job<VideoJob>) => {
         try {
