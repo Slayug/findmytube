@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: findmytube-channel-worker
-          image: ghcr.io/slayug/fy/channel-worker:6d091a8dd3cbfd830dfd8c2542d70767f84ea88c
+          image: ghcr.io/slayug/findmytube/channel-worker:{{ .Values.version.channelWorker }}
           imagePullPolicy: Always
           env:
             - name: ELASTIC_HOST

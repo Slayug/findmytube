@@ -17,13 +17,12 @@ esConfig:
 
 replicas: 3
 
-# Allocate smaller chunks of memory per pod.
 resources:
   requests:
     cpu: 1.5
     memory: "3000M"
   limits:
-    cpu: 1.5
+    cpu: 2
     memory: "3000M"
 
 # Request smaller persistent volumes.

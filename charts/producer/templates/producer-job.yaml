@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: findmytube-producer
-        image: ghcr.io/slayug/fy/producer:3e6f535c7c14363b192f8521d9a897ce7a366367
+        image: ghcr.io/slayug/findmytube/producer:3e6f535c7c14363b192f8521d9a897ce7a366367
         imagePullPolicy: Always
         env:
         - name: REDIS_HOST

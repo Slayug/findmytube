@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: findmytube-video-worker
-          image: ghcr.io/slayug/fy/video-worker:08dece13a2c2507808445c8a5c399d7837466f40
+          image: ghcr.io/slayug/findmytube/video-worker:{{ .Values.version.videoWorker }}
           imagePullPolicy: Always
           env:
             - name: ELASTIC_HOST
