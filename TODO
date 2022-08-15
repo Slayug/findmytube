@@ -17,9 +17,9 @@
 - [x] Gestion du CORS en prod, que autoriser le front
 - [ ] Optimiser les bundles des workers/producer avec rollup
 - [ ] #feat Ajouter suivi automatique des traductions en fonction du live
-- [ ] #dev Improve logs of producer & worker
+- [x] #dev Improve logs of producer & worker
 - [ ] #feat ajouter une liste de mots clef/tendance à rechercher régulièrement et scrap les résultats
-- [ ] Configuer winston pour les logs
+- [x] Configuer winston pour les logs
 - [ ] #ops #ci Lancer les builds de package seulement quand leurs codes ont changé https://github.com/marketplace/actions/has-changes
 - [x] #feat chercher en précisant une chaîne précise
 - [x] #feat scrapper les mots clefs sur youtube quand un.e utilisateur.rice a 0 résultat
