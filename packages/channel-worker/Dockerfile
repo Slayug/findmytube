@@ -5,6 +5,7 @@ WORKDIR /home/node
 
 COPY tsconfig.json tsconfig.json
 COPY core ./core
+COPY logger ./logger
 COPY $PACKAGE/ $PACKAGE/
 
 RUN cd $PACKAGE && npm install --production
