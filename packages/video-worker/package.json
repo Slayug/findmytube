@@ -8,7 +8,8 @@
     "@findmytube/core": "^1.0.0",
     "@findmytube/logger": "^1.0.0",
     "bullmq": "^1.64.0",
-    "scrape-youtube": "^2.1.14"
+    "scrape-youtube": "^2.1.14",
+    "ts-node": "^10.9.1"
   },
   "license": "MIT",
   "scripts": {
