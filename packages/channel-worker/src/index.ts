@@ -19,7 +19,7 @@ const videoQueue = new Queue<VideoJob>(Config.videoQueueName, {
         attempts: 3,
         backoff: {
             type: 'exponential',
-            delay: 30000,
+            delay: 300000,
         },
     },
 });
