@@ -9,14 +9,18 @@ export default function SearchBar<T>({
   onPressEnter,
   onChange,
   onSelect,
-  onClear
+  onClear,
+  className,
+  placeholder,
 }: {
     defaultSearchQuery?: string,
     searchMethod: (query: string) => Promise<SelectProps<T>['options']>,
     onPressEnter?: (value: string) => void,
     onChange?: (value: string) => void,
     onSelect?: (value: string) => void,
-    onClear?: () => void
+    onClear?: () => void,
+    className?: string,
+    placeholder?: string
 }) {
   const [searchQuery, setSearchQuery] = useState(defaultSearchQuery);
 
@@ -59,6 +63,7 @@ export default function SearchBar<T>({
   }
 
   return <AutoComplete
+    className={className}
     style={{width: '100%'}}
     options={searchResult}
     onSearch={onSearch}
@@ -75,7 +80,7 @@ export default function SearchBar<T>({
       autoFocus
       defaultValue={defaultSearchQuery}
       size="large"
-      placeholder="Search channel"
+      placeholder={placeholder}
       style={{width: '100%'}}/>
   </AutoComplete>
 

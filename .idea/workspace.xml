@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/packages/www/public/locales/en/translation.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/www/public/locales/fr/translation.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/www/src/setupI18N.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/elastic/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/charts/elastic/setup.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/elastic/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/elastic/values.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/App.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/App.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/www/src/pages/Home/SearchBar/SearchBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/www/src/pages/Home/SearchBar/SearchBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,23 +59,25 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../takima/developer-roadmap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/www/public/locales/en" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/core/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/www/public/locales/en" />
       <recent name="$PROJECT_DIR$/charts" />
       <recent name="$PROJECT_DIR$/packages/channel-worker" />
       <recent name="$PROJECT_DIR$/packages/cron-channel-producer" />
       <recent name="$PROJECT_DIR$/packages/video-worker" />
-      <recent name="$PROJECT_DIR$/packages/www" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages" />
@@ -165,11 +174,23 @@
       <workItem from="1660304191484" duration="949000" />
       <workItem from="1660312057878" duration="626000" />
       <workItem from="1660325021724" duration="1464000" />
+      <workItem from="1660635296840" duration="37000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="56d40a57-9e38-4c5a-9aef-5681190733fd">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

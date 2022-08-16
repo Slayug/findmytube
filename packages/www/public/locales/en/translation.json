@@ -1,0 +1,12 @@
+{
+  "guide": {
+    "search": "Search through YouTube captions",
+    "channel": "Specify a channel to be more precise! (optional)"
+  },
+  "search": {
+    "captionPlaceholder": "Rechercher",
+    "channelPlaceholder": "Channel",
+    "channelNotFound": "The channel is being scanned, please try again in a few moments.",
+    "error": "Cannot retrieve your search, please try again.."
+  }
+}

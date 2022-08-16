@@ -1,0 +1,12 @@
+{
+  "guide": {
+    "search": "Rechercher parmi les sous-titres YouTube",
+    "channel": "Pour une chaîne précise (optionnel)."
+  },
+  "search": {
+    "captionPlaceholder": "Rechercher",
+    "channelPlaceholder": "Chaîne",
+    "channelNotFound": "La chaîne est en cours de scan, merci de réessayer dans quelques instances.",
+    "error": "Cannot retrieve your search, please try again.."
+  }
+}

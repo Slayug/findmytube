@@ -6,13 +6,15 @@ import {
   Route, Link,
 } from 'react-router-dom';
 import {Content, Header} from 'antd/es/layout/layout';
-import {Layout} from 'antd';
+import {Layout, Spin} from 'antd';
 import Home from './pages/Home/Home';
 import VideoPage from "./pages/Video/VideoPage";
 
 import styles from './App.module.scss';
 import axios from "axios";
 
+import './setupI18N';
+import { Suspense } from 'react';
 
 axios.defaults.baseURL = `${FrontConfig.apiBaseUrl}`;
 
@@ -29,10 +31,12 @@ function App() {
             </Link>
           </Header>
           <Content>
-            <Routes>
-              <Route path="/" element={<Home/>}/>
-              <Route path="/watch" element={<VideoPage/>}/>
-            </Routes>
+            <Suspense fallback={<Spin />}>
+              <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/watch" element={<VideoPage/>}/>
+              </Routes>
+            </Suspense>
           </Content>
         </Layout>
       </Router>

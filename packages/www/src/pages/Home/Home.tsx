@@ -13,20 +13,23 @@ import VideoRow from "./VideoRow/VideoRow";
 import {InView} from "react-intersection-observer";
 import {AxiosError} from "axios";
 import {Footer} from "antd/es/layout/layout";
+import {channelInputTarget, guideSteps, wordInputTarget} from "./GuideTourSteps";
+import {useTranslation} from "react-i18next";
 
 const QUERY_KEY = "q";
 const CHANNEL_KEY = "channelAuthor";
 
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
-
   const [inLoadMore, setInLoadMore] = useState(false);
+
   const searchContent = useRef<string | null>(searchParams.get(QUERY_KEY));
   const channelAuthorSelected = useRef<string | null>(searchParams.get(CHANNEL_KEY));
   const searchInputRef = useRef<InputRef>();
 
   const {searchVideo} = useApiVideo();
   const {searchYoutubeChannel} = useApiChannel();
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
 
@@ -99,16 +102,21 @@ export default function Home() {
         <Col xs={24} sm={24} md={18} lg={18} xl={16} xxl={14}>
           <Row justify="center">
             <Col xs={24} sm={24} md={18} lg={18} xl={16} xxl={12}>
+              <div><p>🔎 { t("guide.search") } ⤵️️</p></div>
               <Input
+                className={wordInputTarget}
                 autoFocus
                 type="search"
                 defaultValue={searchParams.get(QUERY_KEY)} size="large"
-                placeholder="Search the speech"
+                placeholder={ t("search.captionPlaceholder") }
                 ref={searchInputRef}
                 onPressEnter={onPressEnterContent} style={{width: '100%'}}/>
             </Col>
             <Col xs={24} sm={24} md={18} lg={18} xl={16} xxl={12}>
+              <div><p>{ t("guide.channel") } ⤵️️</p></div>
               <SearchBar
+                placeholder={ t("search.channelPlaceholder") }
+                className={channelInputTarget}
                 defaultSearchQuery={searchParams.get(CHANNEL_KEY)}
                 onSelect={onSelectChannel}
                 onClear={onClearChannel}
@@ -131,9 +139,9 @@ export default function Home() {
         <Col xs={24} sm={22} md={18} lg={18} xl={16} xxl={14}>
           {isLoading && <Spin style={{ margin: "10px" }}/>}
           {(isError && error?.response && error.response.status === 404) ?
-            <Alert
-              message="La chaîne est en cours de scan, merci de retenter dans quelques instants."
-              type="info"/> : isError && <Alert message="Impossible de récupérer votre recherche" type="warning"/>}
+            <Alert message={ t("search.channelNotFound") } type="info"/> :
+            isError && <Alert message={ t("search.error") } type="warning"/>
+          }
           {searchVideoResult && searchVideoResult.pages.length > 0 &&
                         <div
                           className={styles.amountResult}>
