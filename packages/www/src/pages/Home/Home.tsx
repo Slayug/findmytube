@@ -13,7 +13,6 @@ import VideoRow from "./VideoRow/VideoRow";
 import {InView} from "react-intersection-observer";
 import {AxiosError} from "axios";
 import {Footer} from "antd/es/layout/layout";
-import {channelInputTarget, guideSteps, wordInputTarget} from "./GuideTourSteps";
 import {useTranslation} from "react-i18next";
 
 const QUERY_KEY = "q";
@@ -29,7 +28,7 @@ export default function Home() {
 
   const {searchVideo} = useApiVideo();
   const {searchYoutubeChannel} = useApiChannel();
-  const { t } = useTranslation();
+  const {t} = useTranslation();
 
   const navigate = useNavigate();
 
@@ -102,21 +101,19 @@ export default function Home() {
         <Col xs={24} sm={24} md={18} lg={18} xl={16} xxl={14}>
           <Row justify="center">
             <Col xs={24} sm={24} md={18} lg={18} xl={16} xxl={12}>
-              <div><p>🔎 { t("guide.search") } ⤵️️</p></div>
+              <div><p>🔎 {t("guide.search")} ⤵️️</p></div>
               <Input
-                className={wordInputTarget}
                 autoFocus
                 type="search"
                 defaultValue={searchParams.get(QUERY_KEY)} size="large"
-                placeholder={ t("search.captionPlaceholder") }
+                placeholder={t("search.captionPlaceholder")}
                 ref={searchInputRef}
                 onPressEnter={onPressEnterContent} style={{width: '100%'}}/>
             </Col>
             <Col xs={24} sm={24} md={18} lg={18} xl={16} xxl={12}>
-              <div><p>{ t("guide.channel") } ⤵️️</p></div>
+              <div><p>{t("guide.channel")} ⤵️️</p></div>
               <SearchBar
-                placeholder={ t("search.channelPlaceholder") }
-                className={channelInputTarget}
+                placeholder={t("search.channelPlaceholder")}
                 defaultSearchQuery={searchParams.get(CHANNEL_KEY)}
                 onSelect={onSelectChannel}
                 onClear={onClearChannel}
@@ -137,43 +134,43 @@ export default function Home() {
       </Row>
       <Row justify="center">
         <Col xs={24} sm={22} md={18} lg={18} xl={16} xxl={14}>
-          {isLoading && <Spin style={{ margin: "10px" }}/>}
+          {isLoading && <Spin style={{margin: "10px"}}/>}
           {(isError && error?.response && error.response.status === 404) ?
-            <Alert message={ t("search.channelNotFound") } type="info"/> :
-            isError && <Alert message={ t("search.error") } type="warning"/>
+            <Alert message={t("search.channelNotFound")} type="info"/> :
+            isError && <Alert message={t("search.error")} type="warning"/>
           }
           {searchVideoResult && searchVideoResult.pages.length > 0 &&
-                        <div
-                          className={styles.amountResult}>
-                          {searchVideoResult.pages[0].total.value} résultats
-                            ({searchVideoResult.pages[0].took / 1000}sec)
-                        </div>
+            <div
+              className={styles.amountResult}>
+              {searchVideoResult.pages[0].total.value} résultats
+              ({searchVideoResult.pages[0].took / 1000}sec)
+            </div>
           }
           {
             searchVideoResult &&
-                        searchVideoResult.pages.map(page => {
-                          return page.hits.map((videoResult) => {
-                            return <div key={videoResult._id} className={styles.videoRowWrap}>
-                              {
-                                (videoResult._source && videoResult._source.video) ? <VideoRow
-                                  onClick={(videoId) => goToVideo(videoId)}
-                                  video={videoResult._source.video}
-                                /> : <hr className={videoResult._id}/>
-                              }
-                            </div>
-                          })
-                        })
+            searchVideoResult.pages.map(page => {
+              return page.hits.map((videoResult) => {
+                return <div key={videoResult._id} className={styles.videoRowWrap}>
+                  {
+                    (videoResult._source && videoResult._source.video) ? <VideoRow
+                      onClick={(videoId) => goToVideo(videoId)}
+                      video={videoResult._source.video}
+                    /> : <hr className={videoResult._id}/>
+                  }
+                </div>
+              })
+            })
           }
           {
             searchVideoResult &&
-                        searchVideoResult.pages[0].total.value > 9 &&
-                        searchVideoResult.pages.length * 9 <= searchVideoResult.pages[0].total.value &&
+            searchVideoResult.pages[0].total.value > 9 &&
+            searchVideoResult.pages.length * 9 <= searchVideoResult.pages[0].total.value &&
             <Fragment>
               <InView as="div" onChange={(inView) => setInLoadMore(inView)}>
                 <Button
                   onClick={() => setInLoadMore(true)}
                   loading={inLoadMore || isLoading} className={styles.loadMore}>
-                            Load more.
+                  Load more.
                 </Button>
               </InView>
             </Fragment>
