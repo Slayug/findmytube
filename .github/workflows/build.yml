@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        package: ['producer', 'api', 'www', 'video-worker', 'cron-channel-producer', 'channel-worker']
+        package: ['producer', 'api', 'www', 'video-worker', 'cron-channel-producer', 'channel-worker', 'cron-video-updater']
     # steps to perform in job
     steps:
       - name: set lower case owner name

@@ -1,5 +1,5 @@
 {
-  "name": "@findmytube/cron-channel-producer",
+  "name": "@findmytube/cron-video-updater",
   "version": "1.0.0",
   "main": "./dist/index.js",
   "private": true,
