@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.json",
+  "include": ["./src/**/*"],
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "ESNext",
+    "esModuleInterop": true
+  },
+  "ts-node": {
+    "esm": true
+  }
+}

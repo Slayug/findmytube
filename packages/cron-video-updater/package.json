@@ -1,0 +1,30 @@
+{
+  "name": "@findmytube/cron-channel-producer",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.16.0",
+    "@findmytube/core": "^1.0.0",
+    "@findmytube/logger": "^1.0.0",
+    "bullmq": "^1.64.0",
+    "scrape-youtube": "^2.1.14",
+    "ts-node": "^10.4.0",
+    "yt-channel-info": "^2.2.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node --transpile-only src/index.ts",
+    "dev": "nodemon src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.8.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "rollup": "^2.67.0"
+  }
+}
