@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-video-updater
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: findmytube-cron-video-updater
+            image: ghcr.io/slayug/findmytube/cron-video-updater:{{ .Values.version.cronVideoUpdater }}
+            imagePullPolicy: IfNotPresent
+            env:
+              - name: ELASTIC_HOST
+                value: {{ .Values.elastic.masterHost }}
+              - name: REDIS_HOST
+                value: {{ .Values.redis.masterHost }}
+              - name: REDIS_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                      name: findmytube-redis
+                      key: redis-password
+          imagePullSecrets:
+            - name: regcred
+          restartPolicy: OnFailure

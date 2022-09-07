@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="" />
+    <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/charts/cron-video-updater/Chart.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/cron-video-updater/templates/cron-channel-producer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/cron-video-updater/values.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/values/prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/values/prod.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/www/public/locales/en" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/charts" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -56,17 +62,17 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/core/node_modules/typescript/lib" />
+    <property name="settings.editor.selected.configurable" value="com.promyze.appli.settings.AppSettingsConfigurable" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/api/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/packages/www/public/locales/en" />
       <recent name="$PROJECT_DIR$/charts" />
+      <recent name="$PROJECT_DIR$/packages/cron-video-updater" />
+      <recent name="$PROJECT_DIR$/packages/www/public/locales/en" />
       <recent name="$PROJECT_DIR$/packages/channel-worker" />
       <recent name="$PROJECT_DIR$/packages/cron-channel-producer" />
-      <recent name="$PROJECT_DIR$/packages/video-worker" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages" />
@@ -76,9 +82,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="Application" factoryName="Application">
+    <configuration default="true" type="NimRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="Make" enabled="true" />
+        <option name="nim.task.build.to.cache" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -164,6 +170,22 @@
       <workItem from="1660312057878" duration="626000" />
       <workItem from="1660325021724" duration="1464000" />
       <workItem from="1660635296840" duration="37000" />
+      <workItem from="1661157325124" duration="238000" />
+      <workItem from="1661245245538" duration="43000" />
+      <workItem from="1661768284852" duration="267000" />
+      <workItem from="1661873008546" duration="670000" />
+      <workItem from="1661937799942" duration="4000" />
+      <workItem from="1662054450961" duration="139000" />
+      <workItem from="1662102857319" duration="1754000" />
+      <workItem from="1662385709156" duration="1029000" />
+      <workItem from="1662442425981" duration="1785000" />
+      <workItem from="1662446541685" duration="2004000" />
+      <workItem from="1662470028991" duration="4000" />
+      <workItem from="1662484752211" duration="2472000" />
+      <workItem from="1662534133386" duration="602000" />
+      <workItem from="1662543608085" duration="4315000" />
+      <workItem from="1662559144954" duration="1222000" />
+      <workItem from="1662571344147" duration="599000" />
     </task>
     <servers />
   </component>
