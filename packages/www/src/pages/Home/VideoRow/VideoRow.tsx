@@ -66,7 +66,7 @@ export default function VideoRow({
 
     const index = content.indexOf(searchContent);
 
-    const shift = 100;
+    const shift = 50;
 
     const subContent = content.substring(
       index > shift ? index - shift : index,
@@ -82,7 +82,7 @@ export default function VideoRow({
         {words.slice(wordIndex + 1, words.length).join(" ")}
         {searchContentAmount > 1 && (
           <div className={styles.hasMore}>
-            Has {searchContentAmount - 1} more
+            {searchContentAmount - 1} de plus
           </div>
         )}
       </div>

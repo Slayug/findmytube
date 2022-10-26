@@ -1,8 +1,6 @@
 @import "../../../styles/global";
 
 .videoRow {
-  display: flex;
-  flex-direction: column;
 
   &:hover {
     cursor: pointer;
@@ -11,8 +9,8 @@
 
   .content {
     display: flex;
-    @media screen and (min-width: 768px) {
-      flex-direction: row;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
     }
 
     .thumbnail {
@@ -77,13 +75,14 @@
   .subContent {
     margin-top: auto;
     font-size: 1.1em;
+    line-height: 20px;
 
     .mark {
       font-weight: bold;
     }
 
     .hasMore {
-      color: #FF77FF;
+      color: #737373;
     }
   }
 }
