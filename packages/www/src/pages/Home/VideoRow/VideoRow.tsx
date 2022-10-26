@@ -4,7 +4,6 @@ import { VideoCameraOutlined } from "@ant-design/icons";
 import styles from "./VideoRow.module.scss";
 import { useVideoById } from "../../../hooks/useApiVideo";
 import { getCurrentTranscription } from "../../../domain/Video";
-import { useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { QUERY_KEY } from "../Home";
 
@@ -79,7 +78,7 @@ export default function VideoRow({
     return (
       <div>
         {words.slice(1, wordIndex - 1).join(" ")}
-        <mark>{searchContent}</mark>
+        <span className={styles.mark}> {searchContent} </span>
         {words.slice(wordIndex + 1, words.length).join(" ")}
         {searchContentAmount > 1 && (
           <div className={styles.hasMore}>
@@ -100,14 +99,16 @@ export default function VideoRow({
           {getThumbnail()}
         </div>
         <div className={styles.description}>
-          <div className={styles.title}>{video.title}</div>
-          <div className={styles.published}>{video.publishedText}</div>
-          <div className={styles.authorLink}>
-            <a href={`https://www.youtube.com/c/${video.authorId}`}>
-              {video.author}
-            </a>
-            <div className={styles.subContent}>{findFirstPart()}</div>
+          <div>
+            <div className={styles.title}>{video.title}</div>
+            <div className={styles.published}>{video.publishedText}</div>
+            <div className={styles.authorLink}>
+              <a href={`https://www.youtube.com/c/${video.authorId}`}>
+                {video.author}
+              </a>
+            </div>
           </div>
+          <div className={styles.subContent}>{findFirstPart()}</div>
         </div>
       </div>
     </div>

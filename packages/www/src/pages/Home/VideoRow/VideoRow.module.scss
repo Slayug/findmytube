@@ -50,6 +50,9 @@
     .description {
       width: 80%;
       border-top: 1px solid #bdbdbd;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       @media screen and (max-width: 768px) {
         line-height: 1.2;
@@ -72,12 +75,11 @@
   }
 
   .subContent {
-    margin-top: 10px;
-    padding-left: 5px;
-    font-size: 1.2em;
+    margin-top: auto;
+    font-size: 1.1em;
 
-    mark {
-      background-color: $backgroundColorMark;
+    .mark {
+      font-weight: bold;
     }
 
     .hasMore {
