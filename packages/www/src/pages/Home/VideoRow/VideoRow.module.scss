@@ -1,70 +1,87 @@
+@import "../../../styles/global";
 
 .videoRow {
   display: flex;
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-
-    .thumbnail {
-      img {
-        width: 100%;
-      }
-    }
-  }
+  flex-direction: column;
 
   &:hover {
     cursor: pointer;
     background-color: #DDDDDD;
   }
 
-  .thumbnail {
-    position: relative;
-    img {
-      width: 336px;
-      max-height: 250px;
+  .content {
+    display: flex;
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
 
-      background-color: #232323;
-      object-fit: contain;
+    .thumbnail {
+      position: relative;
 
-      @media screen and (max-width: 768px) {
-        width: 100%;
+      img {
+        width: 336px;
+        max-height: 250px;
+
+        background-color: #232323;
+        object-fit: contain;
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+      }
+
+      .timer {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+
+        font-size: 0.8rem;
+        font-weight: bold;
+        font-family: Roboto, Arial, sans-serif;
+
+        padding-left: 2px;
+        padding-right: 2px;
+
+        background-color: #18181890;
+        color: white;
       }
     }
 
-    .timer {
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
+    .description {
+      width: 80%;
+      border-top: 1px solid #bdbdbd;
 
-      font-size: 0.8rem;
-      font-weight: bold;
-      font-family: Roboto, Arial, sans-serif;
+      @media screen and (max-width: 768px) {
+        line-height: 1.2;
+        padding-top: 2px;
+        padding-left: 5px;
+      }
 
-      padding-left: 2px;
-      padding-right: 2px;
+      @media screen and (min-width: 768px) {
+        padding-left: 10px;
+        padding-top: 5px;
+      }
 
-      background-color: #18181890;
-      color: white;
+      .title {
+        font-family: "Roboto", "Arial", sans-serif;
+        font-size: 1.3em;
+      }
+
+
     }
   }
 
-  .description {
-    width: 100%;
+  .subContent {
+    margin-top: 10px;
+    padding-left: 5px;
+    font-size: 1.2em;
 
-    @media screen and (max-width: 768px) {
-      line-height: 1.2;
-      padding-top: 2px;
-      padding-left: 5px;
+    mark {
+      background-color: $backgroundColorMark;
     }
 
-    @media screen and (min-width: 768px) {
-      padding-left: 10px;
-      padding-top: 5px;
-    }
-
-    .title {
-      font-family: "Roboto","Arial",sans-serif;
-      font-size: 1.3em;
+    .hasMore {
+      color: #FF77FF;
     }
   }
 }

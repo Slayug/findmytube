@@ -15,14 +15,16 @@
 - [x] Externaliser les configs pour (worker, producer et api partagé) et www (via config.js local) de l'autre côté
 - [x] Ajouter un producer en mode CRON qui rafraîchit la liste des vidéos fetch par chaîne à partir de l'index channel
 - [x] Gestion du CORS en prod, que autoriser le front
-- [ ] Optimiser les bundles des workers/producer avec rollup
-- [ ] #feat Ajouter suivi automatique des traductions en fonction du live
 - [x] #dev Improve logs of producer & worker
-- [ ] #feat ajouter une liste de mots clef/tendance à rechercher régulièrement et scrap les résultats
 - [x] Configuer winston pour les logs
-- [ ] #ops #ci Lancer les builds de package seulement quand leurs codes ont changé https://github.com/marketplace/actions/has-changes
 - [x] #feat chercher en précisant une chaîne précise
 - [x] #feat scrapper les mots clefs sur youtube quand un.e utilisateur.rice a 0 résultat
+- [ ] Optimiser les bundles des workers/producer avec rollup
+- [ ] #feat Ajouter suivi automatique des traductions en fonction du live
+- [ ] #feat ajouter une liste de mots clef/tendance à rechercher régulièrement et scrap les résultats
+- [ ] #feat gérer le cas où une video a plusieurs traduction, et les premières transcriptions ne contiennent pas la
+recherche, mais que une autre transcription contient la recherche.
+- [ ] #ops #ci Lancer les builds de package seulement quand leurs codes ont changé https://github.com/marketplace/actions/has-changes
 - [ ] #feat Implémenter le PIT quand on fait un search sur ElasticSearch https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#search-after
 - [ ] Enlever Javscript/Typescript en back et tout réécrire avec RabbitMQ https://blog.ippon.fr/2018/03/27/comparatif-rabbitmq-kafka/ ??
 - [ ] Faire un job automatique pour deploy avec une pre-release, pour éviter de faire des builds à chaque fois.

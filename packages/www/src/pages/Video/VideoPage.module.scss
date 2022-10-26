@@ -1,3 +1,5 @@
+@import "../../styles/global";
+
 $video_height_xs: 200px;
 $video_height_sm: 335px;
 $video_height_md: 360px;
@@ -107,7 +109,7 @@ $video_height_xxxl: 720px;
         display: block;
 
         mark {
-          background-color: #FF77FF;
+          background-color: $backgroundColorMark;
         }
 
         .time {

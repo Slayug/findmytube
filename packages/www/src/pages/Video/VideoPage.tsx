@@ -1,14 +1,13 @@
 import {Fragment, useCallback, useRef} from "react";
 import {useSearchParams} from "react-router-dom";
-import useApiVideo from "../../hooks/useApiVideo";
-import {useQuery} from "react-query";
+import {useVideoById} from "../../hooks/useApiVideo";
 import {Alert, Col, Row, Spin} from "antd";
 import ReactPlayer from "react-player";
 
 import styles from "./VideoPage.module.scss";
 import {CaretDownOutlined, CaretUpOutlined} from "@ant-design/icons";
 import {TranscriptionList} from "./TranscriptionLine";
-import {LanguageList, Transcription} from "@findmytube/core";
+import {getCurrentTranscription} from "../../domain/Video";
 
 const QUERY_KEY = "q";
 
@@ -18,24 +17,12 @@ export default function VideoPage() {
   const youtubeRef = useRef<ReactPlayer>();
   const currentIndexMarkedElement = useRef(-1);
 
-  const {getVideoById} = useApiVideo();
-
   const {
     data: videoResult,
     error,
     isLoading,
-  } = useQuery(["video", videoId], () => getVideoById(videoId), {
-    cacheTime: 3,
-    refetchOnWindowFocus: false,
-  });
+  } = useVideoById(videoId);
 
-  function getCurrentTranscription(): Transcription[] {
-    for (const language of LanguageList) {
-      if (videoResult[language])
-        return JSON.parse(videoResult[language].translations);
-    }
-    return [];
-  }
 
   const onSeek = useCallback((time: number) => {
     youtubeRef.current?.seekTo(time);
@@ -101,7 +88,7 @@ export default function VideoPage() {
               {
                 videoResult ? <TranscriptionList
                   onSeek={onSeek}
-                  transcriptions={getCurrentTranscription()}
+                  transcriptions={getCurrentTranscription(videoResult)}
                   query={searchParams.get(QUERY_KEY)}
                 /> : <Alert type="info">No translation found</Alert>
               }

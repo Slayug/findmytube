@@ -15,8 +15,8 @@ import {AxiosError} from "axios";
 import {Footer} from "antd/es/layout/layout";
 import {useTranslation} from "react-i18next";
 
-const QUERY_KEY = "q";
-const CHANNEL_KEY = "channelAuthor";
+export const QUERY_KEY = "q";
+export const CHANNEL_KEY = "channelAuthor";
 
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();

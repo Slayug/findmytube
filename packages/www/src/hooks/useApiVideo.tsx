@@ -1,5 +1,6 @@
 import axios from "axios";
 import {VideoResult, SearchVideoResult} from "@findmytube/core";
+import {useQuery} from "react-query";
 
 const VIDEO_ENDPOINT = '/videos';
 export default function useApiVideo() {
@@ -16,4 +17,17 @@ export default function useApiVideo() {
 
 
   return {searchVideo, getVideoById}
+}
+
+
+export function useVideoById(videoId: string) {
+
+  const { getVideoById } = useApiVideo();
+
+  // about cache & stale time https://github.com/TanStack/query/discussions/1685
+  return useQuery(["video", videoId], () => getVideoById(videoId), {
+    cacheTime: 5,
+    staleTime: 5,
+    refetchOnWindowFocus: false,
+  });
 }
