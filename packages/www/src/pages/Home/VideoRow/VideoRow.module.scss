@@ -67,8 +67,6 @@
         font-family: "Roboto", "Arial", sans-serif;
         font-size: 1.3em;
       }
-
-
     }
   }
 
@@ -76,6 +74,10 @@
     margin-top: auto;
     font-size: 1.1em;
     line-height: 20px;
+
+    @media screen and (min-width: 1440px) {
+      width: 75%;
+    }
 
     em {
       font-weight: bold;

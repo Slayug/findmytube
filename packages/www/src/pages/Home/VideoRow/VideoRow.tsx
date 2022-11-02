@@ -6,6 +6,7 @@ import { useVideoById } from "../../../hooks/useApiVideo";
 import { getCurrentTranscription } from "../../../domain/Video";
 import { useSearchParams } from "react-router-dom";
 import { QUERY_KEY } from "../Home";
+import {Fragment} from "react";
 
 const availableVideoWidth = {
   XS: 168,
@@ -52,43 +53,30 @@ export default function VideoRow({
     );
   }
 
-  function removePreviousSentence(content: string, searchContent: string) {
-    const searchIndex = content.toLowerCase().indexOf(searchContent.toLowerCase());
-    const dotIndex = content.indexOf(".");
-    if (dotIndex < searchIndex) {
-      return content.slice(dotIndex + 1, content.length)
-    }
-    return content;
-  }
+  function weightSearchContent(transcriptions: Transcription[], searchContent: string) {
+    const words = transcriptions
+      .map((line) => line.text)
+      .join(" ")
+      .split(" ");
 
-  function clearWordsAtTheEnd(content: string) {
-    const contentSplitted = content.split(".");
-    if (contentSplitted.length > 1) {
-      if (contentSplitted[contentSplitted.length - 1] !== "") {
-        return contentSplitted.slice(0, contentSplitted.length - 1).join(".") + ".";
-      }
-    }
-    return content;
-  }
-
-  function removeLogicalChars(content: string) {
-    return content.replace("\nand", "")
-  }
-
-  function findSearchIndex(words: string[], searchContent: string) {
-    let founderIndex = 0;
     const searchContentSplitted = searchContent.toLowerCase().split(" ");
-    for (let wordIndex = 0; wordIndex < words.length - 1 - searchContentSplitted.length; wordIndex++) {
-      if (removeLogicalChars(words[wordIndex].toLowerCase()) === searchContentSplitted[founderIndex]) {
-        founderIndex++;
-        if (founderIndex === searchContentSplitted.length) {
-          return wordIndex - searchContentSplitted.length;
-        }
-      } else {
-        founderIndex = 0
+    for (let wordIndex = 0; wordIndex < words.length - searchContentSplitted.length; wordIndex++) {
+      if (words[wordIndex].toLowerCase() === searchContent.toLowerCase()) {
+        return <Fragment>
+          { words.slice(0, wordIndex - 1).join(" ") }
+          <em> { searchContent} </em>
+          {words.slice(wordIndex + 1, words.length - 1).join(" ")}
+        </Fragment>
+      }
+      if (words[wordIndex].toLowerCase() === searchContentSplitted[0]) {
+        return <Fragment>
+          { words.slice(0, wordIndex - 1).join(" ") }
+          <em> { searchContent} </em>
+          {words.slice(wordIndex + searchContentSplitted.length, words.length - 1).join(" ")}
+        </Fragment>
       }
     }
-    return -1;
+    return null;
   }
 
   function findTranscriptionIndexOfSearch(transcriptions: Transcription[], searchContent: string) {
@@ -114,36 +102,24 @@ export default function VideoRow({
       return "";
     }
 
-    const content = getCurrentTranscription(videoResult)
-      .map((line) => line.text)
-      .join(" ");
+    const transcriptions = getCurrentTranscription(videoResult);
     const searchContentAmount = (
-      content.match(new RegExp(searchContent, "g")) ?? []
+      transcriptions
+        .map((line) => line.text)
+        .join(" ")
+        .match(new RegExp(searchContent, "g")) ?? []
     ).length;
 
-    const preShift = 10;
-    const postShift = 30;
+    const indexOfTranscription = findTranscriptionIndexOfSearch(transcriptions, searchContent);
+    const subTranscriptions = transcriptions
+      .slice(indexOfTranscription - 2 <= 0 ? 0 : indexOfTranscription - 2,
+        indexOfTranscription + 3 < transcriptions.length ? indexOfTranscription + 3 : transcriptions.length - 1)
 
-    const wordsContent = content.split(" ");
-    //const wordContentIndex = wordsContent.findIndex((word) => word.toLowerCase() === searchContent.toLowerCase())
-    const wordContentIndex = findSearchIndex(wordsContent, searchContent)
-    const subContentWords = wordsContent.slice(wordContentIndex - preShift <= 0 ? 0 : wordContentIndex - preShift,
-      wordContentIndex + postShift >= wordsContent.length ? wordsContent.length - 1 : wordContentIndex + postShift);
-    console.log('wordsContentIndex', wordContentIndex)
-    console.log("aa" + (wordContentIndex - preShift <= 0 ? 0 : wordContentIndex - preShift), subContentWords)
-
-    let subContent = subContentWords.join(" ");
-
-    subContent = removePreviousSentence(subContent, searchContent);
-    subContent = clearWordsAtTheEnd(subContent.charAt(0).toUpperCase() + subContent.slice(1));
-    const words = subContent.split(" ");
-    const wordIndex = words.findIndex((w) => w.toLowerCase() === searchContent.toLowerCase(), 0);
+    console.log("subTrans", subTranscriptions)
 
     return (
       <div>
-        {words.slice(0, wordIndex).join(" ")}
-        <em> {searchContent} </em>
-        {words.slice(wordIndex + 1, words.length).join(" ")}
+        { weightSearchContent(subTranscriptions, searchContent) }
         {searchContentAmount > 1 && (
           <div className={styles.hasMore}>
             {searchContentAmount - 1} de plus
