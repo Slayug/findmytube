@@ -52,6 +52,25 @@ export default function VideoRow({
     );
   }
 
+  function removePreviousSentence(content: string, searchContent: string) {
+    const searchIndex = content.toLowerCase().indexOf(searchContent.toLowerCase());
+    const dotIndex = content.indexOf(".");
+    if (dotIndex < searchIndex) {
+      return content.slice(dotIndex + 1, content.length)
+    }
+    return content;
+  }
+
+  function clearWordsAtTheEnd(content: string) {
+    const contentSplitted = content.split(".");
+    if (contentSplitted.length > 1) {
+      if (contentSplitted[contentSplitted.length - 1] !== "") {
+        return contentSplitted.slice(0, contentSplitted.length - 1).join(".") + ".";
+      }
+    }
+    return content;
+  }
+
   function findFirstPart() {
     if (!videoResult) {
       return "";
@@ -64,21 +83,25 @@ export default function VideoRow({
       content.match(new RegExp(searchContent, "g")) ?? []
     ).length;
 
-    const index = content.indexOf(searchContent);
+    const preShift = 10;
+    const postShift = 30;
 
-    const shift = 50;
+    const wordsContent = content.split(" ");
+    const wordContentIndex = wordsContent.findIndex((word) => word.toLowerCase() === searchContent.toLowerCase())
+    const subContentWords = wordsContent.slice(wordContentIndex - preShift <= 0 ? 0 : wordContentIndex - preShift,
+      wordContentIndex + postShift >= wordsContent.length ? wordsContent.length - 1 : wordContentIndex + postShift);
 
-    const subContent = content.substring(
-      index > shift ? index - shift : index,
-      index + shift
-    );
+    let subContent = subContentWords.join(" ");
+
+    subContent = removePreviousSentence(subContent, searchContent);
+    subContent = clearWordsAtTheEnd(subContent.charAt(0).toUpperCase() + subContent.slice(1));
     const words = subContent.split(" ");
-    const wordIndex = words.indexOf(searchContent, 0);
+    const wordIndex = words.findIndex((w) => w.toLowerCase() === searchContent.toLowerCase(), 0);
 
     return (
       <div>
-        {words.slice(1, wordIndex - 1).join(" ")}
-        <span className={styles.mark}> {searchContent} </span>
+        {words.slice(0, wordIndex).join(" ")}
+        <em> {searchContent} </em>
         {words.slice(wordIndex + 1, words.length).join(" ")}
         {searchContentAmount > 1 && (
           <div className={styles.hasMore}>
