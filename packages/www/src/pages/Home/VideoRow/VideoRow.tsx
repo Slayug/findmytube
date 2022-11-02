@@ -1,4 +1,4 @@
-import { Video } from "@findmytube/core";
+import {Transcription, Video} from "@findmytube/core";
 import { VideoCameraOutlined } from "@ant-design/icons";
 
 import styles from "./VideoRow.module.scss";
@@ -71,6 +71,44 @@ export default function VideoRow({
     return content;
   }
 
+  function removeLogicalChars(content: string) {
+    return content.replace("\nand", "")
+  }
+
+  function findSearchIndex(words: string[], searchContent: string) {
+    let founderIndex = 0;
+    const searchContentSplitted = searchContent.toLowerCase().split(" ");
+    for (let wordIndex = 0; wordIndex < words.length - 1 - searchContentSplitted.length; wordIndex++) {
+      if (removeLogicalChars(words[wordIndex].toLowerCase()) === searchContentSplitted[founderIndex]) {
+        founderIndex++;
+        if (founderIndex === searchContentSplitted.length) {
+          return wordIndex - searchContentSplitted.length;
+        }
+      } else {
+        founderIndex = 0
+      }
+    }
+    return -1;
+  }
+
+  function findTranscriptionIndexOfSearch(transcriptions: Transcription[], searchContent: string) {
+    const maxTranscriptionToLookForward = 4;
+    for (let transcriptionIndex = 0;
+      transcriptionIndex < transcriptions.length - 1 - maxTranscriptionToLookForward;
+      transcriptionIndex++) {
+      if (transcriptions[transcriptionIndex].text.indexOf(searchContent) !== -1) {
+        return transcriptionIndex;
+      }
+      const fullSentence = transcriptions
+        .slice(transcriptionIndex, transcriptionIndex + maxTranscriptionToLookForward)
+        .join(" ");
+      if (fullSentence.toLowerCase().indexOf(searchContent) !== -1) {
+        return transcriptionIndex
+      }
+    }
+    return -1;
+  }
+
   function findFirstPart() {
     if (!videoResult) {
       return "";
@@ -87,9 +125,12 @@ export default function VideoRow({
     const postShift = 30;
 
     const wordsContent = content.split(" ");
-    const wordContentIndex = wordsContent.findIndex((word) => word.toLowerCase() === searchContent.toLowerCase())
+    //const wordContentIndex = wordsContent.findIndex((word) => word.toLowerCase() === searchContent.toLowerCase())
+    const wordContentIndex = findSearchIndex(wordsContent, searchContent)
     const subContentWords = wordsContent.slice(wordContentIndex - preShift <= 0 ? 0 : wordContentIndex - preShift,
       wordContentIndex + postShift >= wordsContent.length ? wordsContent.length - 1 : wordContentIndex + postShift);
+    console.log('wordsContentIndex', wordContentIndex)
+    console.log("aa" + (wordContentIndex - preShift <= 0 ? 0 : wordContentIndex - preShift), subContentWords)
 
     let subContent = subContentWords.join(" ");
 
