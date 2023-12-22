@@ -19,10 +19,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": "./src"
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": "./src",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    ".next/types/**/*.ts"
   ]
 }
