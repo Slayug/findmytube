@@ -1,29 +1,42 @@
-import {Video, ChannelInfo} from '@findmytube/core';
+import {Video} from '@findmytube/core';
 
-const ytch = require('yt-channel-info');
-import { youtube } from 'scrape-youtube';
-import { SearchOptions } from 'scrape-youtube/lib/interface';
+import {youtube} from 'scrape-youtube';
+import {SearchOptions} from 'scrape-youtube/lib/interface';
+
+import {Innertube} from 'youtubei.js';
 
 
 class YoutubeHelper {
+    static innerTube: Innertube;
 
-    static async getChannelInfo(channelId: string): Promise<ChannelInfo> {
-        return ytch.getChannelInfo(channelId)
+    static async innerTubeInstance() {
+        if (!YoutubeHelper.innerTube) {
+            YoutubeHelper.innerTube = await Innertube.create();
+        }
+        return YoutubeHelper.innerTube
+    }
+
+    static async getChannelInfo(channelId: string) {
+        const innerTube = await YoutubeHelper.innerTubeInstance();
+        return innerTube.getChannel(channelId);
     }
 
     static async loadLastChannelVideo(
         channelId: string,
         sortBy?: 'newest' | 'oldest' | 'popular'
-    ): Promise<{ items: Video[] }> {
-        return ytch.getChannelVideos(channelId, sortBy);
+    ) {
+        const innerTube = await YoutubeHelper.innerTubeInstance()
+        const channel  = await innerTube.getChannel(channelId)
+        return channel.getVideos();
     }
 
     static async loadAllChannelVideos(
         channelId: string,
         items?: Video[],
         continuation?: string
-    ): Promise<{ items: Video[] }> {
-        if (continuation) {
+    ) {
+        return this.loadLastChannelVideo(channelId)
+       /* if (continuation) {
             const result = await ytch.getChannelVideosMore(continuation)
             if (result.continuation) {
                 const deepResult = await YoutubeHelper.loadAllChannelVideos(channelId, result.items, result.continuation);
@@ -55,7 +68,7 @@ class YoutubeHelper {
                     items: result.items
                 }
             }
-        }
+        }*/
     }
 
     static async search(content: string, options?: SearchOptions | undefined) {

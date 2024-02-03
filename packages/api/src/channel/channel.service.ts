@@ -4,6 +4,7 @@ import { ElasticsearchService } from '@nestjs/elasticsearch';
 import { Config, SearchChannelResult } from '@findmytube/core';
 import * as ytsr from 'ytsr';
 import { Channel } from 'ytsr';
+import {logger} from "@findmytube/logger";
 
 const SEARCH_ELEMENT_PER_PAGE = 6;
 
@@ -12,28 +13,33 @@ export class ChannelService {
   constructor(private readonly elasticsearchService: ElasticsearchService) {}
 
   async getByAuthor(author: string) {
-    const result = await this.elasticsearchService.search({
-      index: Config.elasticChannelIndex,
-      body: {
-        query: {
-          match: {
-            'channel.author': {
-              query: author,
-              operator: 'and',
+    try {
+      const result = await this.elasticsearchService.search({
+        index: Config.elasticChannelIndex,
+        body: {
+          query: {
+            match: {
+              'channel.author': {
+                query: author,
+                operator: 'and',
+              },
             },
           },
+          _source: {
+            excludes: [
+              'authorBanners',
+              'authorThumbnails',
+              'allowedRegions',
+              'description',
+            ],
+          },
         },
-        _source: {
-          excludes: [
-            'authorBanners',
-            'authorThumbnails',
-            'allowedRegions',
-            'description',
-          ],
-        },
-      },
-    });
-    return result.body.hits as SearchChannelResult;
+      });
+      return result.body.hits as SearchChannelResult;
+    } catch (e) {
+      logger.error(`Cannot author channel ${author}`, e);
+      return { hits: [] }
+    }
   }
 
   async searchOnYoutube(content: string, page = 0) {

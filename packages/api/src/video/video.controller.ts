@@ -51,11 +51,10 @@ export class VideoController {
         channelAuthor,
       );
 
-      if (existingAuthors.hits.length === 0) {
+      if (existingAuthors?.hits.length === 0) {
         const youtubeChannel = await this.channelService.searchOnYoutube(
           channelAuthor,
         );
-        console.log(`Sending ${youtubeChannel[0].channelID} to channel queue`);
         await this.channelQueue.add(`channel-${youtubeChannel[0].channelID}`, {
           channelId: youtubeChannel[0].channelID,
         });
