@@ -101,7 +101,7 @@ const worker = new Worker<ChannelJob, number>(
         // maybe never fetched channel, fetch everything to be sure
         logger.info(`Fetch all video for: ${job.data.channelId}`);
         const allVideoChannel = await YoutubeHelper.loadAllChannelVideos(job.data.channelId);
-        allVideoChannel.videos.forEach((video) => {
+        allVideoChannel.forEach((video) => {
           if (video.is(YTNodes.Video)) {
             videoQueue.add('video', {video: compactVideoToVideo(video, channelVideoResult.header)})
           }

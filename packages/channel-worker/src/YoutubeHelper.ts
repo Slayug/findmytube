@@ -4,6 +4,8 @@ import {youtube} from 'scrape-youtube';
 import {SearchOptions} from 'scrape-youtube/lib/interface';
 
 import {Innertube} from 'youtubei.js';
+import Feed from "youtubei.js/dist/src/core/mixins/Feed";
+import {IBrowseResponse} from "youtubei.js/dist/src/parser/types";
 
 
 class YoutubeHelper {
@@ -30,45 +32,23 @@ class YoutubeHelper {
         return channel.getVideos();
     }
 
-    static async loadAllChannelVideos(
-        channelId: string,
-        items?: Video[],
-        continuation?: string
-    ) {
-        return this.loadLastChannelVideo(channelId)
-       /* if (continuation) {
-            const result = await ytch.getChannelVideosMore(continuation)
-            if (result.continuation) {
-                const deepResult = await YoutubeHelper.loadAllChannelVideos(channelId, result.items, result.continuation);
-                const currentItems = deepResult ? deepResult.items : []
-                return {
-                    items: [
-                        ...items,
-                        ...currentItems
-                    ]
-                }
-            }
-        } else {
-            const result = await ytch.getChannelVideos(channelId, 'newest');
-            if (result.continuation) {
-                const deepResult = await YoutubeHelper.loadAllChannelVideos(channelId, result.items, result.continuation)
-                if (!deepResult) {
-                    return {
-                        items: [ ...result.items ]
-                    }
-                }
-                return {
-                    items: [
-                        ...result.items,
-                        ...deepResult.items
-                    ]
-                }
-            } else {
-                return {
-                    items: result.items
-                }
-            }
-        }*/
+    static async loadAllChannelVideos(channelId: string) {
+        const innerTube = await YoutubeHelper.innerTubeInstance()
+        const channel  = await innerTube.getChannel(channelId)
+
+        const videos = await channel.getVideos()
+        const allVideo = [...videos.videos];
+
+        let continuation: Feed<IBrowseResponse> = videos;
+        while (continuation.has_continuation) {
+            const next = await continuation.getContinuation();
+            allVideo.push(...next.videos);
+            continuation = next;
+        }
+        console.log('>> done')
+        console.log('>> length total ', allVideo.length);
+
+        return allVideo;
     }
 
     static async search(content: string, options?: SearchOptions | undefined) {
