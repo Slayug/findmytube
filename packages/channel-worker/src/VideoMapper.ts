@@ -1,4 +1,3 @@
-import CompactVideo from "youtubei.js/dist/src/parser/classes/CompactVideo";
 import {Video as CoreVideo} from "@findmytube/core";
 import {Video, C4TabbedHeader, CarouselHeader, InteractiveTabbedHeader, PageHeader} from "youtubei.js/dist/src/parser/nodes";
 import {YTNodes} from "youtubei.js";
@@ -11,9 +10,9 @@ export function compactVideoToVideo(compactVideo: Video, header: C4TabbedHeader 
   }
   return {
     author: author.name,
-    authorId: compactVideo.author.id,
+    authorId: author.id,
     durationText: compactVideo.duration.text,
-    title: compactVideo.type,
+    title: compactVideo.title.text,
     viewCount: parseInt(compactVideo.view_count.text ?? "0"),
     viewCountText: compactVideo.view_count.text,
     lengthSeconds: compactVideo.duration.seconds,
