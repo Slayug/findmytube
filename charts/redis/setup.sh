@@ -1,6 +1,8 @@
 #!/bin/sh -x
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+kubectl apply -f $DIR/pvc.yaml
+
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm upgrade --install findmytube-redis bitnami/redis -f $DIR/values.yaml
 

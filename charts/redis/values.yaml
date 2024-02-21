@@ -16,7 +16,7 @@ global:
   ##   - myRegistryKeySecretName
   ##
   imagePullSecrets: []
-  storageClass: "csi-cinder-classic"
+  storageClass: ""
   redis:
     password: ""
 
@@ -447,7 +447,7 @@ master:
     ## @param master.persistence.existingClaim Use a existing PVC which must be created manually before bound
     ## NOTE: requires master.persistence.enabled: true
     ##
-    existingClaim: ""
+    existingClaim: "fast-storage-redis-pvc"
   ## Redis&reg; master service parameters
   ##
   service:
@@ -805,7 +805,7 @@ replica:
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
     ## If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner
     ##
-    storageClass: "standard"
+    storageClass: ""
     ## @param replica.persistence.accessModes Persistent Volume access modes
     ##
     accessModes:
@@ -829,7 +829,7 @@ replica:
     ## @param replica.persistence.existingClaim Use a existing PVC which must be created manually before bound
     ## NOTE: requires replica.persistence.enabled: true
     ##
-    existingClaim: ""
+    existingClaim: "fast-storage-redis-pvc"
   ## Redis&reg; replicas service parameters
   ##
   service:
