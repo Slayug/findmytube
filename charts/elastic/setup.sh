@@ -1,6 +1,12 @@
 #!/bin/sh -x
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-helm repo add elastic https://helm.elastic.co
+kubectl create -f https://download.elastic.co/downloads/eck/2.11.1/crds.yaml
+kubectl apply -f https://download.elastic.co/downloads/eck/2.11.1/operator.yaml
 
-helm upgrade --install elasticsearch elastic/elasticsearch -f $DIR/values.yaml -n findmytube
+kubectl apply -f elasticSearch.yaml
+kubectl apply -f kibana.yaml
+
+
+
+
