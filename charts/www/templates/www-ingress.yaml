@@ -4,11 +4,11 @@ metadata:
   name: www-ingress
   namespace: findmytube
   annotations:
-    kubernetes.io/ingress.class: nginx
     {{ if or (eq .Values.env "production") (eq .Values.env "staging") }}
     cert-manager.io/cluster-issuer: findmytube-clusterissuer
     {{ end }}
 spec:
+  ingressClassName: "nginx"
   tls:
     - hosts:
       - www.{{ .Values.host }}
@@ -33,11 +33,11 @@ metadata:
   name: www-root-ingress
   namespace: findmytube
   annotations:
-    kubernetes.io/ingress.class: nginx
     {{ if or (eq .Values.env "production") (eq .Values.env "staging") }}
     cert-manager.io/cluster-issuer: findmytube-clusterissuer
     {{ end }}
 spec:
+  ingressClassName: "nginx"
   tls:
     - hosts:
       - {{ .Values.host }}

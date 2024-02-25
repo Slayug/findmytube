@@ -28,7 +28,7 @@ spec:
           - name: cm-www-conf-js
             mountPath: /usr/share/nginx/html/env
       imagePullSecrets:
-      - name: regcred
+      - name: regcred-ghcr
       volumes:
       - name: cm-www-conf-js
         configMap:
