@@ -23,6 +23,7 @@
   "dependencies": {
     "@elastic/elasticsearch": "^7.16.0",
     "@findmytube/core": "^1.0.0",
+    "@findmytube/logger": "^1.0.0",
     "@nestjs/bullmq": "^0.1.0",
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",

@@ -4,7 +4,7 @@ import { ElasticsearchService } from '@nestjs/elasticsearch';
 import { Config, SearchChannelResult } from '@findmytube/core';
 import * as ytsr from 'ytsr';
 import { Channel } from 'ytsr';
-import {logger} from "@findmytube/logger";
+import { logger } from '@findmytube/logger';
 
 const SEARCH_ELEMENT_PER_PAGE = 6;
 
@@ -38,7 +38,7 @@ export class ChannelService {
       return result.body.hits as SearchChannelResult;
     } catch (e) {
       logger.error(`Cannot author channel ${author}`, e);
-      return { hits: [] }
+      return { hits: [] };
     }
   }
 
