@@ -1,3 +1,4 @@
+'use client'
 import {Transcription} from "@findmytube/core";
 import styles from "./VideoPage.module.scss";
 import {Fragment, useEffect, useMemo} from "react";
@@ -26,7 +27,7 @@ function Inline(
 }
 
 export function TranscriptionList(
-  {onSeek, transcriptions, query}: { onSeek: (time: number) => void, transcriptions: Transcription[], query: string }
+  {onSeek, transcriptions, query}: { onSeek?: (time: number) => void, transcriptions: Transcription[], query: string }
 ) {
 
   // create global memo
