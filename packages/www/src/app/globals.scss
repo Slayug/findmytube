@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #F6F6F6;
+}
+
+header {
+  height: 60px;
+  background-color: white;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin: 0 10px 0 10px;
+
+  a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+  }
+
+  h1 {
+    color: black;
+    margin-left: 10px;
+  }
+}
