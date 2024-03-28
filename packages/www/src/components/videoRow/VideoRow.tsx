@@ -1,5 +1,4 @@
 import {Video} from "@findmytube/core";
-import {VideoCameraOutlined} from "@ant-design/icons";
 
 import styles from './VideoRow.module.scss';
 
@@ -20,7 +19,7 @@ export default function VideoRow({video, onClick}: { video: Video, onClick?: (vi
     if (!thumbnail) {
       thumbnail = video.videoThumbnails[0];
     }
-    return thumbnail ? <img src={thumbnail.url} alt="Thumbnail"/> : <VideoCameraOutlined/>;
+    return thumbnail ? <img src={thumbnail.url} alt="Thumbnail"/> : <span>Missing icon</span>
   }
 
   function getTimer() {

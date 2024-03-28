@@ -4,6 +4,8 @@ import './globals.scss'
 import Link from 'next/link'
 import Image from 'next/image'
 import React from "react";
+import Script from "next/script";
+import axios from "axios";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -18,18 +20,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <header>
-          <Link href="/" style={{fontWeight: 'bold', color: 'white'}}>
-            <Image alt="findmytube logo" width="40" height="40" src="/icon.png"/>
-            <h1>FINDMYTUBE</h1>
-          </Link>
-        </header>
-        <div>
-          {children}
-        </div>
-      </body>
-    </html>
+    <>
+      <html lang="en">
+        <body className={inter.className}>
+          <header>
+            <Link href="/" style={{fontWeight: 'bold', color: 'white'}}>
+              <Image alt="findmytube logo" width="40" height="40" src="/icon.png"/>
+              <h1>FINDMYTUBE</h1>
+            </Link>
+          </header>
+          <div>
+            {children}
+          </div>
+        </body>
+      </html>
+    </>
   )
 }

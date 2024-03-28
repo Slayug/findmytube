@@ -8,4 +8,4 @@ lerna run --scope  @findmytube/core build --stream
 rm -rf ~/.pm2/logs/*
 pm2 kill
 
-lerna run dev --parallel --stream
+#lerna run dev --parallel --stream
