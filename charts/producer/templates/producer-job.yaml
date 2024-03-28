@@ -23,4 +23,4 @@ spec:
                 key: redis-password
       restartPolicy: Never
       imagePullSecrets:
-       - name: regcred
+       - name: regcred-ghcr

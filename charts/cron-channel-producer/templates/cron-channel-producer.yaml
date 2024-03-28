@@ -10,6 +10,8 @@ spec:
         spec:
           containers:
           - name: findmytube-cron-channel-producer
+            securityContext:
+              allowPrivilegeEscalation: false
             image: ghcr.io/slayug/findmytube/cron-channel-producer:{{ .Values.version.cronChannelProducer }}
             imagePullPolicy: IfNotPresent
             env:
@@ -23,5 +25,5 @@ spec:
                       name: findmytube-redis
                       key: redis-password
           imagePullSecrets:
-            - name: regcred
+            - name: regcred-ghcr
           restartPolicy: OnFailure

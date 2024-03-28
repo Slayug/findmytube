@@ -20,6 +20,8 @@ spec:
     spec:
       containers:
         - name: findmytube-channel-worker
+          securityContext:
+            allowPrivilegeEscalation: false
           image: ghcr.io/slayug/findmytube/channel-worker:{{ .Values.version.channelWorker }}
           imagePullPolicy: Always
           env:
@@ -35,4 +37,4 @@ spec:
           ports:
             - containerPort: 80
       imagePullSecrets:
-        - name: regcred
+        - name: regcred-ghcr

@@ -10,6 +10,8 @@ spec:
         spec:
           containers:
           - name: findmytube-cron-video-updater
+            securityContext:
+              allowPrivilegeEscalation: false
             image: ghcr.io/slayug/findmytube/cron-video-updater:{{ .Values.version.cronVideoUpdater }}
             imagePullPolicy: IfNotPresent
             env:
@@ -23,5 +25,5 @@ spec:
                       name: findmytube-redis
                       key: redis-password
           imagePullSecrets:
-            - name: regcred
+            - name: regcred-ghcr
           restartPolicy: OnFailure

@@ -46,4 +46,4 @@ spec:
               cpu: 200m
               memory: "100M"
       imagePullSecrets:
-      - name: regcred
+      - name: regcred-ghcr
