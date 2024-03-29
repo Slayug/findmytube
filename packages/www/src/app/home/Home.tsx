@@ -62,12 +62,12 @@ export default function Home() {
     updateSearchParams();
   }
 
-
   return <main>
     <section>
       <div className={styles.search}>
         <label htmlFor="search">Search through YouTube: </label>
         <input
+          className="border rounded-lg"
           id="search"
           autoFocus
           type="search"
