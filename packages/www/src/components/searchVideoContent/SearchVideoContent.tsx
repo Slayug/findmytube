@@ -9,6 +9,7 @@ import VideoRow from "../videoRow/VideoRow";
 
 import styles from './SearchVideoContent.module.scss'
 import {InView} from "react-intersection-observer";
+import Button from "../component/Button";
 
 export default function SearchVideoContent({searchContent, channelAuthorSelected}: {
   searchContent: string,
@@ -79,11 +80,11 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
         (searchVideoResult && (!!searchVideoResult.length) && (!!searchVideoResult[0].hits.length)) &&
         <Fragment>
           <InView as="div" onChange={(inView) => inView && setSize(size + 1)}>
-            <button
+            <Button
               onClick={() => setSize(size + 1)}
               className={styles.loadMore}>
               Load more.
-            </button>
+            </Button>
           </InView>
         </Fragment>
       }

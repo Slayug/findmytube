@@ -4,14 +4,12 @@ import './globals.scss'
 import Link from 'next/link'
 import Image from 'next/image'
 import React from "react";
-import Script from "next/script";
-import axios from "axios";
 
 const inter = Inter({subsets: ['latin']})
 
 export const metadata: Metadata = {
   title: 'FindMyTube',
-  description: 'Search through Youtube subtitles !',
+  description: 'Search through Youtube subtitles ! Your best tools to find what people say on Youtube !',
 }
 
 export default function RootLayout({

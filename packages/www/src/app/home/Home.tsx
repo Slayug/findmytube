@@ -3,10 +3,13 @@
 import {useRouter, useSearchParams} from 'next/navigation'
 
 import styles from './Home.module.scss';
-import {useEffect, useRef, useState, KeyboardEvent, InputHTMLAttributes} from "react";
+import {useEffect, useRef, useState, KeyboardEvent, InputHTMLAttributes, FormEventHandler, FormEvent} from "react";
 import useApiChannel from "../../hooks/useApiChannel";
 import {useTranslation} from "react-i18next";
 import SearchVideoContent from "../../components/searchVideoContent/SearchVideoContent";
+import Button from "../../components/component/Button";
+import Input from "../../components/input/Input";
+import SearchInput from "../../components/searchInput/SearchInput";
 
 const QUERY_KEY = "q";
 const CHANNEL_KEY = "channelAuthor";
@@ -14,7 +17,6 @@ const CHANNEL_KEY = "channelAuthor";
 
 export default function Home() {
   const searchParams = useSearchParams();
-  const [inLoadMore, setInLoadMore] = useState(false);
 
   const [searchContent, setSearchContent] = useState<string>(searchParams.get(QUERY_KEY));
   const [channelAuthorSelected, setChannelAuthorSelected] = useState<string>(searchParams.get(CHANNEL_KEY));
@@ -62,19 +64,30 @@ export default function Home() {
     updateSearchParams();
   }
 
+  function submitSearch(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+  }
+
   return <main>
     <section>
-      <div className={styles.search}>
-        <label htmlFor="search">Search through YouTube: </label>
-        <input
-          className="border rounded-lg"
-          id="search"
-          autoFocus
-          type="search"
-          ref={searchInputRef}
-          defaultValue={searchParams.get(QUERY_KEY)}
-          onKeyUp={onSearchKeyUp}
-        />
+      <div>
+        <form onSubmit={submitSearch} className="flex flex-row">
+          <div>
+            <Input
+              id="search"
+              autoFocus
+              type="search"
+              ref={searchInputRef}
+              defaultValue={searchParams.get(QUERY_KEY)}
+              onKeyUp={onSearchKeyUp}
+              placeholder="Hello world!"
+            />
+            <SearchInput
+              placeholder="Specify a channel (optional)"
+            />
+          </div>
+          <Button type="submit">Search through Youtube</Button>
+        </form>
       </div>
     </section>
     <SearchVideoContent searchContent={searchContent}  />
