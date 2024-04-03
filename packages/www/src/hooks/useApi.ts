@@ -8,3 +8,5 @@ export function buildUrlParameters(params: any) {
   }
   return searchParams;
 }
+
+export const fetcher = url => fetch(url).then(r => r.json())

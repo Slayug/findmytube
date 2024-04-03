@@ -1,0 +1,21 @@
+
+.searchInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.options {
+  position: absolute;
+  max-height: 200px;
+
+  background-color: white;
+
+  overflow: auto;
+
+  li:hover {
+    background-color: #23232350;
+
+    cursor: pointer;
+
+  }
+}
