@@ -6,13 +6,15 @@ type InputProps = {
 
 const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement>) => {
 
+  const { loading, ...inputProps } = props;
+
   return <>
     <input
       ref={ref}
       className="py-2 px-3 border rounded-lg focus:border-white focus:shadow hover:drop-shadow-md"
-      {...props}
+      {...inputProps}
     />
-    {props.loading && <span>loading..</span>}
+    {loading && <span>loading..</span>}
   </>
 
 });
