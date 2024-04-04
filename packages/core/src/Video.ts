@@ -82,7 +82,7 @@ export type SearchChannelResult = {
 export type SearchChannelYoutubeResult = {
     name: string,
     descriptionShort: string,
-    channelID: string
+    id: string
 }
 
 export type SearchVideoResult = {

@@ -3,7 +3,7 @@
 import useSWRInfinite from "swr/infinite";
 import {SearchVideoResult} from "@findmytube/core/src";
 import {searchVideoFetch, searchVideoPath} from "../../hooks/useApiVideo";
-import {Fragment, useEffect, useState} from "react";
+import {Fragment, useEffect} from "react";
 import {useRouter} from "next/navigation";
 import VideoRow from "../videoRow/VideoRow";
 
@@ -16,10 +16,9 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
   channelAuthorSelected?: string
 }) {
   const router = useRouter()
-  const [inLoadMore, setInLoadMore] = useState(false);
 
   const {data: searchVideoResult, error, size, setSize, mutate} = useSWRInfinite<SearchVideoResult>(
-    (pageIndex, previousPageData) => searchVideoPath({
+    (pageIndex) => searchVideoPath({
       q: searchContent,
       page: pageIndex,
       channelAuthor: channelAuthorSelected

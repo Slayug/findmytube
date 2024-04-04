@@ -1,49 +1,60 @@
-import Input from "../input/Input";
-import {ChangeEvent, forwardRef, InputHTMLAttributes, Ref, useRef} from "react";
+import {InputHTMLAttributes, useRef} from "react";
 import useSWR from "swr";
 
-type SearchInputProps = {
-  searchMethod: (content: string) => Promise<{ name, id? }[]>
-  optionSelected: (option :string) => void
-} & InputHTMLAttributes<HTMLInputElement>
-
 import styles from './SearchInput.module.scss'
-
-const SearchInput =
-  forwardRef((props: SearchInputProps, ref: Ref<HTMLInputElement>) => {
-    const { searchMethod, optionSelected, ...inputProps } = props;
-    const searchContent = useRef("")
-    const lastTimeout = useRef<ReturnType<typeof setTimeout>>()
+import AsyncSelect from "react-select/async";
 
 
-    const { data: options, mutate: searchOptions, isLoading } =
+interface Option {
+  name: string,
+  id: string
+}
+
+type SearchInputProps = {
+  searchMethod: (content: string) => Promise<Option[]>
+  optionSelected: (option: Option) => void
+}
+
+
+function SearchInput(props: SearchInputProps) {
+  const { searchMethod, optionSelected } = props;
+  const searchContent = useRef("")
+  const lastTimeRequest = useRef(0);
+
+  const { mutate: searchOptions} =
       useSWR(['search-input', searchContent.current], () => searchMethod(searchContent.current), {
         revalidateOnMount: false,
         revalidateOnFocus: false
       })
 
-    function inputChange(event: ChangeEvent<HTMLInputElement>) {
-      clearTimeout(lastTimeout.current)
-      lastTimeout.current = setTimeout(() => {
-        searchContent.current = event.target.value;
-        searchOptions();
-      }, 500);
-    }
+  async function mapOptions(optionsFetched: Promise<Option[]>) {
+    return new Promise<{label, value}[]>(async (resolve) => {
+      const options = await optionsFetched;
+      const mappedOptions = options?.map((option) => ({
+        label: option.name,
+        value: option.id
+      }))
+      resolve(mappedOptions)
+    }) ?? []
+  }
 
-    return <span className={styles.searchInput}>
-      <Input loading={isLoading} {...inputProps} ref={ref} onChange={inputChange} />
-      {options && <div><div className={styles.options}>
-        <ul>
-          {
-            options.map((option) => <li
-              key={option.name + option.id}
-              onClick={() => optionSelected(option.name)}>{option.name}
-            </li>)
-          }
-        </ul>
-      </div>
-      </div>}
-    </span>
-  });
+  async function onInputChange(inputValue: string) {
+    return new Promise<{label, value}[]>((resolve) => {
+      lastTimeRequest.current = Date.now();
+      setTimeout(() => {
+        if (Date.now() - lastTimeRequest.current > 450) {
+          searchContent.current = inputValue
+          resolve(mapOptions(searchOptions()))
+        } else {
+          resolve([])
+        }
+      }, 600);
+    });
+  }
+
+  return <span className={styles.searchInput}>
+    <AsyncSelect blurInputOnSelect closeMenuOnSelect cacheOptions loadOptions={onInputChange}  />
+  </span>
+}
 
 export default SearchInput;
