@@ -1,16 +1,19 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { ElasticsearchService } from '@nestjs/elasticsearch';
 
 import { Config, SearchChannelResult } from '@findmytube/core';
-import * as ytsr from 'ytsr';
-import { Channel } from 'ytsr';
 import { logger } from '@findmytube/logger';
+import { Innertube, YTNodes } from 'youtubei.js';
 
 const SEARCH_ELEMENT_PER_PAGE = 6;
 
 @Injectable()
 export class ChannelService {
-  constructor(private readonly elasticsearchService: ElasticsearchService) {}
+  constructor(
+    private readonly elasticsearchService: ElasticsearchService,
+    @Inject('INNERTUBE_SOURCE')
+    private readonly innertube: Innertube,
+  ) {}
 
   async getByAuthor(author: string) {
     try {
@@ -43,16 +46,19 @@ export class ChannelService {
   }
 
   async searchOnYoutube(content: string, page = 0) {
-    const queryFilter = await ytsr.getFilters(content);
-    const channelFilter = queryFilter.get('Type').get('Channel');
-    const options = { pages: page };
+    const channels = await this.innertube.search(content, {
+      type: 'channel',
+    });
 
-    const result = await ytsr(channelFilter.url, options);
-    return result.items.map((item: Channel) => ({
-      name: item.name,
-      descriptionShort: item.descriptionShort,
-      channelID: item.channelID,
-    }));
+    return channels.results.map((channel) => {
+      if (channel.is(YTNodes.Channel)) {
+        return {
+          name: channel.short_byline.text,
+          descriptionShort: channel.description_snippet.text,
+          id: channel.id,
+        };
+      }
+    });
   }
 
   async searchOnElastic(content: string, page = 0) {

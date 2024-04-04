@@ -3,7 +3,7 @@ import {ChangeEvent, forwardRef, InputHTMLAttributes, Ref, useRef} from "react";
 import useSWR from "swr";
 
 type SearchInputProps = {
-  searchMethod: (content: string) => Promise<{ name }[]>
+  searchMethod: (content: string) => Promise<{ name, id? }[]>
   optionSelected: (option :string) => void
 } & InputHTMLAttributes<HTMLInputElement>
 
@@ -36,8 +36,8 @@ const SearchInput =
         <ul>
           {
             options.map((option) => <li
-              key={option.name}
-              onClick={(e) => optionSelected(option.name)}>{option.name}
+              key={option.name + option.id}
+              onClick={() => optionSelected(option.name)}>{option.name}
             </li>)
           }
         </ul>

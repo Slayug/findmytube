@@ -5,10 +5,13 @@ import {
   HttpStatus,
   ParseIntPipe,
   Query,
+  UseInterceptors,
 } from '@nestjs/common';
 import { ChannelService } from './channel.service';
+import { CacheInterceptor } from '@nestjs/cache-manager';
 
 @Controller('/channels')
+@UseInterceptors(CacheInterceptor)
 export class ChannelController {
   constructor(private readonly channelService: ChannelService) {}
 

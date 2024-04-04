@@ -33,11 +33,6 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
       revalidateOnMount: false
     });
 
-  // `data` contiendra les données paginées
-  // `error` contiendra les erreurs s'il y en a
-  // `size` représente le nombre de pages chargées
-  // `setSize` est une fonction pour charger plus de pages
-
   const isLoadingInitialData = !searchVideoResult && !error;
   const isLoadingMore = isLoadingInitialData ||
     (size > 0 && searchVideoResult && typeof searchVideoResult[size - 1] === 'undefined');

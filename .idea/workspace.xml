@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="540eeae7-f198-47d0-83c0-ba5fdb0257b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/packages/channel-worker/src/VideoMapper.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/channel-worker/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/channel-worker/src/YoutubeHelper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/src/YoutubeHelper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/channel-worker/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/channel-worker/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/src/Video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/Video.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,17 +51,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "main",
+    "full.screen.before.presentation.mode": "true",
+    "git-widget-placeholder": "nextjs-migration",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "/home/bug/workspace/fy/packages/www/node_modules/typescript/lib",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "/home/bug/workspace/fy/packages/api/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -81,6 +74,7 @@
       <recent name="$PROJECT_DIR$/packages/cron-channel-producer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/www/src/components" />
       <recent name="$PROJECT_DIR$/packages" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/packages/www" />
@@ -195,6 +189,8 @@
       <workItem from="1706023119715" duration="4278000" />
       <workItem from="1706029464279" duration="2510000" />
       <workItem from="1706904513482" duration="9564000" />
+      <workItem from="1711707946348" duration="2429000" />
+      <workItem from="1712220891607" duration="924000" />
     </task>
     <servers />
   </component>

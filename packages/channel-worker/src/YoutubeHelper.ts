@@ -1,5 +1,3 @@
-import {Video} from '@findmytube/core';
-
 import {youtube} from 'scrape-youtube';
 import {SearchOptions} from 'scrape-youtube/lib/interface';
 

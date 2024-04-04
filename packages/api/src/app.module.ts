@@ -8,9 +8,12 @@ import { Config } from '@findmytube/core';
 import { ChannelController } from './channel/channel.controller';
 import { ChannelService } from './channel/channel.service';
 import { BullModule } from '@nestjs/bullmq';
+import { InnertubeProvider } from './provider/youtubei';
+import { CacheModule } from '@nestjs/cache-manager';
 
 @Module({
   imports: [
+    CacheModule.register(),
     BullModule.forRoot({
       connection: {
         host: Config.redisHost,
@@ -26,6 +29,7 @@ import { BullModule } from '@nestjs/bullmq';
     }),
   ],
   controllers: [AppController, VideoController, ChannelController],
-  providers: [AppService, VideoService, ChannelService],
+  providers: [AppService, VideoService, ChannelService, ...InnertubeProvider],
+  exports: [...InnertubeProvider],
 })
 export class AppModule {}
