@@ -10,6 +10,8 @@ import VideoRow from "../videoRow/VideoRow";
 import styles from './SearchVideoContent.module.scss'
 import {InView} from "react-intersection-observer";
 import Button from "../component/Button";
+import {AxiosError} from "axios";
+import Alert from "../alert/Alert";
 
 export default function SearchVideoContent({searchContent, channelAuthorSelected}: {
   searchContent: string,
@@ -17,7 +19,7 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
 }) {
   const router = useRouter()
 
-  const {data: searchVideoResult, error, size, setSize, mutate} = useSWRInfinite<SearchVideoResult>(
+  const {isLoading, data: searchVideoResult, error, size, setSize, mutate} = useSWRInfinite<SearchVideoResult, AxiosError>(
     (pageIndex) => searchVideoPath({
       q: searchContent,
       page: pageIndex,
@@ -52,8 +54,11 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
         </div>
       }
     </section>
+    {(error?.response && error.response.status === 404) &&
+      <Alert message="Channel not found, searching for more content.." type="info"/>
+    }
     <section>
-      {isLoadingInitialData || isLoadingMore && <p>Loading..</p>}
+      {isLoadingInitialData || isLoadingMore || isLoading && <p>Loading..</p>}
       {
         searchVideoResult &&
         searchVideoResult.map(page => {

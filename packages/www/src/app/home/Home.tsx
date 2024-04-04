@@ -48,13 +48,14 @@ export default function Home() {
 
   function submitSearch(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    onPressEnterContent()
   }
 
   return <main>
     <section>
       <div>
-        <form onSubmit={submitSearch} className="flex flex-row">
-          <div>
+        <form onSubmit={submitSearch}>
+          <div className="flex flex-row">
             <Input
               id="search"
               autoFocus
@@ -70,7 +71,9 @@ export default function Home() {
               ref={channelSelectedRef}
             />
           </div>
-          <Button type="submit">Search through Youtube</Button>
+          <div className="flex justify-center">
+            <Button type="submit">Search through Youtube</Button>
+          </div>
         </form>
       </div>
     </section>
