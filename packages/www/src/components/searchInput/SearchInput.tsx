@@ -15,7 +15,7 @@ type SearchInputProps = {
   placeholder?: string
 }
 
-const SearchInput = forwardRef((props: SearchInputProps, ref: ForwardedRef<Select>) =>  {
+const SearchInput = forwardRef((props: SearchInputProps, ref: ForwardedRef<Select<{label, value}>>) =>  {
   const { searchMethod, placeholder } = props;
   const searchContent = useRef("")
   const lastTimeRequest = useRef(0);

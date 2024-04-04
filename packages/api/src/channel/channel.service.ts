@@ -50,7 +50,7 @@ export class ChannelService {
       type: 'channel',
     });
 
-    return channels.results.map((channel) => {
+    return channels.results?.map((channel) => {
       if (channel.is(YTNodes.Channel)) {
         return {
           name: channel.short_byline.text,

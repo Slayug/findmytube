@@ -18,11 +18,13 @@ export default function Home() {
   const searchParams = useSearchParams();
 
   const [searchContent, setSearchContent] = useState<string>(searchParams.get(QUERY_KEY));
+  const [channelSelected, setChannelSelected] = useState("")
   const searchInputRef = useRef<HTMLInputElement>();
-  const channelSelectedRef = useRef<Select>();
+  const channelSelectedRef = useRef<Select<{value, label}>>();
 
   function onPressEnterContent() {
     setSearchContent(searchInputRef.current.value);
+    setChannelSelected(channelSelectedRef.current?.getValue()[0]?.label ?? "")
     updateSearchParams();
   }
 
@@ -72,7 +74,7 @@ export default function Home() {
         </form>
       </div>
     </section>
-    <SearchVideoContent searchContent={searchContent} />
+    <SearchVideoContent channelAuthorSelected={channelSelected} searchContent={searchContent} />
   </main>
 
 }
