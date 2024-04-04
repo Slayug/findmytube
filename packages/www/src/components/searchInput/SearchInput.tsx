@@ -1,9 +1,9 @@
-import {InputHTMLAttributes, useRef} from "react";
+import {ForwardedRef, forwardRef, useId, useRef} from "react";
 import useSWR from "swr";
 
 import styles from './SearchInput.module.scss'
 import AsyncSelect from "react-select/async";
-
+import Select from "react-select/base";
 
 interface Option {
   name: string,
@@ -12,14 +12,14 @@ interface Option {
 
 type SearchInputProps = {
   searchMethod: (content: string) => Promise<Option[]>
-  optionSelected: (option: Option) => void
+  placeholder?: string
 }
 
-
-function SearchInput(props: SearchInputProps) {
-  const { searchMethod, optionSelected } = props;
+const SearchInput = forwardRef((props: SearchInputProps, ref: ForwardedRef<Select>) =>  {
+  const { searchMethod, placeholder } = props;
   const searchContent = useRef("")
   const lastTimeRequest = useRef(0);
+  const selectId = useId()
 
   const { mutate: searchOptions} =
       useSWR(['search-input', searchContent.current], () => searchMethod(searchContent.current), {
@@ -53,8 +53,16 @@ function SearchInput(props: SearchInputProps) {
   }
 
   return <span className={styles.searchInput}>
-    <AsyncSelect blurInputOnSelect closeMenuOnSelect cacheOptions loadOptions={onInputChange}  />
+    <AsyncSelect
+      instanceId={selectId}
+      placeholder={placeholder}
+      blurInputOnSelect
+      closeMenuOnSelect
+      cacheOptions
+      loadOptions={onInputChange}
+      ref={ref}
+    />
   </span>
-}
+});
 
 export default SearchInput;
