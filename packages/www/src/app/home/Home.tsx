@@ -55,7 +55,7 @@ export default function Home() {
     <section>
       <div>
         <form onSubmit={submitSearch}>
-          <div className="flex flex-row">
+          <div className="flex flex-row justify-center">
             <Input
               id="search"
               autoFocus

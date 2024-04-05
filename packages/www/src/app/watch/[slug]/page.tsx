@@ -3,21 +3,27 @@ import {TranscriptionList} from "../../video/TranscriptionLine";
 import {LanguageList, Transcription} from "@findmytube/core";
 import {getVideoById} from "../../../hooks/useApiVideo";
 import Alert from "../../../components/alert/Alert";
-import YoutubePlayer from "../../../components/youtubePlayer/YoutubePlayer";
 import MarkNavigation from "../../../components/markNavigation/MarkNavigation";
+import YoutubePlayerFY from "./YoutubePlayerFY";
 
 const QUERY_KEY = "q";
 
-export async function generateMetadata({ params }) {
-  const videoResult = await getVideoById(params.videoId)
+type WatchParams = {
+  slug: string
+}
+
+export async function generateMetadata({ params }: { params: WatchParams }) {
+  const videoId = params.slug
+  const videoResult = await getVideoById(videoId)
   return {
     title: videoResult.video.title,
     description: `Subtitle search for ${videoResult.video.title} - ${videoResult.video.author}`
   }
 }
 
-export default async function WatchPage({ params }: { params: { videoId: string }}) {
-  const videoResult = await getVideoById(params.videoId)
+export default async function WatchPage({ params }: { params: WatchParams }) {
+  const videoId = params.slug
+  const videoResult = await getVideoById(videoId)
 
   function getCurrentTranscription(): Transcription[] {
     for (const language of LanguageList) {
@@ -32,16 +38,14 @@ export default async function WatchPage({ params }: { params: { videoId: string 
   //youtubeRef.current?.seekTo(time);
   //}, [youtubeRef]);
 
-
-
   return (
     <div className={styles.videoPage}>
       {!videoResult && <Alert message="Video non trouvée" type="warning"/>}
-      <div className="grid grid-cols-2">
+      <div className="flex flex-row justify-center">
         <div>
           {videoResult && (
             <div className={styles.video}>
-              <YoutubePlayer videoId={params.videoId} />
+              <YoutubePlayerFY videoId={videoId} />
             </div>
           )}
         </div>
@@ -52,7 +56,7 @@ export default async function WatchPage({ params }: { params: { videoId: string 
               {
                 videoResult ? <TranscriptionList
                   transcriptions={getCurrentTranscription()}
-                  query={`TODO replace with search parameter`}
+                  query={`TODO replace with query when found it`}
                 /> : <Alert type="info">No translation found</Alert>
               }
             </div>

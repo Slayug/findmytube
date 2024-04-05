@@ -11,7 +11,7 @@ const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement>) => {
   return <>
     <input
       ref={ref}
-      className="py-2 px-3 border rounded-lg focus:border-white focus:shadow hover:drop-shadow-md"
+      className="px-3 border border-white rounded-lg focus:border-white focus:shadow hover:drop-shadow-md"
       {...inputProps}
     />
     {loading && <span>loading..</span>}

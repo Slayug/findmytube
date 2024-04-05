@@ -66,7 +66,7 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
             return <div key={videoResult._id} className={styles.video}>
               {
                 (videoResult._source && videoResult._source.video) ? <VideoRow
-                  onClick={(videoId) => router.push(`/watch/${videoId}&q=${searchContent.replaceAll(" ", "+")}`)}
+                  onClick={(videoId) => router.push(`/watch/${videoId}?q=${searchContent.replaceAll(" ", "+")}`)}
                   video={videoResult._source.video}
                 /> : <hr className={videoResult._id}/>
               }
