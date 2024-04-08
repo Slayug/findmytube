@@ -1,11 +1,16 @@
-
 'use client'
 
-
-import {useRef} from "react";
+import {useEffect, useRef, useState} from "react";
+import {scrollToMark} from "../../app/video/VideoPageDomain";
 
 export default function MarkNavigation() {
-  const currentIndexMarkedElement = useRef(-1);
+  const currentIndexMarkedElement = useRef(0);
+  const [markLength, setMarkLength] = useState(0);
+
+  useEffect(() => {
+    setMarkLength(document?.getElementsByTagName("mark")?.length ?? 0);
+  }, []);
+
 
   function moveUp() {
     const markedElements = document.getElementsByTagName("mark");
@@ -19,7 +24,7 @@ export default function MarkNavigation() {
     } else {
       currentIndexMarkedElement.current -= 1;
     }
-    markedElements.item(currentIndexMarkedElement.current).scrollIntoView();
+    scrollToMark(markedElements, currentIndexMarkedElement.current)
   }
 
   function moveDown() {
@@ -34,13 +39,14 @@ export default function MarkNavigation() {
     } else {
       currentIndexMarkedElement.current += 1;
     }
-    markedElements.item(currentIndexMarkedElement.current).scrollIntoView();
+    scrollToMark(markedElements, currentIndexMarkedElement.current)
   }
 
-
-
-  return <section>
-    <span onClick={moveUp}>UP</span>
-    <span onClick={moveDown}>DOWN</span>
-  </section>
+  return <>
+    {markLength > 1 && <section>
+      <span onClick={moveUp}>UP</span>
+      <span onClick={moveDown}>DOWN</span>
+    </section>
+    }
+  </>
 }

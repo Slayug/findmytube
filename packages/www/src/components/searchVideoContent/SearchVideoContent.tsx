@@ -13,6 +13,7 @@ import Button from "../component/Button";
 import {AxiosError} from "axios";
 import Alert from "../alert/Alert";
 import {SEARCH_ELEMENT_PER_PAGE} from "@findmytube/core";
+import {QUERY_KEY} from "../../app/home/Home";
 
 export default function SearchVideoContent({searchContent, channelAuthorSelected}: {
   searchContent: string,
@@ -76,7 +77,7 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
             return <div key={videoResult._id} className={styles.video}>
               {
                 (videoResult._source && videoResult._source.video) ? <VideoRow
-                  onClick={(videoId) => router.push(`/watch/${videoId}?q=${searchContent.replaceAll(" ", "+")}`)}
+                  onClick={(videoId) => router.push(`/watch/${videoId}?${QUERY_KEY}=${searchContent.replaceAll(" ", "+")}`)}
                   video={videoResult._source.video}
                 /> : <hr className={videoResult._id}/>
               }

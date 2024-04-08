@@ -5,8 +5,7 @@ import {getVideoById} from "../../../hooks/useApiVideo";
 import Alert from "../../../components/alert/Alert";
 import MarkNavigation from "../../../components/markNavigation/MarkNavigation";
 import YoutubePlayerFY from "./YoutubePlayerFY";
-
-const QUERY_KEY = "q";
+import {useSearchParams} from "next/navigation";
 
 type WatchParams = {
   slug: string
@@ -56,7 +55,6 @@ export default async function WatchPage({ params }: { params: WatchParams }) {
               {
                 videoResult ? <TranscriptionList
                   transcriptions={getCurrentTranscription()}
-                  query={`TODO replace with query when found it`}
                 /> : <Alert type="info">No translation found</Alert>
               }
             </div>

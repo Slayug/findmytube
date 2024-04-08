@@ -6,6 +6,15 @@ export function getFullTextFrom(transcriptions: Transcription[]) {
     .reduce(((previousValue, currentValue) => `${previousValue} ${currentValue}`), "")
 }
 
+export function scrollToMark(marks: HTMLCollectionOf<HTMLElement>, index: number) {
+  for (let markIndex = 0; markIndex < marks.length; markIndex++) {
+    marks[markIndex].style.borderBottom = ''
+  }
+
+  marks.item(index).scrollIntoView({ behavior: 'smooth', block: 'center' });
+  marks.item(index).style.borderBottom = '3px solid black'
+}
+
 export function countAmountOfQuery(fullText: string, query: string) {
   const regExp = new RegExp(query,"g");
   return (fullText

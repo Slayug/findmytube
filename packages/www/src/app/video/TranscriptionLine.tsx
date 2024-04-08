@@ -2,7 +2,9 @@
 import {Transcription} from "@findmytube/core";
 import styles from "./VideoPage.module.scss";
 import {Fragment, useEffect, useMemo} from "react";
-import {findAllIndexOfQuery, getFullTextFrom, markWordsFrom} from "./VideoPageDomain";
+import {findAllIndexOfQuery, getFullTextFrom, markWordsFrom, scrollToMark} from "./VideoPageDomain";
+import {useSearchParams} from "next/navigation";
+import {QUERY_KEY} from "../home/Home";
 
 const SHIFT_BETWEEN_LINE = ' ';
 type ParsedLine = { transcription: Transcription, jsx: JSX.Element };
@@ -27,8 +29,11 @@ function Inline(
 }
 
 export function TranscriptionList(
-  {onSeek, transcriptions, query}: { onSeek?: (time: number) => void, transcriptions: Transcription[], query: string }
+  {onSeek, transcriptions}: { onSeek?: (time: number) => void, transcriptions: Transcription[]}
 ) {
+
+  const searchParams = useSearchParams()
+  const query = searchParams.get(QUERY_KEY)
 
   // create global memo
   const lines = useMemo(() => {
@@ -112,9 +117,9 @@ export function TranscriptionList(
     setTimeout(() => {
       const firstMark = document.getElementsByTagName('mark').item(0);
       if (firstMark) {
-        firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        scrollToMark(document.getElementsByTagName('mark'), 0)
       }
-    }, 300);
+    }, 500);
 
   }, [])
 

@@ -10,7 +10,7 @@ import SearchInput from "../../components/searchInput/SearchInput";
 import {searchYoutubeChannel} from "../../hooks/useApiChannel";
 import Select from "react-select/base";
 
-const QUERY_KEY = "q";
+export const QUERY_KEY = "q";
 const CHANNEL_KEY = "channelAuthor";
 
 
