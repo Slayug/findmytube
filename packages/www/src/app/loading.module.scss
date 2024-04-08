@@ -1,0 +1,41 @@
+
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+
+  .background {
+    background: linear-gradient(45deg, #fe0000, #ef4786, #d93185, #43f1ae);
+    background-size: 300px 50px;
+    width: 80px;
+    height: 50px;
+
+    border-radius: 20px;
+
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+    font-size: 20px;
+
+
+    animation: gradient 3s ease alternate infinite;
+  }
+
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

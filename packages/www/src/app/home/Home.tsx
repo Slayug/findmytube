@@ -2,13 +2,15 @@
 
 import {useSearchParams} from 'next/navigation'
 
-import {useEffect, useRef, useState, KeyboardEvent, FormEvent} from "react";
+import {useRef, useState, KeyboardEvent, FormEvent} from "react";
 import SearchVideoContent from "../../components/searchVideoContent/SearchVideoContent";
 import Button from "../../components/component/Button";
 import Input from "../../components/input/Input";
 import SearchInput from "../../components/searchInput/SearchInput";
 import {searchYoutubeChannel} from "../../hooks/useApiChannel";
 import Select from "react-select/base";
+import {AppLinksMeta} from "next/dist/lib/metadata/generate/opengraph";
+import AppLoading from "../loading";
 
 const QUERY_KEY = "q";
 const CHANNEL_KEY = "channelAuthor";
@@ -16,8 +18,9 @@ const CHANNEL_KEY = "channelAuthor";
 
 export default function Home() {
   const searchParams = useSearchParams();
+  const currentQuery = searchParams.get(QUERY_KEY)
 
-  const [searchContent, setSearchContent] = useState<string>(searchParams.get(QUERY_KEY));
+  const [searchContent, setSearchContent] = useState<string>(currentQuery);
   const [channelSelected, setChannelSelected] = useState("")
   const searchInputRef = useRef<HTMLInputElement>();
   const channelSelectedRef = useRef<Select<{value, label}>>();
@@ -64,6 +67,7 @@ export default function Home() {
               defaultValue={searchParams.get(QUERY_KEY)}
               onKeyUp={onSearchKeyUp}
               placeholder="Hello world!"
+              className="mx-5"
             />
             <SearchInput
               placeholder="Specify a channel (optional)"
@@ -72,7 +76,7 @@ export default function Home() {
             />
           </div>
           <div className="flex justify-center">
-            <Button type="submit">Search through Youtube</Button>
+            <Button className="my-2" type="submit">Search through Youtube</Button>
           </div>
         </form>
       </div>

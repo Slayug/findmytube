@@ -54,9 +54,14 @@ const SearchInput = forwardRef((props: SearchInputProps, ref: ForwardedRef<Selec
 
   return <span className={styles.searchInput}>
     <AsyncSelect
-      classNames={{
-        control: (state) => 'border-0 border-white rounded-lg focus:border-white focus:shadow hover:drop-shadow-md'
+      styles={{
+        control: (baseStyle) => ({
+          ...baseStyle,
+          borderColor: 'white',
+          cursor: 'pointer'
+        })
       }}
+      className="rounded-lg"
       instanceId={selectId}
       placeholder={placeholder}
       blurInputOnSelect
