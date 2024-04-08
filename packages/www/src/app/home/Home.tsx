@@ -1,6 +1,6 @@
 'use client'
 
-import {useSearchParams} from 'next/navigation'
+import {usePathname, useRouter, useSearchParams} from 'next/navigation'
 
 import {useRef, useState, KeyboardEvent, FormEvent} from "react";
 import SearchVideoContent from "../../components/searchVideoContent/SearchVideoContent";
@@ -9,8 +9,6 @@ import Input from "../../components/input/Input";
 import SearchInput from "../../components/searchInput/SearchInput";
 import {searchYoutubeChannel} from "../../hooks/useApiChannel";
 import Select from "react-select/base";
-import {AppLinksMeta} from "next/dist/lib/metadata/generate/opengraph";
-import AppLoading from "../loading";
 
 const QUERY_KEY = "q";
 const CHANNEL_KEY = "channelAuthor";
@@ -18,10 +16,11 @@ const CHANNEL_KEY = "channelAuthor";
 
 export default function Home() {
   const searchParams = useSearchParams();
-  const currentQuery = searchParams.get(QUERY_KEY)
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const [searchContent, setSearchContent] = useState<string>(currentQuery);
-  const [channelSelected, setChannelSelected] = useState("")
+  const [searchContent, setSearchContent] = useState<string>(searchParams.get(QUERY_KEY));
+  const [channelSelected, setChannelSelected] = useState(searchParams.get(CHANNEL_KEY))
   const searchInputRef = useRef<HTMLInputElement>();
   const channelSelectedRef = useRef<Select<{value, label}>>();
 
@@ -38,16 +37,15 @@ export default function Home() {
   }
 
   function updateSearchParams() {
-    //TODO broken
-    let currentParams = {};
-    if (searchContent) {
-      currentParams = {q: searchContent};
-    }
+    const current = new URLSearchParams(Array.from(searchParams.entries()));
+    current.set(QUERY_KEY, searchInputRef.current?.value)
+    current.set(CHANNEL_KEY, channelSelectedRef.current?.getValue()[0]?.label ?? "")
 
-    //TODO update set search
-    //setSearchParams();
+    const search = current.toString();
+    const query = search ? `?${search}` : "";
+
+    router.push(`${pathname}${query}`);
   }
-
 
   function submitSearch(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -70,6 +68,7 @@ export default function Home() {
               className="mx-5"
             />
             <SearchInput
+              defaultValue={searchParams.get(CHANNEL_KEY)}
               placeholder="Specify a channel (optional)"
               searchMethod={searchYoutubeChannel}
               ref={channelSelectedRef}

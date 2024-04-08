@@ -13,6 +13,7 @@ interface Option {
 type SearchInputProps = {
   searchMethod: (content: string) => Promise<Option[]>
   placeholder?: string
+  defaultValue?: string
 }
 
 const SearchInput = forwardRef((props: SearchInputProps, ref: ForwardedRef<Select<{label, value}>>) =>  {
@@ -61,6 +62,7 @@ const SearchInput = forwardRef((props: SearchInputProps, ref: ForwardedRef<Selec
           cursor: 'pointer'
         })
       }}
+      defaultInputValue={props.defaultValue}
       className="rounded-lg"
       instanceId={selectId}
       placeholder={placeholder}
