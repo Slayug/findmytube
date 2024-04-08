@@ -12,6 +12,7 @@ import {InView} from "react-intersection-observer";
 import Button from "../component/Button";
 import {AxiosError} from "axios";
 import Alert from "../alert/Alert";
+import {SEARCH_ELEMENT_PER_PAGE} from "@findmytube/core";
 
 export default function SearchVideoContent({searchContent, channelAuthorSelected}: {
   searchContent: string,
@@ -19,7 +20,14 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
 }) {
   const router = useRouter()
 
-  const {isLoading, data: searchVideoResult, error, size, setSize, mutate} = useSWRInfinite<SearchVideoResult, AxiosError>(
+  const {
+    isLoading,
+    data: searchVideoResult,
+    error,
+    size,
+    setSize,
+    mutate
+  } = useSWRInfinite<SearchVideoResult, AxiosError>(
     (pageIndex) => searchVideoPath({
       q: searchContent,
       page: pageIndex,
@@ -43,6 +51,8 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
       mutate();
     }
   }, [searchContent]);
+
+  console.log('search results', searchVideoResult)
 
   return <>
     <section>
@@ -74,9 +84,9 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
           })
         })
       }
-
       {
         (searchVideoResult && (!!searchVideoResult.length) && (!!searchVideoResult[0].hits.length)) &&
+        searchVideoResult.length * SEARCH_ELEMENT_PER_PAGE < searchVideoResult[0].total.value &&
         <Fragment>
           <InView as="div" onChange={(inView) => inView && setSize(size + 1)}>
             <Button

@@ -1,8 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { ElasticsearchService } from '@nestjs/elasticsearch';
-import { Config, VideoResult, SearchVideoResult } from '@findmytube/core';
-
-const SEARCH_ELEMENT_PER_PAGE = 9;
+import {
+  Config,
+  VideoResult,
+  SearchVideoResult,
+  SEARCH_ELEMENT_PER_PAGE,
+} from '@findmytube/core';
 
 @Injectable()
 export class VideoService {
