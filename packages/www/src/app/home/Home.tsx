@@ -56,7 +56,7 @@ export default function Home() {
     <section>
       <div>
         <form onSubmit={submitSearch}>
-          <div className="flex flex-row justify-center">
+          <div className="flex flex-col md:flex-row justify-center py-3 md:pt-10">
             <Input
               id="search"
               autoFocus
@@ -65,7 +65,7 @@ export default function Home() {
               defaultValue={searchParams.get(QUERY_KEY)}
               onKeyUp={onSearchKeyUp}
               placeholder="Hello world!"
-              className="mx-5"
+              className="md:mx-5"
             />
             <SearchInput
               defaultValue={searchParams.get(CHANNEL_KEY)}

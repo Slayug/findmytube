@@ -12,7 +12,7 @@ const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement>) => {
     <input
       ref={ref}
       {...inputProps}
-      className={`px-3 border border-white rounded-lg
+      className={`px-3 border border-white rounded-lg min-h-10
                   focus:border-white focus:shadow hover:drop-shadow-md ${inputProps.className}`}
     />
     {loading && <span>loading..</span>}

@@ -63,7 +63,7 @@ const SearchInput = forwardRef((props: SearchInputProps, ref: ForwardedRef<Selec
         })
       }}
       defaultInputValue={props.defaultValue}
-      className="rounded-lg"
+      className="rounded-lg min-w-72"
       instanceId={selectId}
       placeholder={placeholder}
       blurInputOnSelect

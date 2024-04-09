@@ -32,7 +32,7 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
     (pageIndex) => searchVideoPath({
       q: searchContent,
       page: pageIndex,
-      channelAuthor: channelAuthorSelected
+      channelAuthor: channelAuthorSelected ?? ""
     }),
     (url) => {
       return searchVideoFetch(url);
@@ -43,17 +43,11 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
       revalidateOnMount: false
     });
 
-  const isLoadingInitialData = !searchVideoResult && !error;
-  const isLoadingMore = isLoadingInitialData ||
-    (size > 0 && searchVideoResult && typeof searchVideoResult[size - 1] === 'undefined');
-
   useEffect(() => {
     if (searchContent) {
       mutate();
     }
   }, [searchContent]);
-
-  console.log('search results', searchVideoResult)
 
   return <>
     <section>
@@ -66,10 +60,10 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
       }
     </section>
     {(error?.response && error.response.status === 404) &&
-      <Alert message="Channel not found, searching for more content.." type="info"/>
+      <Alert message="Channel not found, searching for content.." type="info" isLoading />
     }
-    <section>
-      {isLoadingInitialData || isLoadingMore || isLoading && <p>Loading..</p>}
+    <section className="lg:max-w-screen-lg">
+      {isLoading && <Alert type="info" isLoading message="Loading.." /> }
       {
         searchVideoResult &&
         searchVideoResult.map(page => {
@@ -77,7 +71,8 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
             return <div key={videoResult._id} className={styles.video}>
               {
                 (videoResult._source && videoResult._source.video) ? <VideoRow
-                  onClick={(videoId) => router.push(`/watch/${videoId}?${QUERY_KEY}=${searchContent.replaceAll(" ", "+")}`)}
+                  onClick={(videoId) =>
+                    router.push(`/watch/${videoId}?${QUERY_KEY}=${searchContent.replaceAll(" ", "+")}`)}
                   video={videoResult._source.video}
                 /> : <hr className={videoResult._id}/>
               }
