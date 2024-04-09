@@ -2,6 +2,10 @@
 
 import {useEffect, useRef, useState} from "react";
 import {scrollToMark} from "../../app/video/VideoPageDomain";
+import Image from "next/image";
+
+import ArrowDown from '@/assets/arrow_down.png'
+import ArrowUp from '@/assets/arrow_up.png'
 
 export default function MarkNavigation() {
   const currentIndexMarkedElement = useRef(0);
@@ -43,9 +47,13 @@ export default function MarkNavigation() {
   }
 
   return <>
-    {markLength > 1 && <section>
-      <span onClick={moveUp}>UP</span>
-      <span onClick={moveDown}>DOWN</span>
+    {markLength > 1 && <section className="flex flex-row justify-end">
+      <span className="cursor-pointer hover:bg-violet-400" onClick={moveUp}>
+        <Image src={ArrowUp} alt="Get previous occurence." width={45}/>
+      </span>
+      <span className="cursor-pointer hover:bg-violet-400" onClick={moveDown}>
+        <Image src={ArrowDown} alt="Get next occurence." width={45}/>
+      </span>
     </section>
     }
   </>

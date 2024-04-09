@@ -5,7 +5,6 @@ import {getVideoById} from "../../../hooks/useApiVideo";
 import Alert from "../../../components/alert/Alert";
 import MarkNavigation from "../../../components/markNavigation/MarkNavigation";
 import YoutubePlayerFY from "./YoutubePlayerFY";
-import {useSearchParams} from "next/navigation";
 
 type WatchParams = {
   slug: string
@@ -15,7 +14,7 @@ export async function generateMetadata({ params }: { params: WatchParams }) {
   const videoId = params.slug
   const videoResult = await getVideoById(videoId)
   return {
-    title: videoResult.video.title,
+    title: `${videoResult.video.title} - FindMyTube`,
     description: `Subtitle search for ${videoResult.video.title} - ${videoResult.video.author}`
   }
 }
