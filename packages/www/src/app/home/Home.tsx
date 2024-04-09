@@ -68,7 +68,7 @@ export default function Home() {
               className="md:mx-5"
             />
             <SearchInput
-              defaultValue={searchParams.get(CHANNEL_KEY)}
+              defaultValue={searchParams.get(CHANNEL_KEY) ?? ""}
               placeholder="Specify a channel (optional)"
               searchMethod={searchYoutubeChannel}
               ref={channelSelectedRef}

@@ -56,7 +56,7 @@ export class VideoController {
           channelAuthor,
         );
         await this.channelQueue.add(`channel-${youtubeChannel[0]?.id}`, {
-          channelId: youtubeChannel[0].id,
+          channelId: youtubeChannel[0]?.id,
         });
         throw new HttpException('Channel not found', HttpStatus.NOT_FOUND);
       }
