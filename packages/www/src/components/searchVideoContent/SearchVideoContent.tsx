@@ -63,7 +63,7 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
       <Alert message="Channel not found, searching for content.." type="info" isLoading />
     }
     <section className="lg:max-w-screen-lg">
-      {isLoading && <Alert type="info" isLoading message="Loading.." /> }
+      {!isLoading && <Alert type="info" isLoading message="Loading.." /> }
       {
         searchVideoResult &&
         searchVideoResult.map(page => {

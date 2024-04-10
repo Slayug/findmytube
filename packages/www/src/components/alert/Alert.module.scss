@@ -1,15 +1,12 @@
-
+@import "../../styles/theme-fy";
 
 .loading {
   width: 50%;
   height: 10px;
-
-  background: linear-gradient(90deg, rgb(203, 71, 239), #47efe9, #7556c4, #2be086);
-  background-size: 200% 10px;
-
   border-radius: 15px;
 
-  animation: gradient 2s ease alternate infinite;
+  @include gradient-theme(2s);
+  background-size: 200% 10px;
 }
 
 @keyframes gradient {

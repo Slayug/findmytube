@@ -1,0 +1,13 @@
+
+@import "../styles/theme-fy";
+
+.logo {
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+
+
+   @include gradient-theme;
+  background-size: 600px 50px;
+}
+
