@@ -4,6 +4,7 @@ import useSWR from "swr";
 import styles from './SearchInput.module.scss'
 import AsyncSelect from "react-select/async";
 import Select from "react-select/base";
+import classNames from "classnames";
 
 interface Option {
   name: string,
@@ -53,17 +54,19 @@ const SearchInput = forwardRef((props: SearchInputProps, ref: ForwardedRef<Selec
     });
   }
 
-  return <span className={styles.searchInput}>
+  return <>
     <AsyncSelect
-      styles={{
-        control: (baseStyle) => ({
-          ...baseStyle,
-          borderColor: 'white',
-          cursor: 'pointer'
-        })
-      }}
       defaultInputValue={props.defaultValue}
-      className="rounded-lg min-w-72"
+      className='min-w-72'
+      classNames={{
+        control: ({isFocused}) => classNames(
+          isFocused && styles.selectFocus,
+          !isFocused && styles.select,
+          "hover:drop-shadow-md"
+        ),
+        placeholder: () => styles.selectPlaceHolder,
+        option: () => styles.option
+      }}
       instanceId={selectId}
       placeholder={placeholder}
       blurInputOnSelect
@@ -72,7 +75,7 @@ const SearchInput = forwardRef((props: SearchInputProps, ref: ForwardedRef<Selec
       loadOptions={onInputChange}
       ref={ref}
     />
-  </span>
+  </>
 });
 
 export default SearchInput;

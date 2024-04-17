@@ -1,13 +1,45 @@
+@import "../../styles/theme-fy";
 
-.searchInput {
-  display: flex;
-  flex-direction: column;
+.select {
+  outline: none;
+  height: 100%;
+  border: none !important;
+
+  & > div {
+    height: 100%;
+    outline: none;
+
+    cursor: text;
+    transition: 0.5s;
+
+    border-radius: 0.5rem 0.5rem 0 0;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom-color: $border-color;
+    border-bottom-width: 2px;
+  }
+
+
 }
 
-.options {
-  position: absolute;
-  max-height: 200px;
+.selectFocus {
+  border:none !important;
+  outline: none;
+  box-shadow: none !important;
+  box-sizing: unset !important;
 
+  & > div {
+    cursor: text;
+    outline: none;
+  }
+}
+
+.selectPlaceHolder {
+  color: #A1A6B3 !important;
+}
+
+.option {
   background-color: white;
 
   overflow: auto;

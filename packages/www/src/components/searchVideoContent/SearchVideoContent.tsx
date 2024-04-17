@@ -2,18 +2,18 @@
 
 import useSWRInfinite from "swr/infinite";
 import {SearchVideoResult} from "@findmytube/core/src";
-import {searchVideoFetch, searchVideoPath} from "../../hooks/useApiVideo";
+import {searchVideoFetch, searchVideoPath} from "@/hooks/useApiVideo";
 import {Fragment, useEffect} from "react";
 import {useRouter} from "next/navigation";
 import VideoRow from "../videoRow/VideoRow";
 
 import styles from './SearchVideoContent.module.scss'
 import {InView} from "react-intersection-observer";
-import Button from "../component/Button";
+import Button from "@/components/button/Button";
 import {AxiosError} from "axios";
 import Alert from "../alert/Alert";
 import {SEARCH_ELEMENT_PER_PAGE} from "@findmytube/core";
-import {QUERY_KEY} from "../../app/home/Home";
+import {QUERY_KEY} from "@/app/home/Home";
 
 export default function SearchVideoContent({searchContent, channelAuthorSelected}: {
   searchContent: string,
@@ -62,8 +62,8 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
     {(error?.response && error.response.status === 404) &&
       <Alert message="Channel not found, searching for content.." type="info" isLoading />
     }
-    <section className="lg:max-w-screen-lg">
-      {!isLoading && <Alert type="info" isLoading message="Loading.." /> }
+    <section className="lg:max-w-screen-lg pb-10">
+      {isLoading && <Alert type="info" isLoading message="Loading.." /> }
       {
         searchVideoResult &&
         searchVideoResult.map(page => {

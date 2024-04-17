@@ -1,0 +1,15 @@
+@import "../../styles/theme-fy";
+
+.button {
+  border: 2px solid $border-color;
+  &:hover {
+    border: none;
+    @include gradient-background(0.5s, 15deg);
+    background-size: 300% 300%;
+
+    animation-name: gradient-one-way;
+    animation-iteration-count: initial;
+    animation-direction: normal !important;
+    animation-fill-mode: both;
+  }
+}

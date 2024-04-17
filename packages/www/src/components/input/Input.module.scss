@@ -1,0 +1,16 @@
+@import "../../styles/theme-fy";
+
+.input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom-color: $border-color;
+  border-bottom-width: 2px;
+  transition: 0.5s;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+
+}

@@ -1,4 +1,8 @@
-@mixin gradient-theme($delay: 11s) {
+
+$border-color: #8265cb;
+
+
+@mixin gradient-background($delay: 11s, $deg: 45deg) {
   @keyframes gradient {
     0% {
       background-position: 0% 50%;
@@ -11,15 +15,21 @@
     }
   }
 
-  background: linear-gradient(45deg, rgb(203, 71, 239), #3dd5ac, #7556c4, #2be086);
+  background: linear-gradient($deg, rgb(203, 71, 239), #e75252, #8265cb, #2be086);
   animation: gradient $delay ease alternate infinite;
 
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  font-weight: bold;
-  font-size: 20px;
-
 }
+
+@keyframes gradient-one-way {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+

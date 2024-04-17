@@ -4,7 +4,7 @@ import {usePathname, useRouter, useSearchParams} from 'next/navigation'
 
 import {useRef, useState, KeyboardEvent, FormEvent} from "react";
 import SearchVideoContent from "../../components/searchVideoContent/SearchVideoContent";
-import Button from "../../components/component/Button";
+import Button from "@/components/button/Button";
 import Input from "../../components/input/Input";
 import SearchInput from "../../components/searchInput/SearchInput";
 import {searchYoutubeChannel} from "../../hooks/useApiChannel";
@@ -59,7 +59,6 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-center py-3 md:pt-10">
             <Input
               id="search"
-              autoFocus
               type="search"
               ref={searchInputRef}
               defaultValue={searchParams.get(QUERY_KEY)}
