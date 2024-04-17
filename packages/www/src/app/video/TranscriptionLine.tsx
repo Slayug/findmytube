@@ -1,22 +1,34 @@
 'use client'
 import {Transcription} from "@findmytube/core";
 import styles from "./VideoPage.module.scss";
-import {Fragment, useEffect, useMemo} from "react";
+import {Fragment, ReactNode, useEffect, useMemo} from "react";
 import {findAllIndexOfQuery, getFullTextFrom, markWordsFrom, scrollToMark} from "./VideoPageDomain";
 import {useSearchParams} from "next/navigation";
-import {QUERY_KEY} from "../home/Home";
+import {useRouter} from "next/navigation";
+import {QUERY_KEY} from "@/domain/SearchQuery";
 
 const SHIFT_BETWEEN_LINE = ' ';
-type ParsedLine = { transcription: Transcription, jsx: JSX.Element };
+type ParsedLine = { transcription: Transcription, jsx: ReactNode};
 
 function Inline(
-  {transcription, line, onSeek}: { transcription: Transcription, line: JSX.Element, onSeek: (time: number) => void }
+  {transcription, line}: { transcription: Transcription, line: ReactNode}
 ) {
+
+  const router = useRouter()
+  const searchParams = useSearchParams()
 
   const ms = transcription.start * 1000;
   const hours = `0${new Date(ms).getHours() - 1}`.slice(-2);
   const minutes = `0${new Date(ms).getMinutes()}`.slice(-2);
   const seconds = `0${new Date(ms).getSeconds()}`.slice(-2);
+
+  function onSeek(time: number) {
+    const query = searchParams.get(QUERY_KEY)
+    if (!query || query.length === 0) {
+      return router.push(`?time=${time}`, { scroll: true})
+    }
+    return router.push(`?q=${QUERY_KEY}&time=${time}`, { scroll: true })
+  }
 
   return <span className={styles.line}>
     <span
@@ -29,11 +41,11 @@ function Inline(
 }
 
 export function TranscriptionList(
-  {onSeek, transcriptions}: { onSeek?: (time: number) => void, transcriptions: Transcription[]}
+  {transcriptions}: { onSeek?: (time: number) => void, transcriptions: Transcription[]}
 ) {
 
   const searchParams = useSearchParams()
-  const query = searchParams.get(QUERY_KEY)
+  const query = searchParams.get(QUERY_KEY) ?? ""
 
   // create global memo
   const lines = useMemo(() => {
@@ -53,7 +65,7 @@ export function TranscriptionList(
       let lineAdded = false;
       if (untilNextLine) {
         parsedLines.push({
-          transcription, jsx: <Inline onSeek={onSeek} transcription={transcription} line={
+          transcription, jsx: <Inline transcription={transcription} line={
             markWordsFrom(
               transcription,
               0,
@@ -74,7 +86,6 @@ export function TranscriptionList(
           parsedLines.push({
             transcription,
             jsx: <Inline
-              onSeek={onSeek}
               transcription={transcription}
               line={
                 markWordsFrom(
@@ -99,7 +110,6 @@ export function TranscriptionList(
         parsedLines.push({
           transcription,
           jsx: <Inline
-            onSeek={onSeek}
             transcription={transcription}
             line={<Fragment>{transcription.text}</Fragment>}
           />
@@ -120,7 +130,6 @@ export function TranscriptionList(
         scrollToMark(document.getElementsByTagName('mark'), 0)
       }
     }, 500);
-
   }, [])
 
   return <div className={styles.lines}>

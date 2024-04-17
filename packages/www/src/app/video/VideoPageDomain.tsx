@@ -23,6 +23,9 @@ export function countAmountOfQuery(fullText: string, query: string) {
 }
 
 export function findAllIndexOfQuery(fullText: string, query: string) {
+  if (query === "") {
+    return []
+  }
 
   const startIndexes = []
   const getIndex = (previousIndex = 0) => fullText

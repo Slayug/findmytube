@@ -7,11 +7,9 @@ import SearchVideoContent from "../../components/searchVideoContent/SearchVideoC
 import Button from "@/components/button/Button";
 import Input from "../../components/input/Input";
 import SearchInput from "../../components/searchInput/SearchInput";
-import {searchYoutubeChannel} from "../../hooks/useApiChannel";
+import {searchYoutubeChannel} from "@/hooks/useApiChannel";
 import Select from "react-select/base";
-
-export const QUERY_KEY = "q";
-const CHANNEL_KEY = "channelAuthor";
+import {CHANNEL_KEY, QUERY_KEY} from "@/domain/SearchQuery";
 
 
 export default function Home() {

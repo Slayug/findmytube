@@ -1,7 +1,7 @@
 import styles from "../../video/VideoPage.module.scss";
 import {TranscriptionList} from "../../video/TranscriptionLine";
 import {LanguageList, Transcription} from "@findmytube/core";
-import {getVideoById} from "../../../hooks/useApiVideo";
+import {getVideoById} from "@/hooks/useApiVideo";
 import Alert from "../../../components/alert/Alert";
 import MarkNavigation from "../../../components/markNavigation/MarkNavigation";
 import YoutubePlayerFY from "./YoutubePlayerFY";
@@ -30,11 +30,6 @@ export default async function WatchPage({ params }: { params: WatchParams }) {
     }
     return [];
   }
-
-  //TODO setup onSeek
-  //const onSeek = useCallback((time: number) => {
-  //youtubeRef.current?.seekTo(time);
-  //}, [youtubeRef]);
 
   return (
     <div className={styles.videoPage}>

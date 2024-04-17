@@ -13,7 +13,7 @@ import Button from "@/components/button/Button";
 import {AxiosError} from "axios";
 import Alert from "../alert/Alert";
 import {SEARCH_ELEMENT_PER_PAGE} from "@findmytube/core";
-import {QUERY_KEY} from "@/app/home/Home";
+import {QUERY_KEY} from "@/domain/SearchQuery";
 
 export default function SearchVideoContent({searchContent, channelAuthorSelected}: {
   searchContent: string,
