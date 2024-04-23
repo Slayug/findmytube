@@ -1,9 +1,8 @@
 import styles from './loading.module.scss'
 
-export default function AppLoading() {
-  return <span className={styles.loading}>
-
-    <span className={styles.background}>/</span>
-
-  </span>
+export default function AppLoading({ message }: { message?: string}) {
+  return <div className={styles.loading}>
+    <div className={styles.background}>/</div>
+    <p>{message ? message : `Loading..`}</p>
+  </div>
 }

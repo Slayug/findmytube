@@ -11,9 +11,9 @@ import styles from './SearchVideoContent.module.scss'
 import {InView} from "react-intersection-observer";
 import Button from "@/components/button/Button";
 import {AxiosError} from "axios";
-import Alert from "../alert/Alert";
 import {SEARCH_ELEMENT_PER_PAGE} from "@findmytube/core";
 import {QUERY_KEY} from "@/domain/SearchQuery";
+import AppLoading from "@/app/loading";
 
 export default function SearchVideoContent({searchContent, channelAuthorSelected}: {
   searchContent: string,
@@ -34,13 +34,13 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
       page: pageIndex,
       channelAuthor: channelAuthorSelected ?? ""
     }),
-    (url) => {
-      return searchVideoFetch(url);
-    },
-    {initialSize: 1,
+    (url) => searchVideoFetch(url),
+    {
+      initialSize: 1,
       refreshInterval: 0,
       revalidateOnFocus: false,
-      revalidateOnMount: false
+      revalidateOnMount: false,
+      errorRetryInterval: 5500,
     });
 
   useEffect(() => {
@@ -59,11 +59,12 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
         </div>
       }
     </section>
-    {(error?.response && error.response.status === 404) &&
-      <Alert message="Channel not found, searching for content.." type="info" isLoading />
-    }
     <section className="lg:max-w-screen-lg pb-10">
-      {isLoading && <Alert type="info" isLoading message="Loading.." /> }
+      {(isLoading || error?.response && error.response.status === 404) &&
+        <AppLoading
+          message={(error?.response && error.response.status === 404) ?
+            'Channel not found, scrapping channel videos..' : undefined} />
+      }
       {
         searchVideoResult &&
         searchVideoResult.map(page => {

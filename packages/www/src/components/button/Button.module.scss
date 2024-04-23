@@ -3,7 +3,7 @@
 .button {
   border: 2px solid $border-color;
   &:hover {
-    border: none;
+    border: 2px solid white;
     @include gradient-background(0.5s, 15deg);
     background-size: 300% 300%;
 
