@@ -34,7 +34,7 @@ export default async function WatchPage({ params }: { params: WatchParams }) {
   return (
     <div className={styles.videoPage}>
       {!videoResult && <Alert message="Video non trouvée" type="warning"/>}
-      <div className="flex flex-row justify-center">
+      <div className="flex flex-col 2xl:flex-row justify-center">
         <div>
           {videoResult && (
             <div className={styles.video}>
@@ -44,7 +44,7 @@ export default async function WatchPage({ params }: { params: WatchParams }) {
         </div>
         <div>
           <div className={styles.transcriptions}>
-            <MarkNavigation />
+            <div className={styles.arrows}><MarkNavigation /></div>
             <div className={styles.lines}>
               {
                 videoResult ? <TranscriptionList

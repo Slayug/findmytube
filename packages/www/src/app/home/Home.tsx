@@ -50,11 +50,11 @@ export default function Home() {
     onPressEnterContent()
   }
 
-  return <main>
+  return <main className="w-full md:w-auto">
     <section>
       <div>
         <form onSubmit={submitSearch}>
-          <div className="flex flex-col md:flex-row justify-center py-3 md:pt-10">
+          <div className="flex flex-col md:flex-row justify-center py-3 md:pt-10 w-full ">
             <Input
               id="search"
               type="search"
@@ -62,7 +62,7 @@ export default function Home() {
               defaultValue={searchParams.get(QUERY_KEY)}
               onKeyUp={onSearchKeyUp}
               placeholder="Hello world!"
-              className="md:mx-5"
+              className="md:mx-5 md:w-auto"
             />
             <SearchInput
               defaultValue={searchParams.get(CHANNEL_KEY) ?? ""}

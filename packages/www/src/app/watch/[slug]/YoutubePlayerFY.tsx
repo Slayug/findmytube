@@ -25,7 +25,8 @@ export default function YoutubePlayerFY({ videoId }: { videoId: string }) {
 
 
   return <>
-    {isReady && <ReactPlayer width='100%'
+    {isReady && <ReactPlayer
+      width='100%'
       height='100%'
       ref={youtubePlayer}
       controls

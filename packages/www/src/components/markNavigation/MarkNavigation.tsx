@@ -47,12 +47,14 @@ export default function MarkNavigation() {
   }
 
   return <>
-    {markLength > 1 && <section className="flex flex-row justify-end">
-      <span className="cursor-pointer hover:bg-violet-400" onClick={moveUp}>
-        <Image src={ArrowUp} alt="Get previous occurence." width={45}/>
+    {markLength > 1 && <section className="flex flex-row justify-end w-full">
+      <span
+        className="absolute left-2 bottom-3 lg:static lg:bg-transparent cursor-pointer bg-violet-600/25 hover:bg-violet-400" onClick={moveUp}>
+        <Image src={ArrowUp} alt="Get previous occurence." width={50}/>
       </span>
-      <span className="cursor-pointer hover:bg-violet-400" onClick={moveDown}>
-        <Image src={ArrowDown} alt="Get next occurence." width={45}/>
+      <span
+        className="absolute right-2 bottom-3 lg:static lg:bg-transparent cursor-pointer bg-violet-600/25 hover:bg-violet-400" onClick={moveDown}>
+        <Image src={ArrowDown} alt="Get next occurence." width={50}/>
       </span>
     </section>
     }

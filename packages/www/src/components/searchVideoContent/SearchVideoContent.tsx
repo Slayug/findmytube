@@ -50,7 +50,7 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
   }, [searchContent]);
 
   return <>
-    <section>
+    <section className="px-3">
       {searchVideoResult && searchVideoResult.length > 0 &&
         <div
           className={styles.amountResult}>

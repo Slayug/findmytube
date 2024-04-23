@@ -8,15 +8,12 @@ $video_height_xxxl: 720px;
 
 
 .videoPage {
-
   display: flex;
   justify-content: center;
 
   .video {
-    @media screen and (max-width: 576px) {
-      width: 100vw;
-      height: $video_height_xs;
-    }
+    width: 100vw;
+    height: $video_height_xs;
 
     @media screen and (min-width: 576px) {
       width: 100vw;
@@ -29,11 +26,6 @@ $video_height_xxxl: 720px;
     }
 
     @media screen and (min-width: 992px) {
-      width: 640px;
-      height: $video_height_lg;
-    }
-
-    @media screen and (min-width: 1200px) {
       width: 920px;
       height: $video_height_xl;
     }
@@ -43,18 +35,29 @@ $video_height_xxxl: 720px;
       height: $video_height_xxl;
     }
 
+    @media screen and (min-width: 1536px) {
+      width: 1080px;
+      height: $video_height_xxxl;
+    }
+
     @media screen and (min-width: 1660px) {
       width: 1280px;
       height: $video_height_xxxl;
     }
   }
 
+  .arrows {
+    @media (aspect-ratio: 16/10) {
+      position: absolute;
+      right: 0;
+
+    }
+  }
 
   .transcriptions {
+    position: relative;
     display: flex;
-    flex-direction: column;
-
-    padding-left: 10px;
+    flex-direction: column-reverse;
 
     @media screen and (max-width: 576px) {
       width: 100vw;
@@ -63,45 +66,37 @@ $video_height_xxxl: 720px;
 
     @media screen and (min-width: 576px) {
       width: 100vw;
-      height: calc(100vh - #{$video_height_sm});
+      height: calc(100vh - #{$video_height_sm} - 64px);
     }
 
     @media screen and (min-width: 768px) {
       width: 640px;
-      height: calc(100vh - #{$video_height_md});
+      height: calc(100vh - #{$video_height_md} - 64px);
+      flex-direction: column;
     }
 
     @media screen and (min-width: 992px) {
-      width: 260px;
-      height: 360px;
-    }
-
-    @media screen and (min-width: 1200px) {
       width: 920px;
       height: 517px;
     }
 
     @media screen and (min-width: 1440px) {
-      width: 300px;
-      height: 585px;
+      width: 1040px;
+    }
+
+    @media screen and (min-width: 1536px) {
+      width: 340px;
+      height: $video_height_xxxl;
     }
 
     @media screen and (min-width: 1660px) {
-      width: 340px;
-      height: 720px;
-    }
-
-    .arrows {
-      display: flex;
-
-      svg {
-        cursor: pointer;
-        font-size: 2em;
-      }
+      width: 480px;
+      height: $video_height_xxxl;
     }
 
     .lines {
       overflow: auto;
+      padding-left: 5px;
 
       .line {
         display: block;
