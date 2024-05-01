@@ -7,6 +7,15 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   output: "standalone",
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+        port: '',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig

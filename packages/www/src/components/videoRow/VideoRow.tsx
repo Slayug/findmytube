@@ -1,6 +1,7 @@
 import {Video} from "@findmytube/core";
 
 import styles from './VideoRow.module.scss';
+import Image from 'next/image'
 
 const availableVideoWidth = {
   'XS': 168,
@@ -19,7 +20,9 @@ export default function VideoRow({video, onClick}: { video: Video, onClick?: (vi
     if (!thumbnail) {
       thumbnail = video.videoThumbnails[0];
     }
-    return thumbnail ? <img src={thumbnail.url} alt="Thumbnail"/> : <span>Missing icon</span>
+    return thumbnail ?
+      <Image src={thumbnail.url} width={availableVideoWidth.XL} height={availableVideoWidth.XL*16/9} alt="Thumbnail"/> :
+      <span>Missing icon</span>
   }
 
   function getTimer() {
