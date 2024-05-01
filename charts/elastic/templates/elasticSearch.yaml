@@ -21,10 +21,13 @@ spec:
       podTemplate:
         spec:
           initContainers:
-          - name: sysctl
-            securityContext:
-              runAsUser: 0
-            command: [ 'sh', '-c', 'sysctl -w vm.max_map_count=262144' ]
+            - name: configure-sysctl
+              securityContext:
+                runAsUser: 0
+                privileged: true
+              image: busybox
+              imagePullPolicy: IfNotPresent
+              command: [ "sysctl", "-w", "vm.max_map_count=262144" ]
           containers:
             - name: elasticsearch
               env:
@@ -32,8 +35,8 @@ spec:
                 value: -Xms2g -Xmx2g
               resources:
                 requests:
-                  cpu: 1
-                  memory: 2.5Gi
+                  cpu: 2
+                  memory: 3Gi
                 limits:
                   cpu: 2
-                  memory: 2.5Gi
+                  memory: 3Gi

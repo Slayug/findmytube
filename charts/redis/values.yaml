@@ -16,7 +16,7 @@ global:
   ##   - myRegistryKeySecretName
   ##
   imagePullSecrets: []
-  storageClass: ""
+  storageClass: "csi-cinder-classic"
   redis:
     password: ""
 
@@ -447,7 +447,7 @@ master:
     ## @param master.persistence.existingClaim Use a existing PVC which must be created manually before bound
     ## NOTE: requires master.persistence.enabled: true
     ##
-    existingClaim: "fast-storage-redis-pvc"
+    existingClaim: ""
   ## Redis&reg; master service parameters
   ##
   service:
@@ -812,7 +812,7 @@ replica:
       - ReadWriteOnce
     ## @param replica.persistence.size Persistent Volume size
     ##
-    size: 2Gi
+    size: 8Gi
     ## @param replica.persistence.annotations Additional custom annotations for the PVC
     ##
     annotations: {}
@@ -829,7 +829,7 @@ replica:
     ## @param replica.persistence.existingClaim Use a existing PVC which must be created manually before bound
     ## NOTE: requires replica.persistence.enabled: true
     ##
-    existingClaim: "fast-storage-redis-pvc"
+    existingClaim: ""
   ## Redis&reg; replicas service parameters
   ##
   service:

@@ -34,7 +34,7 @@ spec:
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: findmytube-redis
+                  name: findmytube-redis-bitnami
                   key: redis-password
           ports:
           - containerPort: 8080
