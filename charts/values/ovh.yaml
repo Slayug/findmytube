@@ -1,0 +1,23 @@
+host: "findmytube.io"
+namespace: findmytube
+env: production
+
+version:
+  api: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
+  www: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
+  videoWorker: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
+  cronChannelProducer: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
+  channelWorker: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
+  cronVideoUpdater: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
+
+elastic:
+  masterHost: "findmytube-elasticsearch-es-internal-http.findmytube.svc.cluster.local"
+
+redis:
+  masterHost: "findmytube-redis-master"
+  masterPort: 6379
+  slaveHost: "findmytube-redis-replicas.findmytube.svc.cluster.local"
+  slavePort: 6379
+
+storage:
+  storageClassName: "csi-cinder-high-speed"

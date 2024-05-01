@@ -1,5 +1,7 @@
 #!/bin/sh -x
 
+# startup dev env
+
 docker-compose -f ./docker/dev.yaml up -d
 
 lerna run --scope  @findmytube/core build --stream

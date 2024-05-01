@@ -1,5 +1,7 @@
 #!/bin/sh -x
 
+# setup dev kubernetes cluster
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 kind create cluster --config $DIR/cluster-config.yaml

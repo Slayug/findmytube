@@ -18,3 +18,7 @@ redis:
   masterPort: 6379
   slaveHost: "findmytube-redis-replicas.findmytube.svc.cluster.local"
   slavePort: 6379
+
+storage:
+  storageClassName: "local-path"
+

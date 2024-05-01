@@ -1,9 +1,9 @@
-#!/bin/sh -x
+#!/bin/bash -x
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 ENV="${1:-dev}"
 
-if [ "$ENV" == "prod" ]; then
+if [ "$ENV" == "prod" ] || [ "$ENV" == "ovh" ]; then
   helm upgrade --install ingress-nginx ingress-nginx \
     --repo https://kubernetes.github.io/ingress-nginx \
     --namespace ingress-nginx --create-namespace

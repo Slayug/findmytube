@@ -1,5 +1,7 @@
 #!/bin/sh -x
 
+# setup dev deps
+
 yarn install
 yarn run bootstrap
 
