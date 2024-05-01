@@ -6,7 +6,7 @@ spec:
   version: 8.12.2
   nodeSets:
     - name: default
-      count: 2
+      count: 3
       config:
       volumeClaimTemplates:
       - metadata:
@@ -16,7 +16,7 @@ spec:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 50Gi
+              storage: 40Gi
           storageClassName: {{ .Values.storage.storageClassName }}
       podTemplate:
         spec:
@@ -32,11 +32,15 @@ spec:
             - name: elasticsearch
               env:
               - name: ES_JAVA_OPTS
-                value: -Xms2g -Xmx2g
+                value: -Xms3g -Xmx3g
+              - name: xpack.security.enabled
+                value: "false"
+              - name: READINESS_PROBE_PROTOCOL
+                value: http
               resources:
                 requests:
                   cpu: 2
-                  memory: 3Gi
+                  memory: 4Gi
                 limits:
                   cpu: 2
-                  memory: 3Gi
+                  memory: 4Gi
