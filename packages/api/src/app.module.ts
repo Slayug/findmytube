@@ -10,6 +10,7 @@ import { ChannelService } from './channel/channel.service';
 import { BullModule } from '@nestjs/bullmq';
 import { InnertubeProvider } from './provider/youtubei';
 import { CacheModule } from '@nestjs/cache-manager';
+import { isNumber } from '@nestjs/common/utils/shared.utils';
 
 @Module({
   imports: [
@@ -17,7 +18,9 @@ import { CacheModule } from '@nestjs/cache-manager';
     BullModule.forRoot({
       connection: {
         host: Config.redisHost,
-        port: Config.redisPort,
+        port: isNumber(Config.redisPort)
+          ? Config.redisPort
+          : parseInt(Config.redisPort),
         password: Config.redisPassword,
       },
     }),
