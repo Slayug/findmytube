@@ -7,7 +7,7 @@ elastic:
   masterHost: "elasticsearch-master.findmytube.svc.cluster.local"
 
 redis:
-  masterHost: "findmytube-redis-master.findmytube.svc.cluster.local"
+  masterHost: "findmytube-redis-bitnami-master.findmytube.svc.cluster.local"
   masterPort: 6379
-  slaveHost: "findmytube-redis-replicas.findmytube.svc.cluster.local"
+  slaveHost: "findmytube-redis-bitnami-replicas.findmytube.svc.cluster.local"
   slavePort: 6379
