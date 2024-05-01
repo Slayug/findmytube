@@ -22,6 +22,6 @@
   },
   "dependencies": {
     "winston": "^3.8.1",
-    "youtubei.js": "^9.1.0"
+    "youtubei.js": "^9.4.0"
   }
 }

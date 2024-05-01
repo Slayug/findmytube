@@ -43,8 +43,7 @@ class YoutubeHelper {
             allVideo.push(...next.videos);
             continuation = next;
         }
-        console.log('>> done')
-        console.log('>> length total ', allVideo.length);
+        console.log('>> total videos length: ', allVideo.length);
 
         return allVideo;
     }

@@ -14346,19 +14346,10 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-youtubei.js@^9.1.0:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-9.1.0.tgz#bcf154c9fa21d3c8c1d00a5e10360d0a065c660e"
-  integrity sha512-C5GBJ4LgnS6vGAUkdIdQNOFFb5EZ1p3xBvUELNXmIG3Idr6vxWrKNBNy8ClZT3SuDVXaAJqDgF9b5jvY8lNKcg==
-  dependencies:
-    jintr "^1.1.0"
-    tslib "^2.5.0"
-    undici "^5.19.1"
-
-youtubei.js@^9.2.0:
-  version "9.2.0"
-  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-9.2.0.tgz#26d521a0803ddd3ab5059a7b7eb5970514d883a4"
-  integrity sha512-Q157iNPlyB32477xU+1/+Pyz/Bxy9zLJ1sXLjn96qhBZ03wWHVwh2azeyz7jk13UvcrxZXtIYv9HHn2dFngGnQ==
+youtubei.js@^9.4.0:
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-9.4.0.tgz#ccccaf4a295b96e3e17134a66730bbc82461594b"
+  integrity sha512-8plCOZD2WabqWSEgZU3RjzigIIeR7sF028EERJENYrC9xO/6awpLMZfeoE1gNrNEbKcA+bzbMvonqlvBdxGdKg==
   dependencies:
     jintr "^1.1.0"
     tslib "^2.5.0"

@@ -10,7 +10,7 @@
     "bullmq": "^1.64.0",
     "scrape-youtube": "^2.1.14",
     "ts-node": "^10.9.1",
-    "youtubei.js": "^9.1.0"
+    "youtubei.js": "^9.4.0"
   },
   "license": "MIT",
   "scripts": {
