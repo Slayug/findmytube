@@ -43,6 +43,7 @@ jobs:
           npx lerna run --scope @findmytube/core build
           npx lerna run --scope @findmytube/logger build
           npx lerna run --scope @findmytube/${{ matrix.package }} build  --stream
+          ls packages/www/.next
 
       - name: Build ${{ matrix.package }} image and push to GitHub Container Registry
         uses: docker/build-push-action@v2
