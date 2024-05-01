@@ -6,8 +6,3 @@ const axiosClient = axios.create({
     'Content-Type': 'application/json'
   }
 });
-
-export async function getVideoById(videoId: string) {
-
-}
-
