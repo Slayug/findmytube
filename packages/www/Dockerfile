@@ -25,6 +25,10 @@ RUN chown nextjs:nodejs .next
 COPY --chown=nextjs:nodejs ./www/.next/standalone ./
 COPY --chown=nextjs:nodejs ./www/.next/static ./.next/static
 
+#way to fix the missing deps, because build step with NextJS does not copy everything in the standalone file
+#need to investigate more to reduce Docker image size.
+COPY --chown=nextjs:nodejs ./www/node_modules ./node_modules
+
 EXPOSE 3000
 
 ENV PORT 3000
