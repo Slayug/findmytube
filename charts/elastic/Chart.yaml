@@ -1,0 +1,7 @@
+description: Elastic for findmytube.io
+home: https://findmytube.io
+maintainers:
+  - email: contact@findmytube.io
+    name: Alexandra
+name: elastic
+version: 0.1
