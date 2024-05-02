@@ -1,7 +1,7 @@
 import {youtube} from 'scrape-youtube';
 import {SearchOptions} from 'scrape-youtube/lib/interface';
 
-import {Innertube} from 'youtubei.js';
+import {Innertube, YTNodes} from 'youtubei.js';
 import Feed from "youtubei.js/dist/src/core/mixins/Feed";
 import {IBrowseResponse} from "youtubei.js/dist/src/parser/types";
 
@@ -42,6 +42,14 @@ class YoutubeHelper {
             const next = await continuation.getContinuation();
             allVideo.push(...next.videos);
             continuation = next;
+        }
+        for (let video of allVideo) {
+            if (video.is(YTNodes.Video) || video.is(YTNodes.CompactVideo)) {
+                if (video.author.name === "N/A") {
+                    video.author.name = videos.metadata.title;
+                    video.author.id = videos.metadata.external_id
+                }
+            }
         }
         console.log('>> total videos length: ', allVideo.length);
 

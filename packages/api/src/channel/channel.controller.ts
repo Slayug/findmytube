@@ -2,7 +2,8 @@ import {
   Controller,
   Get,
   HttpException,
-  HttpStatus, Param,
+  HttpStatus,
+  Param,
   ParseIntPipe,
   Query,
   UseInterceptors,
@@ -10,20 +11,23 @@ import {
 import { ChannelService } from './channel.service';
 import { CacheInterceptor } from '@nestjs/cache-manager';
 import { Queue } from 'bullmq';
-import {ChannelQueueInfo, Config, VideoJob} from '@findmytube/core';
+import { ChannelQueueInfo, Config, VideoJob } from '@findmytube/core';
+import { InjectQueue } from '@nestjs/bullmq';
 
 @Controller('/channels')
 @UseInterceptors(CacheInterceptor)
 export class ChannelController {
-  constructor(private readonly channelService: ChannelService) {}
+  constructor(
+    private readonly channelService: ChannelService,
+    @InjectQueue(Config.videoQueueName)
+    private readonly videoQueue: Queue<VideoJob>,
+  ) {}
 
   @Get(':channelName/queue')
   async channelQueue(
     @Param() { channelName }: { channelName: string },
   ): Promise<ChannelQueueInfo> {
-    const myQueue = new Queue<VideoJob>(Config.videoQueueName);
-
-    const jobs = await myQueue.getJobs([
+    const jobs = await this.videoQueue.getJobs([
       'active',
       'wait',
       'delayed',

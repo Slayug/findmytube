@@ -55,9 +55,22 @@ export class VideoController {
         const youtubeChannel = await this.channelService.searchOnYoutube(
           channelAuthor,
         );
-        await this.channelQueue.add(`channel-${youtubeChannel[0]?.id}`, {
-          channelId: youtubeChannel[0]?.id,
-        });
+        const channelId = youtubeChannel[0]?.id;
+        try {
+          await this.channelQueue.add(
+            `channel-${youtubeChannel[0]?.id}`,
+            {
+              channelId: channelId,
+            },
+            { jobId: channelId },
+          );
+        } catch (err) {
+          if (err.message.includes('Job is already waiting')) {
+            console.log(`Channel ${channelAuthor} already exists, ignore it`);
+          } else {
+            console.error(err);
+          }
+        }
         throw new HttpException('Channel not found', HttpStatus.NOT_FOUND);
       }
     }

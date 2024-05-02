@@ -24,9 +24,14 @@ import { isNumber } from '@nestjs/common/utils/shared.utils';
         password: Config.redisPassword,
       },
     }),
-    BullModule.registerQueue({
-      name: Config.channelQueueName,
-    }),
+    BullModule.registerQueue(
+      {
+        name: Config.channelQueueName,
+      },
+      {
+        name: Config.videoQueueName,
+      },
+    ),
     ElasticsearchModule.register({
       node: `http://${Config.elasticHost}:${Config.elasticPort}`,
     }),

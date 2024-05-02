@@ -31,6 +31,7 @@ async function registerChannelInfo(channelId: string) {
   try {
     const channelInfoResult = await YoutubeHelper.getChannelInfo(channelId)
     if (channelInfoResult.header?.is(YTNodes.C4TabbedHeader)) {
+      logger.info('Register channel', channelId)
       await client.index({
         index: Config.elasticChannelIndex,
         id: channelId,
@@ -52,12 +53,30 @@ async function registerChannelInfo(channelId: string) {
   }
 }
 
+async function channelIsRegistered(channelId: string) {
+  const {body: found} = await client.exists({
+    index: Config.elasticChannelIndex,
+    id: channelId,
+  });
+  return found;
+}
+
+async function registerChannelIfNecessary(channelId: string) {
+  const exists = await channelIsRegistered(channelId)
+  if (!exists) {
+    return await registerChannelInfo(channelId);
+  }
+}
+
 const worker = new Worker<ChannelJob, number>(
   Config.channelQueueName, async (job) => {
     try {
       logger.info(`Processing: ${job.data.channelId}`);
 
-      const channelVideoResult = await YoutubeHelper.loadLastChannelVideo(job.data.channelId, "newest");
+      const [channelVideoResult] = await Promise.all([
+        YoutubeHelper.loadLastChannelVideo(job.data.channelId, "newest"),
+        registerChannelIfNecessary(job.data.channelId)]
+      )
 
       // check every video is not on Elastic
       const videosFetchedStatus = await Promise.all(channelVideoResult.videos.map(async (video) => {
@@ -90,7 +109,6 @@ const worker = new Worker<ChannelJob, number>(
         logger.info(`Find new videos for: ${job.data.channelId}`);
         channelVideoResult.videos.forEach((video) => {
           if (video.is(YTNodes.Video)) {
-            logger.info(`Post videoId: ${video.id}`);
             videoQueue.add('video', {
               video: compactVideoToVideo(video, channelVideoResult.header)
             });
@@ -106,7 +124,6 @@ const worker = new Worker<ChannelJob, number>(
             videoQueue.add('video', {video: compactVideoToVideo(video, channelVideoResult.header)})
           }
         });
-        await registerChannelInfo(job.data.channelId)
       }
     } catch (e) {
       logger.error(`something bad happened for channel ${job.data.channelId}`, e);

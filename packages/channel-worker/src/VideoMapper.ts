@@ -4,14 +4,15 @@ import {YTNodes} from "youtubei.js";
 import {logger} from "@findmytube/logger";
 
 
-export function compactVideoToVideo(compactVideo: Video, header: C4TabbedHeader | CarouselHeader | InteractiveTabbedHeader | PageHeader): CoreVideo{
+export function compactVideoToVideo(compactVideo: Video, header: C4TabbedHeader | CarouselHeader | InteractiveTabbedHeader | PageHeader): CoreVideo {
   let author = compactVideo.author;
   if (author.name === 'N/A' && header.is(YTNodes.C4TabbedHeader)) {
     author = header.author;
   }
-  if (author.name === 'N/1') {
+  if (author.name === 'N/A') {
     logger.warn('Cannot get correct author for: ', compactVideo.id)
   }
+
   return {
     author: author.name,
     authorId: author.id,
