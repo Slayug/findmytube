@@ -1,5 +1,5 @@
 import axios from "axios";
-import {SearchChannelResult, SearchChannelYoutubeResult} from "@findmytube/core";
+import {ChannelQueueInfo, SearchChannelResult, SearchChannelYoutubeResult} from "@findmytube/core";
 
 const CHANNEL_ENDPOINT = '/channels';
 const CHANNEL_YOUTUBE_ENDPOINT = '/channels/youtube';
@@ -21,4 +21,9 @@ export function searchYoutubeChannel(content: string, page = 0): Promise<SearchC
       page
     }
   }).then((r) => r.data)
+}
+
+export function getChannelQueueInfo(channelId: string) {
+  return axios.get<ChannelQueueInfo>(`${CHANNEL_ENDPOINT}/${channelId}/queue`)
+    .then((r) => r.data)
 }

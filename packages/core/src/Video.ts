@@ -1,6 +1,5 @@
 import { Channel } from 'youtubei.js/dist/src/parser/youtube';
 
-
 export interface VideoJob {
     video: Video
 }

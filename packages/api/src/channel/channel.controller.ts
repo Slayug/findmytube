@@ -2,18 +2,46 @@ import {
   Controller,
   Get,
   HttpException,
-  HttpStatus,
+  HttpStatus, Param,
   ParseIntPipe,
   Query,
   UseInterceptors,
 } from '@nestjs/common';
 import { ChannelService } from './channel.service';
 import { CacheInterceptor } from '@nestjs/cache-manager';
+import { Queue } from 'bullmq';
+import {ChannelQueueInfo, Config, VideoJob} from '@findmytube/core';
 
 @Controller('/channels')
 @UseInterceptors(CacheInterceptor)
 export class ChannelController {
   constructor(private readonly channelService: ChannelService) {}
+
+  @Get(':channelName/queue')
+  async channelQueue(
+    @Param() { channelName }: { channelName: string },
+  ): Promise<ChannelQueueInfo> {
+    const myQueue = new Queue<VideoJob>(Config.videoQueueName);
+
+    const jobs = await myQueue.getJobs([
+      'active',
+      'wait',
+      'delayed',
+      'waiting-children',
+    ]);
+
+    const jobsFiltered =
+      jobs.filter(
+        (job) => job.data?.video?.author?.trim() === channelName?.trim(),
+      ) ?? [];
+
+    return {
+      inProgress: jobsFiltered.length,
+      queueName: Config.videoQueueName,
+      channelId: jobsFiltered[0]?.data.video.authorId,
+      channelName: jobsFiltered[0]?.data.video.author ?? '',
+    };
+  }
 
   @Get('/youtube')
   async searchOnYoutube(

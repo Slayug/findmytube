@@ -14,12 +14,25 @@ import {AxiosError} from "axios";
 import {SEARCH_ELEMENT_PER_PAGE} from "@findmytube/core";
 import {QUERY_KEY} from "@/domain/SearchQuery";
 import AppLoading from "@/app/loading";
+import Loader from "@/components/loader/Loader";
+import {useSearchVideosWatcher} from "@/components/searchVideoContent/UseSearchVideosWatcher";
+
+function shouldDisplayScrappingLoading(results: SearchVideoResult[], error: AxiosError, scrapInProgress: boolean) {
+  return (results?.at(0)?.total.value === 0 && scrapInProgress) || error?.response?.status === 404
+}
+
+function shouldDisplayScrappingMoreLoading(results: SearchVideoResult[], error: AxiosError, scrapInProgress: boolean) {
+  return (results?.at(0)?.total.value !== 0 && scrapInProgress) || error?.response?.status === 404
+}
+
 
 export default function SearchVideoContent({searchContent, channelAuthorSelected}: {
   searchContent: string,
   channelAuthorSelected?: string
 }) {
   const router = useRouter()
+
+  const {scrapInProgress} = useSearchVideosWatcher(channelAuthorSelected);
 
   const {
     isLoading,
@@ -37,11 +50,12 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
     (url) => searchVideoFetch(url),
     {
       initialSize: 1,
-      refreshInterval: 0,
+      refreshInterval: scrapInProgress ? 2000 : 0,
       revalidateOnFocus: false,
       revalidateOnMount: false,
       errorRetryInterval: 5500,
     });
+
 
   useEffect(() => {
     if (searchContent) {
@@ -52,18 +66,25 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
   return <>
     <section className="px-3">
       {searchVideoResult && searchVideoResult.length > 0 &&
-        <div
-          className={styles.amountResult}>
-          {searchVideoResult[0].total.value} résultats
-          ({searchVideoResult[0].took / 1000}sec)
+        <div className="flex justify-between">
+          <p className={styles.amountResult}>
+            {searchVideoResult[0].total.value} results
+            ({searchVideoResult[0].took / 1000}sec)
+          </p>
+          {shouldDisplayScrappingMoreLoading(searchVideoResult, error, scrapInProgress) &&
+            <div className="flex flex-row">
+              <Loader />
+              <p className="pl-2 text-right">Search in progress..</p>
+            </div>
+          }
         </div>
       }
     </section>
     <section className="lg:max-w-screen-lg pb-10">
-      {(isLoading || error?.response && error.response.status === 404) &&
+      {(isLoading || shouldDisplayScrappingLoading(searchVideoResult, error, scrapInProgress)) &&
         <AppLoading
-          message={(error?.response && error.response.status === 404) ?
-            'Channel not found, scrapping channel videos..' : undefined} />
+          message={shouldDisplayScrappingLoading(searchVideoResult, error, scrapInProgress) ?
+            'Channel not found, scrapping channel videos in progress..' : undefined} />
       }
       {
         searchVideoResult &&

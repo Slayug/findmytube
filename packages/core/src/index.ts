@@ -12,6 +12,10 @@ export type {
     Transcription,
 } from './Video'
 
+export type {
+    ChannelQueueInfo
+} from './Channel'
+
 export {
     LanguageList,
 } from './Video';

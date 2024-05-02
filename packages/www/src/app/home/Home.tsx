@@ -54,7 +54,7 @@ export default function Home() {
     <section>
       <div>
         <form onSubmit={submitSearch}>
-          <div className="flex flex-col md:flex-row justify-center py-3 md:pt-10 w-full ">
+          <div className="flex flex-col md:flex-row justify-center md:py-3 md:pt-10 w-full ">
             <Input
               id="search"
               type="search"
