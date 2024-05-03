@@ -50,7 +50,7 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
     (url) => searchVideoFetch(url),
     {
       initialSize: 1,
-      refreshInterval: scrapInProgress ? 2000 : 0,
+      refreshInterval: scrapInProgress ? 2800 : 0,
       revalidateOnFocus: false,
       revalidateOnMount: false,
       errorRetryInterval: 5500,
