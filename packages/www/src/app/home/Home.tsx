@@ -61,7 +61,7 @@ export default function Home() {
               ref={searchInputRef}
               defaultValue={searchParams.get(QUERY_KEY)}
               onKeyUp={onSearchKeyUp}
-              placeholder="Hello world!"
+              placeholder="Text query"
               className="md:mx-5 md:w-auto"
             />
             <SearchInput
