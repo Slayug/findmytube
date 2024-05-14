@@ -3,6 +3,7 @@ import {
   Get,
   HttpException,
   HttpStatus,
+  Inject,
   Param,
   ParseIntPipe,
   Query,
@@ -12,6 +13,7 @@ import { ChannelService } from '../channel/channel.service';
 import { InjectQueue } from '@nestjs/bullmq';
 import { Config } from '@findmytube/core';
 import { Queue } from 'bullmq';
+import { Innertube, YTNodes } from 'youtubei.js';
 
 @Controller('/videos')
 export class VideoController {
@@ -19,7 +21,31 @@ export class VideoController {
     private readonly videoService: VideoService,
     private readonly channelService: ChannelService,
     @InjectQueue(Config.channelQueueName) private readonly channelQueue: Queue,
+    @Inject('INNERTUBE_SOURCE')
+    private readonly innertube: Innertube,
   ) {}
+
+  @Get('/trend')
+  async getTrend() {
+    const trend = await this.innertube.getTrending();
+
+    console.log('trrend', trend.videos.length);
+    trend.videos
+      .map((video) => {
+        if (video.is(YTNodes.Video)) {
+          return video.author.id;
+        }
+        return undefined;
+      })
+      .map(async (channelId) => {
+        if (channelId) {
+          return this.channelQueue.add(`channel-${channelId}`, {
+            channelId,
+          });
+        }
+      });
+    return [];
+  }
 
   @Get(':videoId')
   async getById(@Param() { videoId }) {
