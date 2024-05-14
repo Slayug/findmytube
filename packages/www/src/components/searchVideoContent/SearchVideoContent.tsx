@@ -84,7 +84,7 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
       {(isLoading || shouldDisplayScrappingLoading(searchVideoResult, error, scrapInProgress)) &&
         <AppLoading
           message={shouldDisplayScrappingLoading(searchVideoResult, error, scrapInProgress) ?
-            'Channel not found, scrapping channel videos in progress..' : undefined} />
+            <p>Scrapping <i>{channelAuthorSelected}</i> videos..</p> : undefined} />
       }
       {
         searchVideoResult &&
