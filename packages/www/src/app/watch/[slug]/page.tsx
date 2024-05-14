@@ -15,7 +15,20 @@ export async function generateMetadata({ params }: { params: WatchParams }) {
   const videoResult = await getVideoById(videoId)
   return {
     title: `${videoResult.video.title} - FindMyTube`,
-    description: `Subtitle search for ${videoResult.video.title} - ${videoResult.video.author}`
+    description: `Subtitle search for ${videoResult.video.title} - ${videoResult.video.author}`,
+    openGraph: {
+      title: `${videoResult.video.title} - FindMyTube`,
+      description: `Subtitle search for ${videoResult.video.title} - ${videoResult.video.author}`,
+      type: 'website',
+      images: [
+        {
+          url: `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+          alt: videoResult.video.title,
+          width: 1280,
+          height: 720,
+        }
+      ]
+    },
   }
 }
 
