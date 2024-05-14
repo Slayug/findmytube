@@ -2,6 +2,11 @@ name: Build and Publish
 
 on:
   workflow_dispatch:
+    inputs:
+      packages:
+        description: 'Packages to build'
+        required: true
+        default: 'producer,api,www,video-worker,cron-channel-producer,channel-worker,cron-video-updater'
 
 jobs:
   # define job to build and publish docker image
@@ -22,21 +27,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: cache node_modules
+      - if: contains(github.event.inputs.packages, matrix.package)
+        name: cache node_modules
         id: node_modules
         uses: actions/cache@v2
         with:
           path: packages/${{ matrix.package }}/node_modules
           key: node_modules_${{ matrix.package }}
 
-      - name: Login to Github Packages
+      - if: contains(github.event.inputs.packages, matrix.package)
+        name: Login to Github Packages
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build with Lerna
+      - if: contains(github.event.inputs.packages, matrix.package)
+        name: Build with Lerna
         run: |
           yarn install
           yarn run bootstrap
@@ -44,7 +52,8 @@ jobs:
           npx lerna run --scope @findmytube/logger build
           npx lerna run --scope @findmytube/${{ matrix.package }} build  --stream
 
-      - name: Build ${{ matrix.package }} image and push to GitHub Container Registry
+      - if: contains(github.event.inputs.packages, matrix.package)
+        name: Build ${{ matrix.package }} image and push to GitHub Container Registry
         uses: docker/build-push-action@v2
         with:
           file: ./packages/${{ matrix.package }}/Dockerfile
