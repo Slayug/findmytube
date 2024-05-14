@@ -55,7 +55,7 @@ export class ChannelController {
     try {
       return await this.channelService.searchOnYoutube(content, page);
     } catch (e) {
-      console.error('Cannot recover youbtube channel', e);
+      console.error('Cannot recover youtube channel', e);
 
       // attempt to return only scrapped channels
       return this.search(content, page);

@@ -55,7 +55,8 @@ export class VideoController {
         const youtubeChannel = await this.channelService.searchOnYoutube(
           channelAuthor,
         );
-        const channelId = youtubeChannel[0]?.id;
+        // sometimes first element is undefined, check also the second one
+        const channelId = youtubeChannel[0]?.id ?? youtubeChannel[1]?.id;
         await this.channelQueue.add(`channel-${youtubeChannel[0]?.id}`, {
           channelId: channelId,
         });
