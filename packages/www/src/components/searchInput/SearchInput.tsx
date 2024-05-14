@@ -72,6 +72,7 @@ const SearchInput = forwardRef((props: SearchInputProps, ref: ForwardedRef<Selec
       blurInputOnSelect
       closeMenuOnSelect
       cacheOptions
+      isClearable
       loadOptions={onInputChange}
       ref={ref}
     />
