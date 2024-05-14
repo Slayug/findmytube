@@ -3,11 +3,11 @@ namespace: findmytube
 env: production
 
 version:
-  api: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
-  www: c96f1dfb9af94e6fd2abbd57061ce5fe7daa42f0
+  api: b1ea314967a56ebc7b13c0901fdb98e659a88fa6
+  www: b1ea314967a56ebc7b13c0901fdb98e659a88fa6
   videoWorker: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
   cronChannelProducer: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
-  channelWorker: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
+  channelWorker: fa39bf522c8031820a26ec657e1c94417472e591
   cronVideoUpdater: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
 
 elastic:
