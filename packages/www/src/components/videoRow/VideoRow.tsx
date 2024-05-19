@@ -11,7 +11,7 @@ const availableVideoWidth = {
   'XL': 480
 }
 
-export default function VideoRow({video, onClick}: { video: Video, onClick?: (videoId: string) => void }) {
+export default function VideoRow({video}: { video: Video }) {
 
   function getThumbnail() {
     let thumbnail = video.videoThumbnails
@@ -33,7 +33,7 @@ export default function VideoRow({video, onClick}: { video: Video, onClick?: (vi
     return secondsSplitted[0] + ':' + secondsSplitted[1].concat('0').substring(0, 2);
   }
 
-  return <div onClick={() => onClick(video.videoId)} className={styles.videoRow}>
+  return <div className={styles.videoRow}>
     <div className={styles.thumbnail}>
       <div className={styles.timer}>{video.lengthSeconds > 0 && getTimer()}</div>
       {getThumbnail()}

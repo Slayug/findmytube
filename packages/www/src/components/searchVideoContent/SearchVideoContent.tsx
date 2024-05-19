@@ -16,6 +16,7 @@ import {QUERY_KEY} from "@/domain/SearchQuery";
 import AppLoading from "@/app/loading";
 import Loader from "@/components/loader/Loader";
 import {useSearchVideosWatcher} from "@/components/searchVideoContent/UseSearchVideosWatcher";
+import Link from "next/link";
 
 function shouldDisplayScrappingLoading(results: SearchVideoResult[], error: AxiosError, scrapInProgress: boolean) {
   return (results?.at(0)?.total.value === 0 && scrapInProgress) || error?.response?.status === 404
@@ -92,11 +93,10 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
           return page.hits.map((videoResult) => {
             return <div key={videoResult._id} className={styles.video}>
               {
-                (videoResult._source && videoResult._source.video) ? <VideoRow
-                  onClick={(videoId) =>
-                    router.push(`/watch/${videoId}?${QUERY_KEY}=${searchContent.replaceAll(" ", "+")}`)}
-                  video={videoResult._source.video}
-                /> : <hr className={videoResult._id}/>
+                (videoResult._source && videoResult._source.video) ?
+                  <Link href={`/watch/${videoResult._id}?${QUERY_KEY}=${searchContent.replaceAll(" ", "+")}`}>
+                    <VideoRow video={videoResult._source.video}
+                    /></Link> : <hr className={videoResult._id}/>
               }
             </div>
           })
