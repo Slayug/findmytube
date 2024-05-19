@@ -95,8 +95,8 @@ export default function SearchVideoContent({searchContent, channelAuthorSelected
               {
                 (videoResult._source && videoResult._source.video) ?
                   <Link href={`/watch/${videoResult._id}?${QUERY_KEY}=${searchContent.replaceAll(" ", "+")}`}>
-                    <VideoRow video={videoResult._source.video}
-                    /></Link> : <hr className={videoResult._id}/>
+                    <VideoRow video={videoResult._source.video} />
+                  </Link> : <hr className={videoResult._id}/>
               }
             </div>
           })
