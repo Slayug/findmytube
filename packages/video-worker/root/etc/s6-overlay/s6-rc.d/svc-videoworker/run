@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+echo "Starting video worker.."
+
+cd /home/node/video-worker
+npx ts-node --transpile-only src/index.ts
