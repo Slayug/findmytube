@@ -4,7 +4,7 @@ env: production
 
 version:
   api: 9fc50eea747836d8795617332bfd6a9ab7fc5fd6
-  www: cb03cc7b7bcde86a04f009d2492ea46169a4e067
+  www: f3026ce569676a7703f31202bad4382e37f4d83b
   videoWorker: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
   cronChannelProducer: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
   channelWorker: fa39bf522c8031820a26ec657e1c94417472e591
