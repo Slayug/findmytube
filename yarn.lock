@@ -1175,6 +1175,11 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@bufbuild/protobuf@^2.0.0":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@bufbuild/protobuf/-/protobuf-2.2.3.tgz#9cd136f6b687e63e9b517b3a54211ece942897ee"
+  integrity sha512-tFQoXHJdkEOSwj5tRIZSPNUuXK3RaR7T1nUrPgbYX1pUbvqqaaZAsfo+NXBPsz5rZMSKVFrgK1WL8Q/MSLvprg==
+
 "@colors/colors@1.5.0":
   version "1.5.0"
   resolved "https://registry.npmjs.org/@colors/colors/-/colors-1.5.0.tgz"
@@ -8711,10 +8716,10 @@ jest@^27.2.5, jest@^27.4.3:
     import-local "^3.0.2"
     jest-cli "^27.5.1"
 
-jintr@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/jintr/-/jintr-1.1.0.tgz#223a3b07f5e03d410cec6e715c537c8ad1e714c3"
-  integrity sha512-Tu9wk3BpN2v+kb8yT6YBtue+/nbjeLFv4vvVC4PJ7oCidHKbifWhvORrAbQfxVIQZG+67am/mDagpiGSVtvrZg==
+jintr@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/jintr/-/jintr-3.2.0.tgz#38bfc2311c7ed4412ebe0bfc5c2e700f8f433921"
+  integrity sha512-psD1yf05kMKDNsUdW1l5YhO59pHScQ6OIHHb8W5SKSM2dCOFPsqolmIuSHgVA8+3Dc47NJR181CXZ4alCAPTkA==
   dependencies:
     acorn "^8.8.0"
 
@@ -14346,12 +14351,13 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-youtubei.js@^9.4.0:
-  version "9.4.0"
-  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-9.4.0.tgz#ccccaf4a295b96e3e17134a66730bbc82461594b"
-  integrity sha512-8plCOZD2WabqWSEgZU3RjzigIIeR7sF028EERJENYrC9xO/6awpLMZfeoE1gNrNEbKcA+bzbMvonqlvBdxGdKg==
+youtubei.js@^12.2.0:
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-12.2.0.tgz#54f058b5d0892b5c7e35019e2be6a2a7f7ba4447"
+  integrity sha512-G+50qrbJCToMYhu8jbaHiS3Vf+RRul+CcDbz3hEGwHkGPh+zLiWwD6SS+YhYF+2/op4ZU5zDYQJrGqJ+wKh7Gw==
   dependencies:
-    jintr "^1.1.0"
+    "@bufbuild/protobuf" "^2.0.0"
+    jintr "^3.2.0"
     tslib "^2.5.0"
     undici "^5.19.1"
 
