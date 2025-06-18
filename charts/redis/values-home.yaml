@@ -16,7 +16,7 @@ global:
   ##   - myRegistryKeySecretName
   ##
   imagePullSecrets: []
-  storageClass: "csi-cinder-classic"
+  storageClass: "local-path"
   redis:
     password: ""
 

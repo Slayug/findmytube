@@ -3,12 +3,12 @@ namespace: findmytube
 env: production
 
 version:
-  api: 7462e67a8c8ec811d3244af6a9bd047ceab38ee3
-  www: 8c06f485961b34ac7bc7e0f69705402cd155843d
-  videoWorker: 7462e67a8c8ec811d3244af6a9bd047ceab38ee3
-  cronChannelProducer: 7462e67a8c8ec811d3244af6a9bd047ceab38ee3
-  channelWorker: 7462e67a8c8ec811d3244af6a9bd047ceab38ee3
-  cronVideoUpdater: 7462e67a8c8ec811d3244af6a9bd047ceab38ee3
+  api: 9fc50eea747836d8795617332bfd6a9ab7fc5fd6
+  www: f3026ce569676a7703f31202bad4382e37f4d83b
+  videoWorker: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
+  cronChannelProducer: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
+  channelWorker: fa39bf522c8031820a26ec657e1c94417472e591
+  cronVideoUpdater: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
 
 elastic:
   masterHost: "findmytube-elasticsearch-es-internal-http.findmytube.svc.cluster.local"

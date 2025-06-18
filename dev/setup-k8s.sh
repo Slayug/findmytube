@@ -8,7 +8,7 @@ if [ "$ENV" == "prod" ] || [ "$ENV" == "ovh" ]; then
     --repo https://kubernetes.github.io/ingress-nginx \
     --namespace ingress-nginx --create-namespace
   $DIR/../charts/cert-manager/setup.sh
-else
+elif [ "$ENV" == "dev" ]; then
   $DIR/setup-cluster.sh
 fi
 $DIR/../charts/redis/setup.sh
