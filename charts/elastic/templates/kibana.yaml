@@ -3,7 +3,7 @@ kind: Kibana
 metadata:
   name: findmytube-kibana
 spec:
-  version: 8.12.2
+  version: 8.16.1
   count: 1
   elasticsearchRef:
     name: findmytube-elasticsearch

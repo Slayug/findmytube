@@ -3,10 +3,10 @@ kind: Elasticsearch
 metadata:
   name: findmytube-elasticsearch
 spec:
-  version: 8.12.2
+  version: 8.16.1
   nodeSets:
     - name: default
-      count: 3
+      count: 2
       config:
       volumeClaimTemplates:
       - metadata:
@@ -16,23 +16,23 @@ spec:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 40Gi
+              storage: 300Gi
           storageClassName: {{ .Values.storage.storageClassName }}
       podTemplate:
         spec:
-          initContainers:
-            - name: configure-sysctl
-              securityContext:
-                runAsUser: 0
-                privileged: true
-              image: busybox
-              imagePullPolicy: IfNotPresent
-              command: [ "sysctl", "-w", "vm.max_map_count=262144" ]
+#          initContainers:
+#            - name: configure-sysctl
+#              securityContext:
+#                runAsUser: 0
+#                privileged: true
+#              image: busybox
+#              imagePullPolicy: IfNotPresent
+#              command: [ "sysctl", "-w", "vm.max_map_count=262144" ]
           containers:
             - name: elasticsearch
               env:
               - name: ES_JAVA_OPTS
-                value: -Xms3g -Xmx3g
+                value: -Xms4g -Xmx4g
               - name: xpack.security.enabled
                 value: "false"
               - name: READINESS_PROBE_PROTOCOL
@@ -40,7 +40,7 @@ spec:
               resources:
                 requests:
                   cpu: 2
-                  memory: 4Gi
+                  memory: 6Gi
                 limits:
                   cpu: 2
-                  memory: 4Gi
+                  memory: 6Gi

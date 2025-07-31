@@ -9,6 +9,7 @@ version:
   cronChannelProducer: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
   channelWorker: fa39bf522c8031820a26ec657e1c94417472e591
   cronVideoUpdater: 10048bd8fe580f07c8e15e2c54d6fd67394b0909
+  producer: 9fc50eea747836d8795617332bfd6a9ab7fc5fd6
 
 elastic:
   masterHost: "findmytube-elasticsearch-es-internal-http.findmytube.svc.cluster.local"
@@ -20,5 +21,5 @@ redis:
   slavePort: 6379
 
 storage:
-  storageClassName: "local-path"
+  storageClassName: "longhorn"
 
